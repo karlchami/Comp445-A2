@@ -146,7 +146,7 @@ class View(patterns.Publisher):
             self._input_chrs += chr(ch)
             self.input_win.addch(ch)
             # for debugging
-            #self.add_msg('chr', f"{ch} - " + chr(ch))
+            # self.add_msg('chr', f"{ch} - " + chr(ch))
 
     async def run(self):
         """

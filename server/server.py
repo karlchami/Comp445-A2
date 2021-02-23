@@ -4,28 +4,36 @@ import logging
 import re
 from _thread import *
 
+logging.basicConfig(filename="server.log", level=logging.DEBUG)
+logger = logging.getLogger()
+
 
 def handle_user_commands(server, conn):
+    logger.info("New thread")
     username = ''
     user_connection_info = UserConnection()
     while True:
         decoded_request = decode_request(conn.recv(1024).decode())
         if decoded_request["Command"] == "NICK":
+            logger.info("NICK command triggered")
             if nick_cmd(decoded_request, server, conn, user_connection_info):
                 connected_users = ",".join(server.get_connected_users())
-                welcome_message = "NICK-Success " + username + "\n" \
-                                  + "Connected users: " + connected_users
+                welcome_message = "NICK-Success " + username + "\n" + "Connected users: " + connected_users
                 conn.sendall(bytes(welcome_message, "utf-8"))
+                logger.info("NICK command responded")
             else:
                 conn.sendall(bytes("NICK-Fail", "utf-8"))
+                logger.info("NICK command failed")
         elif decoded_request["Command"] == "USER":
+            logger.info("USER command triggered")
             if user_cmd(decoded_request, server, user_connection_info):
                 connected_users = ",".join(server.get_connected_users())
-                welcome_message = "USER-Success " + username + "\n" \
-                                  + "Connected users: " + connected_users
+                welcome_message = "USER-Success " + username + "\n" + "Connected users: " + connected_users
                 conn.sendall(bytes(welcome_message, "utf-8"))
+                logger.info("USER command responded")
             else:
                 conn.sendall(bytes("USER-Fail", "utf-8"))
+                logger.info("USER command failed")
         else:
             conn.sendall(bytes("Invalid Request", "utf-8"))
 
@@ -87,7 +95,7 @@ def nick_cmd(decoded_request, server, client_connection, user_connection_info):
 
 def user_cmd(decoded_request, server, user_connection_info):
     parameter_count = len(decoded_request)
-    validation = decoded_request["Command"].isupper() and is_valid_command(decoded_request["Command"]) and (parameter_count > 5) and (decoded_request["Parameter4"].startswith(":"))
+    validation = decoded_request["Command"].isupper() and is_valid_command(decoded_request["Command"]) and (parameter_count >= 5) and (decoded_request["Parameter4"].startswith(":"))
     # Command processing stops if request format is invalid
     if not validation:
         return
@@ -104,7 +112,8 @@ def user_cmd(decoded_request, server, user_connection_info):
     if user_connection_info.is_connection_complete():
         info = user_connection_info.get_connection_object()
         return server.add_connected_user(info[0], info[1])
-    return False
+    else:
+        return True
 
 
 def join_cmd():

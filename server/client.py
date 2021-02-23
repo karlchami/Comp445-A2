@@ -1,7 +1,7 @@
 import socket
 
 c = socket.socket()
-c.connect(("localhost", 9998))
+c.connect(("localhost", 9999))
 while True:
     command = input("Please enter your command: ")
     c.send(bytes(command, "utf-8"))

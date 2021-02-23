@@ -26,16 +26,13 @@ def handle_user_commands(server, conn):
             # print(user_connection_info.get_connection_object()[1])
         elif decoded_request["Command"] == "USER":
             logger.info("USER command triggered")
-            if user_cmd(decoded_request, server, user_connection_info):
-                connected_users = ",".join(server.get_connected_users())
-                welcome_message = "USER-Success " + username + "\n" + "Connected users: " + connected_users
-                conn.sendall(bytes(welcome_message, "utf-8"))
-                logger.info("USER command responded")
-                # print(user_connection_info.get_connection_object()[0])
-                # print(user_connection_info.get_connection_object()[1])
-            else:
-                conn.sendall(bytes("USER-Fail", "utf-8"))
-                logger.info("USER command failed")
+            response = user_cmd(decoded_request, server, conn, user_connection_info)
+            connected_users = ",".join(server.get_connected_users())
+            welcome_message = response + "\n" + "Connected users: " + connected_users
+            conn.sendall(bytes(welcome_message, "utf-8"))
+            logger.info("USER command responded")
+            # print(user_connection_info.get_connection_object()[0])
+            # print(user_connection_info.get_connection_object()[1])
         else:
             conn.sendall(bytes("Invalid Request", "utf-8"))
 
@@ -99,12 +96,12 @@ def nick_cmd(decoded_request, server, client_connection, user_connection_info):
     return "**RESPONSE: An error has occurred"
 
 
-def user_cmd(decoded_request, server, user_connection_info):
+def user_cmd(decoded_request, server, client_connection, user_connection_info):
     parameter_count = len(decoded_request)
     validation = decoded_request["Command"].isupper() and is_valid_command(decoded_request["Command"]) and (parameter_count >= 5) and (decoded_request["Parameter4"].startswith(":"))
     # Command processing stops if request format is invalid
     if not validation:
-        return
+        return "**RESPONSE: Request format is invalid"
     # Extract user real name from parameters (all params following the : char)
     real_name = ''
     for i in range(4, parameter_count):
@@ -116,10 +113,13 @@ def user_cmd(decoded_request, server, user_connection_info):
     user_connection_info.add_username(decoded_request["Parameter1"])
     user_connection_info.add_server_info(decoded_request["Parameter2"], decoded_request["Parameter3"])
     if user_connection_info.is_connection_complete():
-        info = user_connection_info.get_connection_object()
-        return server.add_connected_user(info[0], info[1])
+        if not server.connection_exist(client_connection):
+            info = user_connection_info.get_connection_object()
+            if server.add_connected_user(info[0], info[1]):
+                return "**RESPONSE: User " + info[0] + " joined global channel"
     else:
-        return True
+        return "**RESPONSE: Successfully registered user info"
+    return "**RESPONSE: An error has occurred"
 
 
 def join_cmd():

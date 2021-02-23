@@ -12,11 +12,13 @@ def handle_user_commands(server, conn):
         if decoded_request["Command"] == "NICK":
             if nick_cmd(decoded_request, server, conn):
                 connected_users = ",".join(server.get_connected_users())
-                welcome_message = "Welcome to the IRC Server, " + username + "\n" \
+                welcome_message = "NICK-Success " + username + "\n" \
                                   + "Connected users: " + connected_users
                 conn.sendall(bytes(welcome_message, "utf-8"))
+            else:
+                conn.sendall(bytes("NICK-Fail", "utf-8"))
         else:
-            conn.sendall(bytes("Could not process your command", "utf-8"))
+            conn.sendall(bytes("Invalid Request", "utf-8"))
 
 
 def broadcast_message(server, username, message):
@@ -61,10 +63,19 @@ def nick_cmd(decoded_request, server, client_connection):
         return False
     # If command has 1 username parameter
     if parameter_count == 2 and not server.user_exist(decoded_request["Parameter1"]):
-        return server.add_connected_user(decoded_request["Parameter1"], client_connection)
+        new_user = UserConnection()
+        new_user.add_nickname(decoded_request["Parameter1"])
+        new_user.add_connection(client_connection)
+        if new_user.is_connection_complete():
+            info = new_user.get_connection_object()
+            return server.add_connected_user(info[0], info[1])
+        return True
     # If command has 2 username parameters
-    if parameter_count == 3 and not server.user_exist(decoded_request["Parameter2"]):
-        return server.modify_connected_user(decoded_request["Parameter1"], decoded_request["Parameter2"])
+    if parameter_count == 3 and server.user_exist(decoded_request["Parameter1"]) and not server.user_exist(decoded_request["Parameter2"]):
+        print("Here")
+        return server.modify_connected_user(decoded_request["Parameter1"],
+                                            decoded_request["Parameter2"],
+                                            client_connection)
     return False
 
 
@@ -86,6 +97,43 @@ def privmsg_cmd():
 
 def quit_cmd():
     return
+
+
+class UserConnection:
+    nickname = ''
+    user_connection_obj = {
+            "username": "",
+            "fullname": "",
+            "hostname": "",
+            "servername": "",
+            "connection": socket
+    }
+
+    def __init__(self):
+        pass
+
+    def add_connection(self, conn):
+        self.user_connection_obj["connection"] = conn
+
+    def add_nickname(self, nick):
+        self.nickname = nick
+
+    def add_server_info(self, hostname, servername):
+        self.user_connection_obj["hostname"] = hostname
+        self.user_connection_obj["servername"] = servername
+
+    def add_real_name(self, name):
+        self.user_connection_obj["fullname"] = name
+
+    # Returns validity (boolean) on whether a user connection has all the info it needs before being added to the server
+    def is_connection_complete(self):
+        validation = bool(self.nickname)
+        for element in self.user_connection_obj:
+            validation = validation and bool(self.user_connection_obj.get(element))
+        return validation
+
+    def get_connection_object(self):
+        return self.nickname, self.user_connection_obj
 
 
 class IRCServer:
@@ -125,8 +173,8 @@ class IRCServer:
             return True
         return False
 
-    def modify_connected_user(self, old_user, new_user):
-        if old_user in self.connected_users:
+    def modify_connected_user(self, old_user, new_user, conn):
+        if (old_user in self.connected_users) and (self.connected_users.get(old_user).get("connection") == conn):
             self.connected_users[new_user] = self.connected_users.pop(old_user)
             return True
         return False

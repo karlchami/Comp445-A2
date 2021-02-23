@@ -8,26 +8,13 @@ from _thread import *
 def handle_user_commands(server, conn):
     username = ''
     while True:
-        received_command = conn.recv(1024).decode()
-        command_content = received_command.split(" ")
-        if command_content[0] == "NICK":
-            username = command_content[1]
-            server.add_connected_user(username, conn)
-            connected_users = ",".join(server.get_connected_users())
-            welcome_message = "Welcome to the IRC Server, " + username + "\n" + "Connected users: " + connected_users
-            conn.sendall(bytes(welcome_message, "utf-8"))
-        elif command_content[0] == "QUIT":
-            username = command_content[1]
-            server.remove_connected_user(username)
-            connected_users = ",".join(server.get_connected_users())
-            quit_message = "User successfully removed, " + username + "\n" + "Connected users: " + connected_users
-            conn.sendall(bytes(quit_message, "utf-8"))
-        elif command_content[0] == "PRIVMSG":
-            message = command_content[1]
-            if username:
-                broadcast_message(server, username, message)
-            else:
-                conn.sendall(bytes("Please use NICK first", "utf-8"))
+        decoded_request = decode_request(conn.recv(1024).decode())
+        if decoded_request["Command"] == "NICK":
+            if nick_cmd(decoded_request, server, conn):
+                connected_users = ",".join(server.get_connected_users())
+                welcome_message = "Welcome to the IRC Server, " + username + "\n" \
+                                  + "Connected users: " + connected_users
+                conn.sendall(bytes(welcome_message, "utf-8"))
         else:
             conn.sendall(bytes("Could not process your command", "utf-8"))
 
@@ -60,12 +47,12 @@ def is_valid_command(command):
 
 
 # Handles addition or modification of nickname on server. Returns boolean as status indication for success/fail.
-def nick_cmd(decoded_request, server):
+def nick_cmd(decoded_request, server, client_connection):
     parameter_count = len(decoded_request)
     # Nickname regex according to RFC 1459
     nickname_regex = re.compile(r'^[a-zA-Z]([0-9]|[a-zA-Z]|[-\[\]`^{}\\])*?$')
     # Validating Command according to 1459
-    validation = decoded_request["Command"].isUpper()
+    validation = decoded_request["Command"].isupper() and is_valid_command(decoded_request["Command"])
     for i in range(1, parameter_count):
         # Validating Parameters (nicknames) according to regex
         validation = validation and bool(nickname_regex.search(decoded_request["Parameter" + str(i)]))
@@ -73,10 +60,10 @@ def nick_cmd(decoded_request, server):
     if not validation:
         return False
     # If command has 1 username parameter
-    if parameter_count == 1 and not server.user_exist(decoded_request["Parameter1"]):
-        return server.add_connected_user(decoded_request["Parameter1"])
+    if parameter_count == 2 and not server.user_exist(decoded_request["Parameter1"]):
+        return server.add_connected_user(decoded_request["Parameter1"], client_connection)
     # If command has 2 username parameters
-    if parameter_count == 2 and not server.user_exist(decoded_request["Parameter2"]):
+    if parameter_count == 3 and not server.user_exist(decoded_request["Parameter2"]):
         return server.modify_connected_user(decoded_request["Parameter1"], decoded_request["Parameter2"])
     return False
 

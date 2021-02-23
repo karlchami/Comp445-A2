@@ -1,6 +1,7 @@
 import socket
 import argparse
 import logging
+import re
 from _thread import *
 
 
@@ -38,18 +39,83 @@ def broadcast_message(server, username, message):
         conn.send(bytes(message, "utf-8"))
 
 
-class IRCServer:
+def decode_request(request):
+    # Decodes a request into a dict object with Command and Parameters
+    request_content = request.split()
+    decoded_request = {}
+    command = request_content[0]
+    decoded_request["Command"] = command
+    for i in range(1, len(request_content)):
+        parameter = "Parameter" + str(i)
+        decoded_request[parameter] = request_content[i]
+    return decoded_request
 
+
+def is_valid_command(command):
+    # Validates whether the command in the decoded request is an implemented command
+    valid_commands = ["NICK", "USER", "JOIN", "PING", "PRIVMSG", "QUIT"]
+    if command in valid_commands:
+        return True
+    return False
+
+
+# Handles addition or modification of nickname on server. Returns boolean as status indication for success/fail.
+def nick_cmd(decoded_request, server):
+    parameter_count = len(decoded_request)
+    # Nickname regex according to RFC 1459
+    nickname_regex = re.compile(r'^[a-zA-Z]([0-9]|[a-zA-Z]|[-\[\]`^{}\\])*?$')
+    # Validating Command according to 1459
+    validation = decoded_request["Command"].isUpper()
+    for i in range(1, parameter_count):
+        # Validating Parameters (nicknames) according to regex
+        validation = validation and bool(nickname_regex.search(decoded_request["Parameter" + str(i)]))
+    # Command processing stops if request format is invalid
+    if not validation:
+        return False
+    # If command has 1 username parameter
+    if parameter_count == 1 and not server.user_exist(decoded_request["Parameter1"]):
+        return server.add_connected_user(decoded_request["Parameter1"])
+    # If command has 2 username parameters
+    if parameter_count == 2 and not server.user_exist(decoded_request["Parameter2"]):
+        return server.modify_connected_user(decoded_request["Parameter1"], decoded_request["Parameter2"])
+    return False
+
+
+def user_cmd():
+    return
+
+
+def join_cmd():
+    return
+
+
+def ping_cmd():
+    return
+
+
+def privmsg_cmd():
+    return
+
+
+def quit_cmd():
+    return
+
+
+class IRCServer:
     irc_socket = socket.socket()
+    host = ''
+    port = 0
     # Dictionary of usernames (key) and their connections (values)
+    # TODO: Make dict include full info about user such as username, nickname and connection object
     connected_users = {}
 
-    def __init__(self):
-        pass
+    def __init__(self, host, port):
+        self.host = host
+        self.port = port
 
-    def connect(self, host, port):
+    def connect(self):
         # Bind socket to host and port
-        self.irc_socket.bind((host, port))
+        self.irc_socket.bind((self.host, self.port))
         # Avoid dropping any clients in a queue
         self.irc_socket.listen(999)
         return self.irc_socket
@@ -58,14 +124,25 @@ class IRCServer:
         # Close IRC Server connection
         self.irc_socket.close()
 
+    def get_host(self):
+        return self.host
+
     def get_socket(self):
         # Return IRC server created and configured socket
         return self.irc_socket
 
     def add_connected_user(self, user, connection):
         # Add a new user connection to the server
-        if not(user in self.connected_users):
+        if not (user in self.connected_users):
             self.connected_users[user] = connection
+            return True
+        return False
+
+    def modify_connected_user(self, old_user, new_user):
+        if old_user in self.connected_users:
+            self.connected_users[new_user] = self.connected_users.pop(old_user)
+            return True
+        return False
 
     def remove_connected_user(self, user):
         # Remove a user connection from the server
@@ -75,6 +152,9 @@ class IRCServer:
     def get_connected_users(self):
         # Get all connected users in the server
         return self.connected_users
+
+    def user_exist(self, user):
+        return user in self.connected_users
 
 
 def main():
@@ -92,11 +172,11 @@ def main():
     port = int(args['port'])
 
     # Start up the IRC Server
-    server = IRCServer()
+    server = IRCServer(host, port)
     logger.info("Server object created")
 
     # Bind the IRC server to the specified configuration
-    server.connect(host, port)
+    server.connect()
     server_socket = server.get_socket()
     logger.info("Server connection established")
 

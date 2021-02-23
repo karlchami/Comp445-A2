@@ -4,6 +4,7 @@ import logging
 import re
 from _thread import *
 
+# Initialize logger
 logging.basicConfig(filename="server.log", level=logging.DEBUG)
 logger = logging.getLogger()
 
@@ -16,14 +17,13 @@ def handle_user_commands(server, conn):
         decoded_request = decode_request(conn.recv(1024).decode())
         if decoded_request["Command"] == "NICK":
             logger.info("NICK command triggered")
-            if nick_cmd(decoded_request, server, conn, user_connection_info):
-                connected_users = ",".join(server.get_connected_users())
-                welcome_message = "NICK-Success " + username + "\n" + "Connected users: " + connected_users
-                conn.sendall(bytes(welcome_message, "utf-8"))
-                logger.info("NICK command responded")
-            else:
-                conn.sendall(bytes("NICK-Fail", "utf-8"))
-                logger.info("NICK command failed")
+            response = nick_cmd(decoded_request, server, conn, user_connection_info)
+            connected_users = ",".join(server.get_connected_users())
+            welcome_message = response + "\n" + "Connected users: " + connected_users
+            conn.sendall(bytes(welcome_message, "utf-8"))
+            logger.info("NICK command responded")
+            # print(user_connection_info.get_connection_object()[0])
+            # print(user_connection_info.get_connection_object()[1])
         elif decoded_request["Command"] == "USER":
             logger.info("USER command triggered")
             if user_cmd(decoded_request, server, user_connection_info):
@@ -31,6 +31,8 @@ def handle_user_commands(server, conn):
                 welcome_message = "USER-Success " + username + "\n" + "Connected users: " + connected_users
                 conn.sendall(bytes(welcome_message, "utf-8"))
                 logger.info("USER command responded")
+                # print(user_connection_info.get_connection_object()[0])
+                # print(user_connection_info.get_connection_object()[1])
             else:
                 conn.sendall(bytes("USER-Fail", "utf-8"))
                 logger.info("USER command failed")
@@ -71,26 +73,30 @@ def nick_cmd(decoded_request, server, client_connection, user_connection_info):
     # Nickname regex according to RFC 1459
     nickname_regex = re.compile(r'^[a-zA-Z]([0-9]|[a-zA-Z]|[-\[\]`^{}\\])*?$')
     # Validating Command according to 1459
-    validation = decoded_request["Command"].isupper() and is_valid_command(decoded_request["Command"]) and parameter_count <= 2
+    validation = decoded_request["Command"].isupper() and is_valid_command(decoded_request["Command"]) and parameter_count <= 3
     for i in range(1, parameter_count):
         # Validating Parameters (nicknames) according to regex
         validation = validation and bool(nickname_regex.search(decoded_request["Parameter" + str(i)]))
     # Command processing stops if request format is invalid
     if not validation:
-        return False
+        return "**RESPONSE: Request format is invalid"
     # If command has 1 username parameter
     if parameter_count == 2 and not server.user_exist(decoded_request["Parameter1"]):
         user_connection_info.add_nickname(decoded_request["Parameter1"])
         user_connection_info.add_connection(client_connection)
         if user_connection_info.is_connection_complete():
-            info = user_connection_info.get_connection_object()
-            return server.add_connected_user(info[0], info[1])
-        return True
+            if not server.connection_exist(client_connection):
+                info = user_connection_info.get_connection_object()
+                if server.add_connected_user(info[0], info[1]):
+                    return "**RESPONSE: User " + info[0] + " joined global channel"
+            else:
+                return "**RESPONSE: User session already connected"
+        return "**RESPONSE: Successfully registered username"
     # If command has 2 username parameters
     if parameter_count == 3 and server.user_exist(decoded_request["Parameter1"]) and not server.user_exist(decoded_request["Parameter2"]):
-        print("Here")
-        return server.modify_connected_user(decoded_request["Parameter1"], decoded_request["Parameter2"], client_connection)
-    return False
+        if server.modify_connected_user(decoded_request["Parameter1"], decoded_request["Parameter2"], client_connection):
+            return "**RESPONSE: User successfully modified to " + decoded_request["Parameter2"]
+    return "**RESPONSE: An error has occurred"
 
 
 def user_cmd(decoded_request, server, user_connection_info):
@@ -133,17 +139,15 @@ def quit_cmd():
 
 
 class UserConnection:
-    nickname = ''
-    user_connection_obj = {
+    def __init__(self):
+        self.nickname = ''
+        self.user_connection_obj = {
             "username": "",
             "fullname": "",
             "hostname": "",
             "servername": "",
             "connection": socket
-    }
-
-    def __init__(self):
-        pass
+        }
 
     def add_connection(self, conn):
         self.user_connection_obj["connection"] = conn
@@ -173,11 +177,12 @@ class UserConnection:
 
 
 class IRCServer:
+
     irc_socket = socket.socket()
-    host = ''
-    port = 0
-    # Dictionary of usernames (key) and their connections (values)
-    # TODO: Make dict include full info about user such as username, nickname and connection object
+    # For debugging purposes
+    irc_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+
+    # Dictionary of usernames (key) and their connection info
     connected_users = {}
 
     def __init__(self, host, port):
@@ -227,16 +232,16 @@ class IRCServer:
     def user_exist(self, user):
         return user in self.connected_users
 
+    def connection_exist(self, conn):
+        for user in self.connected_users:
+            return self.connected_users[user]["connection"] == conn
+
 
 def main():
     # Parsing script arguments from CLI
     parser = argparse.ArgumentParser()
     parser.add_argument('-p', '--port', help='Target port to use', required=True)
     args = vars(parser.parse_args())
-
-    # Initialize logger
-    logging.basicConfig(filename='server.log', level=logging.DEBUG)
-    logger = logging.getLogger()
 
     # IRC Server Config
     host = "localhost"

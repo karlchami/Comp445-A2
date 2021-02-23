@@ -7,16 +7,25 @@ from _thread import *
 
 def handle_user_commands(server, conn):
     username = ''
+    user_connection_info = UserConnection()
     while True:
         decoded_request = decode_request(conn.recv(1024).decode())
         if decoded_request["Command"] == "NICK":
-            if nick_cmd(decoded_request, server, conn):
+            if nick_cmd(decoded_request, server, conn, user_connection_info):
                 connected_users = ",".join(server.get_connected_users())
                 welcome_message = "NICK-Success " + username + "\n" \
                                   + "Connected users: " + connected_users
                 conn.sendall(bytes(welcome_message, "utf-8"))
             else:
                 conn.sendall(bytes("NICK-Fail", "utf-8"))
+        elif decoded_request["Command"] == "USER":
+            if user_cmd(decoded_request, server, user_connection_info):
+                connected_users = ",".join(server.get_connected_users())
+                welcome_message = "USER-Success " + username + "\n" \
+                                  + "Connected users: " + connected_users
+                conn.sendall(bytes(welcome_message, "utf-8"))
+            else:
+                conn.sendall(bytes("USER-Fail", "utf-8"))
         else:
             conn.sendall(bytes("Invalid Request", "utf-8"))
 
@@ -49,12 +58,12 @@ def is_valid_command(command):
 
 
 # Handles addition or modification of nickname on server. Returns boolean as status indication for success/fail.
-def nick_cmd(decoded_request, server, client_connection):
+def nick_cmd(decoded_request, server, client_connection, user_connection_info):
     parameter_count = len(decoded_request)
     # Nickname regex according to RFC 1459
     nickname_regex = re.compile(r'^[a-zA-Z]([0-9]|[a-zA-Z]|[-\[\]`^{}\\])*?$')
     # Validating Command according to 1459
-    validation = decoded_request["Command"].isupper() and is_valid_command(decoded_request["Command"])
+    validation = decoded_request["Command"].isupper() and is_valid_command(decoded_request["Command"]) and parameter_count <= 2
     for i in range(1, parameter_count):
         # Validating Parameters (nicknames) according to regex
         validation = validation and bool(nickname_regex.search(decoded_request["Parameter" + str(i)]))
@@ -63,24 +72,39 @@ def nick_cmd(decoded_request, server, client_connection):
         return False
     # If command has 1 username parameter
     if parameter_count == 2 and not server.user_exist(decoded_request["Parameter1"]):
-        new_user = UserConnection()
-        new_user.add_nickname(decoded_request["Parameter1"])
-        new_user.add_connection(client_connection)
-        if new_user.is_connection_complete():
-            info = new_user.get_connection_object()
+        user_connection_info.add_nickname(decoded_request["Parameter1"])
+        user_connection_info.add_connection(client_connection)
+        if user_connection_info.is_connection_complete():
+            info = user_connection_info.get_connection_object()
             return server.add_connected_user(info[0], info[1])
         return True
     # If command has 2 username parameters
     if parameter_count == 3 and server.user_exist(decoded_request["Parameter1"]) and not server.user_exist(decoded_request["Parameter2"]):
         print("Here")
-        return server.modify_connected_user(decoded_request["Parameter1"],
-                                            decoded_request["Parameter2"],
-                                            client_connection)
+        return server.modify_connected_user(decoded_request["Parameter1"], decoded_request["Parameter2"], client_connection)
     return False
 
 
-def user_cmd():
-    return
+def user_cmd(decoded_request, server, user_connection_info):
+    parameter_count = len(decoded_request)
+    validation = decoded_request["Command"].isupper() and is_valid_command(decoded_request["Command"]) and (parameter_count > 5) and (decoded_request["Parameter4"].startswith(":"))
+    # Command processing stops if request format is invalid
+    if not validation:
+        return
+    # Extract user real name from parameters (all params following the : char)
+    real_name = ''
+    for i in range(4, parameter_count):
+        if i == 4:
+            decoded_request["Parameter" + str(i)] = re.sub('[:]', '', decoded_request["Parameter" + str(i)])
+        real_name += decoded_request["Parameter" + str(i)] + " "
+    # Add more connection info to object
+    user_connection_info.add_real_name(real_name)
+    user_connection_info.add_username(decoded_request["Parameter1"])
+    user_connection_info.add_server_info(decoded_request["Parameter2"], decoded_request["Parameter3"])
+    if user_connection_info.is_connection_complete():
+        info = user_connection_info.get_connection_object()
+        return server.add_connected_user(info[0], info[1])
+    return False
 
 
 def join_cmd():
@@ -117,6 +141,9 @@ class UserConnection:
 
     def add_nickname(self, nick):
         self.nickname = nick
+
+    def add_username(self, username):
+        self.user_connection_obj["username"] = username
 
     def add_server_info(self, hostname, servername):
         self.user_connection_obj["hostname"] = hostname

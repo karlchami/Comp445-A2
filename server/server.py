@@ -11,7 +11,6 @@ logger = logging.getLogger()
 
 def handle_user_commands(server, conn):
     logger.info("New thread")
-    username = ''
     user_connection_info = UserConnection()
     while True:
         decoded_request = decode_request(conn.recv(1024).decode())
@@ -234,7 +233,9 @@ class IRCServer:
 
     def connection_exist(self, conn):
         for user in self.connected_users:
-            return self.connected_users[user]["connection"] == conn
+            if self.connected_users[user]["connection"] == conn:
+                return True
+        return False
 
 
 def main():

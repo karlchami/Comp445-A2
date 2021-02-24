@@ -14,6 +14,7 @@ def handle_user_commands(server, conn):
     user_connection_info = UserConnection()
     while True:
         decoded_request = decode_request(conn.recv(1024).decode())
+        # Decodes request, calls command's corresponding method and returns response to client connection as message
         if decoded_request["Command"] == "NICK":
             logger.info("NICK command triggered")
             response = nick_cmd(decoded_request, server, conn, user_connection_info)
@@ -21,8 +22,6 @@ def handle_user_commands(server, conn):
             welcome_message = response + "\n" + "Connected users: " + connected_users
             conn.sendall(bytes(welcome_message, "utf-8"))
             logger.info("NICK command responded")
-            # print(user_connection_info.get_connection_object()[0])
-            # print(user_connection_info.get_connection_object()[1])
         elif decoded_request["Command"] == "USER":
             logger.info("USER command triggered")
             response = user_cmd(decoded_request, server, conn, user_connection_info)
@@ -30,12 +29,17 @@ def handle_user_commands(server, conn):
             welcome_message = response + "\n" + "Connected users: " + connected_users
             conn.sendall(bytes(welcome_message, "utf-8"))
             logger.info("USER command responded")
-            # print(user_connection_info.get_connection_object()[0])
-            # print(user_connection_info.get_connection_object()[1])
+        elif decoded_request["Command"] == "PING":
+            logger.info("PING command triggered")
+            response = ping_cmd(server, conn)
+            response = response
+            conn.sendall(bytes(response, "utf-8"))
+            logger.info("USER command responded")
         else:
             conn.sendall(bytes("Invalid Request", "utf-8"))
 
 
+# Broadcast any message to all connected users except specified one (current user)
 def broadcast_message(server, username, message):
     users_list = server.get_connected_users()
     users_list.pop(username)
@@ -43,6 +47,7 @@ def broadcast_message(server, username, message):
         conn.send(bytes(message, "utf-8"))
 
 
+# Decodes request into commands and parameters object
 def decode_request(request):
     # Decodes a request into a dict object with Command and Parameters
     request_content = request.split()
@@ -55,6 +60,7 @@ def decode_request(request):
     return decoded_request
 
 
+# Validates if a command is implemented. All commands in the list are implemented
 def is_valid_command(command):
     # Validates whether the command in the decoded request is an implemented command
     valid_commands = ["NICK", "USER", "JOIN", "PING", "PRIVMSG", "QUIT"]
@@ -68,7 +74,7 @@ def nick_cmd(decoded_request, server, client_connection, user_connection_info):
     parameter_count = len(decoded_request)
     # Nickname regex according to RFC 1459
     nickname_regex = re.compile(r'^[a-zA-Z]([0-9]|[a-zA-Z]|[-\[\]`^{}\\])*?$')
-    # Validating Command according to 1459
+    # Validating Command format according to 1459
     validation = decoded_request["Command"].isupper() and is_valid_command(decoded_request["Command"]) and parameter_count <= 3
     for i in range(1, parameter_count):
         # Validating Parameters (nicknames) according to regex
@@ -76,7 +82,7 @@ def nick_cmd(decoded_request, server, client_connection, user_connection_info):
     # Command processing stops if request format is invalid
     if not validation:
         return "**RESPONSE: Request format is invalid"
-    # If command has 1 username parameter
+    # If command has 1 username parameter ensure non existing connection + nickname, and USER command info were provided before adding user to server connection
     if parameter_count == 2 and not server.user_exist(decoded_request["Parameter1"]):
         user_connection_info.add_nickname(decoded_request["Parameter1"])
         user_connection_info.add_connection(client_connection)
@@ -88,13 +94,14 @@ def nick_cmd(decoded_request, server, client_connection, user_connection_info):
             else:
                 return "**RESPONSE: User session already connected"
         return "**RESPONSE: Successfully registered username"
-    # If command has 2 username parameters
+    # If command has 2 username parameters ensure old nick exists (and belongs to current client connection) and new nick doesn't exist
     if parameter_count == 3 and server.user_exist(decoded_request["Parameter1"]) and not server.user_exist(decoded_request["Parameter2"]):
         if server.modify_connected_user(decoded_request["Parameter1"], decoded_request["Parameter2"], client_connection):
             return "**RESPONSE: User successfully modified to " + decoded_request["Parameter2"]
     return "**RESPONSE: An error has occurred"
 
 
+# Handles addition of user info (Name, server, hostname) to the server
 def user_cmd(decoded_request, server, client_connection, user_connection_info):
     parameter_count = len(decoded_request)
     validation = decoded_request["Command"].isupper() and is_valid_command(decoded_request["Command"]) and (parameter_count >= 5) and (decoded_request["Parameter4"].startswith(":"))
@@ -103,14 +110,16 @@ def user_cmd(decoded_request, server, client_connection, user_connection_info):
         return "**RESPONSE: Request format is invalid"
     # Extract user real name from parameters (all params following the : char)
     real_name = ''
+    # Ensure all parameters are passed and decode real name params into a string
     for i in range(4, parameter_count):
         if i == 4:
             decoded_request["Parameter" + str(i)] = re.sub('[:]', '', decoded_request["Parameter" + str(i)])
         real_name += decoded_request["Parameter" + str(i)] + " "
-    # Add more connection info to object
+    # Add more connection info to UserConnection object
     user_connection_info.add_real_name(real_name)
     user_connection_info.add_username(decoded_request["Parameter1"])
     user_connection_info.add_server_info(decoded_request["Parameter2"], decoded_request["Parameter3"])
+    # Ensure non existing connection + nickname, and NICK command info were provided before adding user to server connection
     if user_connection_info.is_connection_complete():
         if not server.connection_exist(client_connection):
             info = user_connection_info.get_connection_object()
@@ -125,8 +134,11 @@ def join_cmd():
     return
 
 
-def ping_cmd():
-    return
+# Verifies if user has an active connection in server
+def ping_cmd(server, client_connection):
+    if server.connection_exist(client_connection):
+        return "**RESPONSE: PONG " + str(client_connection)
+    return "**RESPONSE: No existing connection"
 
 
 def privmsg_cmd():
@@ -137,6 +149,7 @@ def quit_cmd():
     return
 
 
+# Object that holds and helps ensure all user info have been provided prior to adding them to an active server connection
 class UserConnection:
     def __init__(self):
         self.nickname = ''
@@ -214,6 +227,7 @@ class IRCServer:
         return False
 
     def modify_connected_user(self, old_user, new_user, conn):
+        # Verifies that user to be modified belongs to provided connection
         if (old_user in self.connected_users) and (self.connected_users.get(old_user).get("connection") == conn):
             self.connected_users[new_user] = self.connected_users.pop(old_user)
             return True

@@ -9,6 +9,7 @@ logging.basicConfig(filename="server.log", level=logging.DEBUG)
 logger = logging.getLogger()
 
 
+# TODO: Change welcome_message to return only dict. Kept for debugging purposes.
 def handle_user_commands(server, conn):
     logger.info("New thread")
     user_connection_info = UserConnection()
@@ -19,14 +20,14 @@ def handle_user_commands(server, conn):
             logger.info("NICK command triggered")
             response = nick_cmd(decoded_request, server, conn, user_connection_info)
             connected_users = ",".join(server.get_connected_users())
-            welcome_message = response + "\n" + "Connected users: " + connected_users
+            welcome_message = str(response) + "\n" + "Connected users: " + connected_users
             conn.sendall(bytes(welcome_message, "utf-8"))
             logger.info("NICK command responded")
         elif decoded_request["Command"] == "USER":
             logger.info("USER command triggered")
             response = user_cmd(decoded_request, server, conn, user_connection_info)
             connected_users = ",".join(server.get_connected_users())
-            welcome_message = response + "\n" + "Connected users: " + connected_users
+            welcome_message = str(response) + "\n" + "Connected users: " + connected_users
             conn.sendall(bytes(welcome_message, "utf-8"))
             logger.info("USER command responded")
         elif decoded_request["Command"] == "PING":
@@ -60,6 +61,12 @@ def decode_request(request):
     return decoded_request
 
 
+def response_builder(decoded_request, response_status, response_message):
+    decoded_request["Response_Status"] = response_status
+    decoded_request["Response_Message"] = response_message
+    return decoded_request
+
+
 # Validates if a command is implemented. All commands in the list are implemented
 def is_valid_command(command):
     # Validates whether the command in the decoded request is an implemented command
@@ -81,7 +88,7 @@ def nick_cmd(decoded_request, server, client_connection, user_connection_info):
         validation = validation and bool(nickname_regex.search(decoded_request["Parameter" + str(i)]))
     # Command processing stops if request format is invalid
     if not validation:
-        return "**RESPONSE: Request format is invalid"
+        return response_builder(decoded_request, "Fail", "Request format is invalid")
     # If command has 1 username parameter ensure non existing connection + nickname, and USER command info were provided before adding user to server connection
     if parameter_count == 2 and not server.user_exist(decoded_request["Parameter1"]):
         user_connection_info.add_nickname(decoded_request["Parameter1"])
@@ -90,15 +97,15 @@ def nick_cmd(decoded_request, server, client_connection, user_connection_info):
             if not server.connection_exist(client_connection):
                 info = user_connection_info.get_connection_object()
                 if server.add_connected_user(info[0], info[1]):
-                    return "**RESPONSE: User " + info[0] + " joined global channel"
+                    return response_builder(decoded_request, "Success", "User " + info[0] + " joined global channel")
             else:
-                return "**RESPONSE: User session already connected"
-        return "**RESPONSE: Successfully registered username"
+                return response_builder(decoded_request, "Fail", "User session already connected")
+        return response_builder(decoded_request, "Success", "Successfully registered username")
     # If command has 2 username parameters ensure old nick exists (and belongs to current client connection) and new nick doesn't exist
     if parameter_count == 3 and server.user_exist(decoded_request["Parameter1"]) and not server.user_exist(decoded_request["Parameter2"]):
         if server.modify_connected_user(decoded_request["Parameter1"], decoded_request["Parameter2"], client_connection):
-            return "**RESPONSE: User successfully modified to " + decoded_request["Parameter2"]
-    return "**RESPONSE: An error has occurred"
+            return response_builder(decoded_request, "Success", "User successfully modified to " + decoded_request["Parameter2"])
+    return response_builder(decoded_request, "Fail", "An error has occurred")
 
 
 # Handles addition of user info (Name, server, hostname) to the server
@@ -107,14 +114,19 @@ def user_cmd(decoded_request, server, client_connection, user_connection_info):
     validation = decoded_request["Command"].isupper() and is_valid_command(decoded_request["Command"]) and (parameter_count >= 5) and (decoded_request["Parameter4"].startswith(":"))
     # Command processing stops if request format is invalid
     if not validation:
-        return "**RESPONSE: Request format is invalid"
+        return response_builder(decoded_request, "Fail", "Request format is invalid")
     # Extract user real name from parameters (all params following the : char)
     real_name = ''
     # Ensure all parameters are passed and decode real name params into a string
     for i in range(4, parameter_count):
         if i == 4:
             decoded_request["Parameter" + str(i)] = re.sub('[:]', '', decoded_request["Parameter" + str(i)])
-        real_name += decoded_request["Parameter" + str(i)] + " "
+            real_name += decoded_request["Parameter" + str(i)]
+        else:
+            real_name += " " + decoded_request["Parameter" + str(i)]
+            decoded_request.pop("Parameter" + str(i))
+    # Remove separate real name params and join them into one
+    decoded_request["Parameter4"] = real_name
     # Add more connection info to UserConnection object
     user_connection_info.add_real_name(real_name)
     user_connection_info.add_username(decoded_request["Parameter1"])
@@ -124,10 +136,10 @@ def user_cmd(decoded_request, server, client_connection, user_connection_info):
         if not server.connection_exist(client_connection):
             info = user_connection_info.get_connection_object()
             if server.add_connected_user(info[0], info[1]):
-                return "**RESPONSE: User " + info[0] + " joined global channel"
+                return response_builder(decoded_request, "Success", "User " + info[0] + " joined global channel")
     else:
-        return "**RESPONSE: Successfully registered user info"
-    return "**RESPONSE: An error has occurred"
+        return response_builder(decoded_request, "Success", "Successfully registered user info")
+    return response_builder(decoded_request, "Fail", "An error has occurred")
 
 
 def join_cmd():

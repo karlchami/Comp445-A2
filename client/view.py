@@ -125,7 +125,7 @@ class View(patterns.Publisher):
             return
         logger.debug(f"Character int: {ch}")
         if ch < 9 or ch > 2**7:
-            # non-ascii chars
+            # non-ascii chFailars
             return
         elif ch == 127:
             # Delete char from input box

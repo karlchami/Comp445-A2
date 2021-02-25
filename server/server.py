@@ -32,8 +32,8 @@ def handle_user_commands(server, conn):
             logger.info("USER command responded")
         elif decoded_request["Command"] == "PING":
             logger.info("PING command triggered")
-            response = ping_cmd(server, conn)
-            response = response
+            response = ping_cmd(decoded_request, server, conn)
+            response = str(response)
             conn.sendall(bytes(response, "utf-8"))
             logger.info("USER command responded")
         else:
@@ -55,9 +55,10 @@ def decode_request(request):
     decoded_request = {}
     command = request_content[0]
     decoded_request["Command"] = command
-    for i in range(1, len(request_content)):
-        parameter = "Parameter" + str(i)
-        decoded_request[parameter] = request_content[i]
+    if len(request_content) > 1:
+        for i in range(1, len(request_content)):
+            parameter = "Parameter" + str(i)
+            decoded_request[parameter] = request_content[i]
     return decoded_request
 
 
@@ -147,10 +148,10 @@ def join_cmd():
 
 
 # Verifies if user has an active connection in server
-def ping_cmd(server, client_connection):
+def ping_cmd(decoded_request, server, client_connection):
     if server.connection_exist(client_connection):
-        return "**RESPONSE: PONG " + str(client_connection)
-    return "**RESPONSE: No existing connection"
+        return response_builder(decoded_request, "Success", "PONG " + str(client_connection))
+    return response_builder(decoded_request, "Fail", "No existing connection")
 
 
 def privmsg_cmd():

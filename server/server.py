@@ -13,29 +13,14 @@ logger = logging.getLogger()
 def handle_user_commands(server, conn):
     logger.info("New thread")
     user_connection_info = UserConnection()
+    switch = {"NICK": nick_cmd, "USER": user_cmd, "PING": ping_cmd, "WHO": who_cmd}
     while True:
         decoded_request = decode_request(conn.recv(1024).decode())
-        # Decodes request, calls command's corresponding method and returns response to client connection as message
-        if decoded_request["Command"] == "NICK":
-            logger.info("NICK command triggered")
-            response = nick_cmd(decoded_request, server, conn, user_connection_info)
+        if decoded_request["Command"] in switch:
+            response = switch[decoded_request["Command"]](decoded_request, server, conn, user_connection_info)
             connected_users = ",".join(server.get_connected_users())
             welcome_message = str(response) + "\n" + "Connected users: " + connected_users
             conn.sendall(bytes(welcome_message, "utf-8"))
-            logger.info("NICK command responded")
-        elif decoded_request["Command"] == "USER":
-            logger.info("USER command triggered")
-            response = user_cmd(decoded_request, server, conn, user_connection_info)
-            connected_users = ",".join(server.get_connected_users())
-            welcome_message = str(response) + "\n" + "Connected users: " + connected_users
-            conn.sendall(bytes(welcome_message, "utf-8"))
-            logger.info("USER command responded")
-        elif decoded_request["Command"] == "PING":
-            logger.info("PING command triggered")
-            response = ping_cmd(decoded_request, server, conn)
-            response = str(response)
-            conn.sendall(bytes(response, "utf-8"))
-            logger.info("USER command responded")
         else:
             conn.sendall(bytes("Invalid Request", "utf-8"))
 
@@ -71,7 +56,7 @@ def response_builder(decoded_request, response_status, response_message):
 # Validates if a command is implemented. All commands in the list are implemented
 def is_valid_command(command):
     # Validates whether the command in the decoded request is an implemented command
-    valid_commands = ["NICK", "USER", "JOIN", "PING", "PRIVMSG", "QUIT"]
+    valid_commands = ["NICK", "USER", "JOIN", "PING", "WHO", "PRIVMSG", "QUIT"]
     if command in valid_commands:
         return True
     return False
@@ -143,15 +128,17 @@ def user_cmd(decoded_request, server, client_connection, user_connection_info):
     return response_builder(decoded_request, "Fail", "An error has occurred")
 
 
-def join_cmd():
-    return
-
-
 # Verifies if user has an active connection in server
-def ping_cmd(decoded_request, server, client_connection):
+def ping_cmd(decoded_request, server, client_connection, *_):
     if server.connection_exist(client_connection):
         return response_builder(decoded_request, "Success", "PONG " + str(client_connection))
     return response_builder(decoded_request, "Fail", "No existing connection")
+
+
+def who_cmd(decoded_request, server, client_connection, user_connection_info):
+    connected_users = server.get_connected_users()
+    print(connected_users)
+    return True
 
 
 def privmsg_cmd():

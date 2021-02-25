@@ -117,3 +117,25 @@ INFO:root:USER command triggered
 INFO:root:USER command responded
 INFO:root:PING command triggered
 INFO:root:USER command responded
+INFO:root:Server object created
+INFO:root:Server connection established
+INFO:root:New thread
+INFO:root:NICK command triggered
+INFO:root:NICK command responded
+INFO:root:USER command triggered
+INFO:root:USER command responded
+INFO:root:WHO command triggered
+INFO:root:WHO command responded
+INFO:root:Server object created
+INFO:root:Server connection established
+INFO:root:New thread
+INFO:root:Server object created
+INFO:root:Server connection established
+INFO:root:New thread
+INFO:root:Server object created
+INFO:root:Server connection established
+INFO:root:New thread
+INFO:root:Server object created
+INFO:root:Server connection established
+INFO:root:New thread
+INFO:root:New thread

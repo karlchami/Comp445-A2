@@ -135,10 +135,20 @@ def ping_cmd(decoded_request, server, client_connection, *_):
     return response_builder(decoded_request, "Fail", "No existing connection")
 
 
+# TODO: Make sure * is in the params, make sure that user calling this command has an established connection with the server
 def who_cmd(decoded_request, server, client_connection, user_connection_info):
     connected_users = server.get_connected_users()
-    print(connected_users)
-    return True
+    match = decoded_request["Parameter1"]
+    matched_users = []
+    for name in connected_users:
+        boolean = (match in name) or\
+                  (match in connected_users[name]["username"]) or\
+                  (match in connected_users[name]["fullname"]) or\
+                  (match in connected_users[name]["hostname"]) or\
+                  (match in connected_users[name]["servername"])
+        if boolean and (name != user_connection_info.get_connection_object()[0]):
+            matched_users.append(name)
+    return response_builder(decoded_request, "Success", str(matched_users))
 
 
 def privmsg_cmd():

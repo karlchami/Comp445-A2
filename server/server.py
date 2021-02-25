@@ -135,10 +135,11 @@ def ping_cmd(decoded_request, server, client_connection, *_):
     return response_builder(decoded_request, "Fail", "No existing connection")
 
 
-# TODO: Make sure * is in the params, make sure that user calling this command has an established connection with the server
 def who_cmd(decoded_request, server, client_connection, user_connection_info):
     connected_users = server.get_connected_users()
-    match = decoded_request["Parameter1"]
+    if not ((len(decoded_request) == 2) and (decoded_request["Parameter1"].startswith("*") and server.connection_exist(client_connection))):
+        return response_builder(decoded_request, "FAIL", "Wrong parameters or no existing connection")
+    match = decoded_request["Parameter1"][1:]
     matched_users = []
     for name in connected_users:
         boolean = (match in name) or\

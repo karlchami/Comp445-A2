@@ -13,10 +13,11 @@ logger = logging.getLogger()
 def handle_user_commands(server, conn):
     logger.info("New thread")
     user_connection_info = UserConnection()
-    switch = {"NICK": nick_cmd, "USER": user_cmd, "PING": ping_cmd, "WHO": who_cmd}
+    switch = {"NICK": nick_cmd, "USER": user_cmd, "PING": ping_cmd, "WHO": who_cmd, "QUIT": quit_cmd}
     while True:
-        decoded_request = decode_request(conn.recv(1024).decode())
-        if decoded_request["Command"] in switch:
+        raw_request = conn.recv(1024).decode()
+        decoded_request = decode_request(raw_request)
+        if (decoded_request["Command"] in switch) and (validate_command(decoded_request["Command"], raw_request)):
             response = switch[decoded_request["Command"]](decoded_request, server, conn, user_connection_info)
             connected_users = ",".join(server.get_connected_users())
             welcome_message = str(response) + "\n" + "Connected users: " + connected_users
@@ -33,10 +34,27 @@ def broadcast_message(server, username, message):
         conn.send(bytes(message, "utf-8"))
 
 
+# Validate command formats according to IRC 1459
+def validate_command(command, raw_request):
+    regex_validations = {
+        "NICK": re.compile(r'^(NICK)(\s)([a-zA-Z][\w\-\[\]`^{}\\]*)(([\s][a-zA-Z][\w\-\[\]`^{}\\]*)*)$'),
+        "USER": re.compile(r'^(USER)(\s)(\w+)(\s)(\w+)(\s)(\w+)(\s:)([\w ]+)$'),
+        "QUIT": re.compile(r'^(QUIT)([\s:]*)(.*)$'),
+        "WHO": re.compile(r'^(WHO)(\s)(\*)([\w\-\[\]`^{}\\]+)$'),
+        "PING": re.compile(r'^(PING)$')
+    }
+    print(bool(regex_validations[command].search(raw_request)))
+    return bool(regex_validations[command].search(raw_request))
+
+
 # Decodes request into commands and parameters object
 def decode_request(request):
-    # Decodes a request into a dict object with Command and Parameters
-    request_content = request.split()
+    # Decodes a request into a dict object with Command and Parameters while handling special char ":" as one parameter
+    split_char = request.split(":")
+    request_content = split_char[0].split()
+    if len(split_char) > 1:
+        for i in range(1, len(split_char)):
+            request_content.append(split_char[i])
     decoded_request = {}
     command = request_content[0]
     decoded_request["Command"] = command
@@ -47,34 +65,16 @@ def decode_request(request):
     return decoded_request
 
 
+# Builds a dictionary that acts as the response object
 def response_builder(decoded_request, response_status, response_message):
     decoded_request["Response_Status"] = response_status
     decoded_request["Response_Message"] = response_message
     return decoded_request
 
 
-# Validates if a command is implemented. All commands in the list are implemented
-def is_valid_command(command):
-    # Validates whether the command in the decoded request is an implemented command
-    valid_commands = ["NICK", "USER", "JOIN", "PING", "WHO", "PRIVMSG", "QUIT"]
-    if command in valid_commands:
-        return True
-    return False
-
-
 # Handles addition or modification of nickname on server. Returns boolean as status indication for success/fail.
 def nick_cmd(decoded_request, server, client_connection, user_connection_info):
     parameter_count = len(decoded_request)
-    # Nickname regex according to RFC 1459
-    nickname_regex = re.compile(r'^[a-zA-Z]([0-9]|[a-zA-Z]|[-\[\]`^{}\\])*?$')
-    # Validating Command format according to 1459
-    validation = decoded_request["Command"].isupper() and is_valid_command(decoded_request["Command"]) and parameter_count <= 3
-    for i in range(1, parameter_count):
-        # Validating Parameters (nicknames) according to regex
-        validation = validation and bool(nickname_regex.search(decoded_request["Parameter" + str(i)]))
-    # Command processing stops if request format is invalid
-    if not validation:
-        return response_builder(decoded_request, "Fail", "Request format is invalid")
     # If command has 1 username parameter ensure non existing connection + nickname, and USER command info were provided before adding user to server connection
     if parameter_count == 2 and not server.user_exist(decoded_request["Parameter1"]):
         user_connection_info.add_nickname(decoded_request["Parameter1"])
@@ -90,31 +90,14 @@ def nick_cmd(decoded_request, server, client_connection, user_connection_info):
     # If command has 2 username parameters ensure old nick exists (and belongs to current client connection) and new nick doesn't exist
     if parameter_count == 3 and server.user_exist(decoded_request["Parameter1"]) and not server.user_exist(decoded_request["Parameter2"]):
         if server.modify_connected_user(decoded_request["Parameter1"], decoded_request["Parameter2"], client_connection):
+            user_connection_info.add_nickname(decoded_request["Parameter2"])
             return response_builder(decoded_request, "Success", "User successfully modified to " + decoded_request["Parameter2"])
     return response_builder(decoded_request, "Fail", "An error has occurred")
 
 
 # Handles addition of user info (Name, server, hostname) to the server
 def user_cmd(decoded_request, server, client_connection, user_connection_info):
-    parameter_count = len(decoded_request)
-    validation = decoded_request["Command"].isupper() and is_valid_command(decoded_request["Command"]) and (parameter_count >= 5) and (decoded_request["Parameter4"].startswith(":"))
-    # Command processing stops if request format is invalid
-    if not validation:
-        return response_builder(decoded_request, "Fail", "Request format is invalid")
-    # Extract user real name from parameters (all params following the : char)
-    real_name = ''
-    # Ensure all parameters are passed and decode real name params into a string
-    for i in range(4, parameter_count):
-        if i == 4:
-            decoded_request["Parameter" + str(i)] = re.sub('[:]', '', decoded_request["Parameter" + str(i)])
-            real_name += decoded_request["Parameter" + str(i)]
-        else:
-            real_name += " " + decoded_request["Parameter" + str(i)]
-            decoded_request.pop("Parameter" + str(i))
-    # Remove separate real name params and join them into one
-    decoded_request["Parameter4"] = real_name
-    # Add more connection info to UserConnection object
-    user_connection_info.add_real_name(real_name)
+    user_connection_info.add_real_name(decoded_request["Parameter4"])
     user_connection_info.add_username(decoded_request["Parameter1"])
     user_connection_info.add_server_info(decoded_request["Parameter2"], decoded_request["Parameter3"])
     # Ensure non existing connection + nickname, and NICK command info were provided before adding user to server connection
@@ -137,8 +120,8 @@ def ping_cmd(decoded_request, server, client_connection, *_):
 
 def who_cmd(decoded_request, server, client_connection, user_connection_info):
     connected_users = server.get_connected_users()
-    if not ((len(decoded_request) == 2) and (decoded_request["Parameter1"].startswith("*") and server.connection_exist(client_connection))):
-        return response_builder(decoded_request, "FAIL", "Wrong parameters or no existing connection")
+    if not server.connection_exist(client_connection):
+        return response_builder(decoded_request, "FAIL", "No existing connection")
     match = decoded_request["Parameter1"][1:]
     matched_users = []
     for name in connected_users:
@@ -156,8 +139,14 @@ def privmsg_cmd():
     return
 
 
-def quit_cmd():
-    return
+def quit_cmd(decoded_request, server, client_connection, user_connection_info):
+    quit_message = user_connection_info.get_connection_object()[0]
+    if len(decoded_request) > 1:
+        quit_message = decoded_request["Parameter1"]
+    if server.remove_connected_user(user_connection_info.get_connection_object()[0], client_connection):
+        return response_builder(decoded_request, "Success", "Leaving server")
+        # TODO: Add broadcast message
+    return response_builder(decoded_request, "Error", "Cannot process QUIT command")
 
 
 # Object that holds and helps ensure all user info have been provided prior to adding them to an active server connection
@@ -244,10 +233,12 @@ class IRCServer:
             return True
         return False
 
-    def remove_connected_user(self, user):
+    def remove_connected_user(self, user, conn):
         # Remove a user connection from the server
-        if user in self.connected_users:
+        if (user in self.connected_users) and (self.connected_users.get(user).get("connection") == conn):
             self.connected_users.pop(user)
+            return True
+        return False
 
     def get_connected_users(self):
         # Get all connected users in the server

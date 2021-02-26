@@ -1,4 +1,4 @@
-import socketclient2
+import socket
 
 c = socket.socket()
 c.connect(("localhost", 9999))

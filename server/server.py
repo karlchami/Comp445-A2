@@ -196,6 +196,7 @@ class UserConnection:
         return self.nickname, self.user_connection_obj
 
     def clear_connection(self):
+        self.nickname = ''
         self.user_connection_obj = {
             "username": "",
             "fullname": "",

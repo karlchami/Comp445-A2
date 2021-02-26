@@ -13,7 +13,7 @@ logger = logging.getLogger()
 def handle_user_commands(server, conn):
     logger.info("New thread")
     user_connection_info = UserConnection()
-    switch = {"NICK": nick_cmd, "USER": user_cmd, "PING": ping_cmd, "WHO": who_cmd, "QUIT": quit_cmd}
+    switch = {"NICK": nick_cmd, "USER": user_cmd, "PING": ping_cmd, "WHO": who_cmd, "PRIVMSG": privmsg_cmd, "QUIT": quit_cmd}
     while True:
         raw_request = conn.recv(1024).decode()
         decoded_request = decode_request(raw_request)
@@ -26,14 +26,6 @@ def handle_user_commands(server, conn):
             conn.sendall(bytes("Invalid Request", "utf-8"))
 
 
-# Broadcast any message to all connected users except specified one (current user)
-def broadcast_message(server, username, message):
-    users_list = server.get_connected_users()
-    users_list.pop(username)
-    for conn in users_list.values():
-        conn.send(bytes(message, "utf-8"))
-
-
 # Validate command formats according to IRC 1459
 def validate_command(command, raw_request):
     regex_validations = {
@@ -41,9 +33,9 @@ def validate_command(command, raw_request):
         "USER": re.compile(r'^(USER)(\s)(\w+)(\s)(\w+)(\s)(\w+)(\s:)([\w ]+)$'),
         "QUIT": re.compile(r'^(QUIT)([\s:]*)(.*)$'),
         "WHO": re.compile(r'^(WHO)(\s)(\*)([\w\-\[\]`^{}\\]+)$'),
-        "PING": re.compile(r'^(PING)$')
+        "PING": re.compile(r'^(PING)$'),
+        "PRIVMSG": re.compile(r'^(PRIVMSG #global)(\s:)(.*)$')
     }
-    print(bool(regex_validations[command].search(raw_request)))
     return bool(regex_validations[command].search(raw_request))
 
 
@@ -135,18 +127,34 @@ def who_cmd(decoded_request, server, client_connection, user_connection_info):
     return response_builder(decoded_request, "Success", str(matched_users))
 
 
-def privmsg_cmd():
-    return
+# Broadcast any message to all connected users except specified one (current user)
+def broadcast_message(server, username, message):
+    users_list = server.get_connected_users().copy()
+    users_list.pop(username)
+    for conn in users_list:
+        users_list[conn]["connection"].send(bytes(message, "utf-8"))
 
 
+# Send message to if connection exists
+def privmsg_cmd(decoded_request, server, client_connection, user_connection_info):
+    message_to_send = decoded_request["Parameter2"]
+    if server.connection_exist(client_connection):
+        broadcast_message(server, user_connection_info.get_connection_object()[0], message_to_send)
+        return response_builder(decoded_request, "Success", "Message sent")
+    return response_builder(decoded_request, "Failed", "No existing connection")
+
+
+# Quit server and delete all existing connections
 def quit_cmd(decoded_request, server, client_connection, user_connection_info):
     quit_message = user_connection_info.get_connection_object()[0]
     if len(decoded_request) > 1:
         quit_message = decoded_request["Parameter1"]
+    if server.connection_exist(client_connection):
+        broadcast_message(server, user_connection_info.get_connection_object()[0], quit_message)
     if server.remove_connected_user(user_connection_info.get_connection_object()[0], client_connection):
+        user_connection_info.clear_connection()
         return response_builder(decoded_request, "Success", "Leaving server")
-        # TODO: Add broadcast message
-    return response_builder(decoded_request, "Error", "Cannot process QUIT command")
+    return response_builder(decoded_request, "Error", "No existing connection")
 
 
 # Object that holds and helps ensure all user info have been provided prior to adding them to an active server connection
@@ -186,6 +194,15 @@ class UserConnection:
 
     def get_connection_object(self):
         return self.nickname, self.user_connection_obj
+
+    def clear_connection(self):
+        self.user_connection_obj = {
+            "username": "",
+            "fullname": "",
+            "hostname": "",
+            "servername": "",
+            "connection": socket
+        }
 
 
 class IRCServer:

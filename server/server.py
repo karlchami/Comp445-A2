@@ -19,9 +19,9 @@ def handle_user_commands(server, conn):
         decoded_request = decode_request(raw_request)
         if (decoded_request["Command"] in switch) and (validate_command(decoded_request["Command"], raw_request)):
             response = switch[decoded_request["Command"]](decoded_request, server, conn, user_connection_info)
-            connected_users = ",".join(server.get_connected_users())
-            welcome_message = str(response) + "\n" + "Connected users: " + connected_users
-            conn.sendall(bytes(welcome_message, "utf-8"))
+            # connected_users = ",".join(server.get_connected_users())
+            # welcome_message = str(response) + "\n" + "Connected users: " + connected_users
+            conn.sendall(bytes(str(response), "utf-8"))
         else:
             conn.sendall(bytes("Invalid Request", "utf-8"))
 

@@ -76,6 +76,7 @@ def main(args):
         v.add_subscriber(client)
         logger.debug(f"IRC Client is subscribed to the View (to receive user input)")
 
+
         async def inner_run():
             await asyncio.gather(
                 v.run(),
@@ -91,6 +92,4 @@ def main(args):
 
 
 if __name__ == "__main__":
-    # Parse your command line arguments here
-    args = None
-    main(args)
+    main()

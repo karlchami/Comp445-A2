@@ -274,13 +274,15 @@ class IRCServer:
 
 def main():
     # Parsing script arguments from CLI
-    parser = argparse.ArgumentParser()
-    parser.add_argument('-p', '--port', help='Target port to use', required=True)
-    args = vars(parser.parse_args())
+    # Hard coded port for simplicity (temp)
+    # parser = argparse.ArgumentParser()
+    # parser.add_argument('-p', '--port', help='Target port to use', required=True)
+    # args = vars(parser.parse_args())
 
     # IRC Server Config
     host = "localhost"
-    port = int(args['port'])
+    port = 9999 # hard coded port for simplicity
+    # port = int(args['port'])
 
     # Start up the IRC Server
     server = IRCServer(host, port)

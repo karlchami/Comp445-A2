@@ -6,3 +6,5 @@ DEBUG:asyncio:Using selector: EpollSelector
 DEBUG:root:Signifies end of process
 DEBUG:root:Exiting context and closing View object
 DEBUG:root:Closing IRC Client object
+INFO:root:Client object created
+INFO:root:Client object created

@@ -15,6 +15,7 @@ import logging
 
 import patterns
 import view
+import socket
 
 logging.basicConfig(filename='view.log', level=logging.DEBUG)
 logger = logging.getLogger()
@@ -54,10 +55,18 @@ class IRCClient(patterns.Subscriber):
         """
         Driver of your IRC Client
         """
+        c = socket.socket()
+        c.connect(("localhost", 9999))
+        print("Establishing connection...")
+        # command = input("Please enter your command: ") #View freezes with input command, user cannot enter anything
+        # c.send(bytes(command, "utf-8"))
+        # print("Got reply: ")
+        # print(c.recv(1024).decode())
+
         # Remove this section in your code, simply for illustration purposes
-        for x in range(10):
-            self.add_msg(f"call after View.loop: {x}")
-            await asyncio.sleep(2)
+        # for x in range(10):
+        #     self.add_msg(f"call after View.loop: {x}")
+        #     await asyncio.sleep(2)
 
     def close(self):
         # Terminate connection
@@ -92,4 +101,5 @@ def main(args):
 
 
 if __name__ == "__main__":
-    main()
+    args = None
+    main(args)

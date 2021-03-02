@@ -23,9 +23,9 @@ logger = logging.getLogger()
 
 class IRCClient(patterns.Subscriber):
 
-    def __init__(self):
+    def __init__(self,username):
         super().__init__()
-        self.username = str()
+        self.username = username
         self._run = True
 
     def set_view(self, view):
@@ -43,10 +43,13 @@ class IRCClient(patterns.Subscriber):
 
     def process_input(self, msg):
         # Will need to modify this
+
         self.add_msg(msg)
         if msg.lower().startswith('/quit'):
             # Command that leads to the closure of the process
             raise KeyboardInterrupt
+        else:
+            print(msg)
 
     def add_msg(self, msg):
         self.view.add_msg(self.username, msg)
@@ -55,17 +58,10 @@ class IRCClient(patterns.Subscriber):
         """
         Driver of your IRC Client
         """
-        c = socket.socket()
-        c.connect(("localhost", 9999))
-        print("Establishing connection...")
-        # command = input("Please enter your command: ") #View freezes with input command, user cannot enter anything
-        # c.send(bytes(command, "utf-8"))
-        # print("Got reply: ")
-        # print(c.recv(1024).decode())
 
         # Remove this section in your code, simply for illustration purposes
         # for x in range(10):
-        #     self.add_msg(f"call after View.loop: {x}")
+        #     self.process_input()
         #     await asyncio.sleep(2)
 
     def close(self):
@@ -76,7 +72,49 @@ class IRCClient(patterns.Subscriber):
 
 def main(args):
     # Pass your arguments where necessary
-    client = IRCClient()
+
+    loop = True
+    nick_in = None
+    username_in = None
+    hostname_in = None
+    portname_in = None
+    realname_in = None
+
+    c = socket.socket()
+    c.connect(("localhost", 9999))
+
+    while loop:
+        nick_in = input("Please enter your NICK: ")
+        c.send(bytes("NICK " + nick_in, "utf-8"))
+        print("Got reply: ")
+        nick_response = c.recv(1024).decode()
+        if nick_response == "Invalid Request":
+            print(nick_response)
+            print("Please enter valid Nick credentials")
+        else:
+            loop = False
+            print(f"NICK: %s, successfully registered." % (nick_in))
+
+    loop = True
+    while loop:
+        print("Please enter your USER credentials: ")
+        username_in = input("Please enter your Username: ")
+        hostname_in = input("Please enter your host name: ")
+        portname_in = input("Please enter your port name: ")
+        realname_in = input("Please enter your real name: ")
+
+        c.send(bytes(f"USER %s %s %s :%s" % (username_in,hostname_in,portname_in,realname_in), "utf-8"))
+        print("Got reply: ")
+        user_response = c.recv(1024).decode()
+        if user_response == "Invalid Request":
+            print(user_response)
+            print("Please enter valid user credentials")
+        else:
+            loop = False
+            print(user_response)
+            print(f"USER: %s %s %s :%s, successfully registered." % (username_in,hostname_in,portname_in,realname_in))
+
+    client = IRCClient(nick_in)
     logger.info(f"Client object created")
     with view.View() as v:
         logger.info(f"Entered the context of a View object")

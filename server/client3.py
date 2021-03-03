@@ -25,6 +25,8 @@ def receive_msg():
     while True:
         msg = c.recv(1024).decode()
         if not msg: sys.exit(0)
+        if "{'Command': 'PRIVMSG'," in msg:
+            continue
         print(msg)
 
 while True:

@@ -16,14 +16,23 @@ import logging
 import patterns
 import view
 import socket
+import time
 
 logging.basicConfig(filename='view.log', level=logging.DEBUG)
 logger = logging.getLogger()
 
+c = socket.socket()
+c.connect(("localhost", 9999))
+
 
 class IRCClient(patterns.Subscriber):
+    global nick_in
+    global username_in
+    global hostname_in
+    global portname_in
+    global realname_in
 
-    def __init__(self,username):
+    def __init__(self, username):
         super().__init__()
         self.username = username
         self._run = True
@@ -59,10 +68,11 @@ class IRCClient(patterns.Subscriber):
         Driver of your IRC Client
         """
 
-        # Remove this section in your code, simply for illustration purposes
-        # for x in range(10):
-        #     self.process_input()
-        #     await asyncio.sleep(2)
+        while True:
+            message = c.recv(1024).decode()
+            self.add_msg(message)
+            c.send(bytes("PRIVMSG #global :"+message, "utf-8"))
+            self.add_msg(message)
 
     def close(self):
         # Terminate connection
@@ -74,15 +84,6 @@ def main(args):
     # Pass your arguments where necessary
 
     loop = True
-    nick_in = None
-    username_in = None
-    hostname_in = None
-    portname_in = None
-    realname_in = None
-
-    c = socket.socket()
-    c.connect(("localhost", 9999))
-
     while loop:
         nick_in = input("Please enter your NICK: ")
         c.send(bytes("NICK " + nick_in, "utf-8"))
@@ -103,7 +104,7 @@ def main(args):
         portname_in = input("Please enter your port name: ")
         realname_in = input("Please enter your real name: ")
 
-        c.send(bytes(f"USER %s %s %s :%s" % (username_in,hostname_in,portname_in,realname_in), "utf-8"))
+        c.send(bytes(f"USER %s %s %s :%s" % (username_in, hostname_in, portname_in, realname_in), "utf-8"))
         print("Got reply: ")
         user_response = c.recv(1024).decode()
         if user_response == "Invalid Request":
@@ -112,7 +113,8 @@ def main(args):
         else:
             loop = False
             print(user_response)
-            print(f"USER: %s %s %s :%s, successfully registered." % (username_in,hostname_in,portname_in,realname_in))
+            print(
+                f"USER: %s %s %s :%s, successfully registered." % (username_in, hostname_in, portname_in, realname_in))
 
     client = IRCClient(nick_in)
     logger.info(f"Client object created")
@@ -122,7 +124,6 @@ def main(args):
         logger.debug(f"Passed View object to IRC Client")
         v.add_subscriber(client)
         logger.debug(f"IRC Client is subscribed to the View (to receive user input)")
-
 
         async def inner_run():
             await asyncio.gather(

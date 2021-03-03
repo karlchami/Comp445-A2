@@ -2,6 +2,8 @@ import socket
 import argparse
 import logging
 import re
+import threading
+import selectors
 from _thread import *
 
 # Initialize logger
@@ -274,18 +276,13 @@ class IRCServer:
 
 def main():
     # Parsing script arguments from CLI
-
-    #Temp disabled args for simplicity.
-    # parser = argparse.ArgumentParser()
-    # parser.add_argument('-p', '--port', help='Target port to use', required=True)
-    # args = vars(parser.parse_args())
-
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-p', '--port', help='Target port to use', required=True)
+    args = vars(parser.parse_args())
 
     # IRC Server Config
     host = "localhost"
-    port = 9999
-    # hard coded port for simplicity
-    # port = int(args['port'])
+    port = int(args['port'])
 
     # Start up the IRC Server
     server = IRCServer(host, port)
@@ -298,9 +295,17 @@ def main():
 
     print("Server connection established, waiting for users to connect")
 
+    # Listen to clients and manage threads
+    server_socket.listen()
+
+    # # while True:
+    # #     conn, address = server_socket.accept()
+    # #     start_new_thread(handle_user_commands, (server, conn))
+    #
     while True:
-        conn, address = server_socket.accept()
-        start_new_thread(handle_user_commands, (server, conn))
+        conn, addr = server_socket.accept()
+        thread = threading.Thread(target=handle_user_commands, args=(server, conn))
+        thread.start()
 
 
 if __name__ == '__main__':

@@ -3,8 +3,6 @@ import argparse
 import logging
 import re
 import threading
-import selectors
-from _thread import *
 
 # Initialize logger
 logging.basicConfig(filename="server.log", level=logging.DEBUG)
@@ -119,10 +117,10 @@ def who_cmd(decoded_request, server, client_connection, user_connection_info):
     match = decoded_request["Parameter1"][1:]
     matched_users = []
     for name in connected_users:
-        boolean = (match in name) or\
-                  (match in connected_users[name]["username"]) or\
-                  (match in connected_users[name]["fullname"]) or\
-                  (match in connected_users[name]["hostname"]) or\
+        boolean = (match in name) or \
+                  (match in connected_users[name]["username"]) or \
+                  (match in connected_users[name]["fullname"]) or \
+                  (match in connected_users[name]["hostname"]) or \
                   (match in connected_users[name]["servername"])
         if boolean and (name != user_connection_info.get_connection_object()[0]):
             matched_users.append(name)
@@ -225,7 +223,7 @@ class IRCServer:
         # Bind socket to host and port
         self.irc_socket.bind((self.host, self.port))
         # Avoid dropping any clients in a queue
-        self.irc_socket.listen(999)
+        self.irc_socket.listen(9999)
         return self.irc_socket
 
     def close_connection(self):
@@ -298,10 +296,6 @@ def main():
     # Listen to clients and manage threads
     server_socket.listen()
 
-    # # while True:
-    # #     conn, address = server_socket.accept()
-    # #     start_new_thread(handle_user_commands, (server, conn))
-    #
     while True:
         conn, addr = server_socket.accept()
         thread = threading.Thread(target=handle_user_commands, args=(server, conn))

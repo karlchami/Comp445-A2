@@ -1316,3 +1316,170 @@ DEBUG:asyncio:Using selector: KqueueSelector
 DEBUG:root:Signifies end of process
 DEBUG:root:Exiting context and closing View object
 DEBUG:root:Closing IRC Client object
+INFO:root:Client object created
+INFO:root:Entered the context of a View object
+DEBUG:root:Passed View object to IRC Client
+DEBUG:root:IRC Client is subscribed to the View (to receive user input)
+DEBUG:asyncio:Using selector: KqueueSelector
+DEBUG:root:Character int: 104
+DEBUG:root:Character int: 101
+DEBUG:root:Character int: 108
+DEBUG:root:Character int: 108
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 10
+DEBUG:root:Input line: hello
+INFO:root:IRCClient.update -> msg: hello
+DEBUG:root:Character int: 104
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 119
+DEBUG:root:Character int: 114
+DEBUG:root:Character int: 127
+DEBUG:root:Character int: 127
+DEBUG:root:Character int: 127
+DEBUG:root:Character int: 127
+DEBUG:root:Character int: 127
+DEBUG:root:Signifies end of process
+DEBUG:root:Exiting context and closing View object
+DEBUG:root:Closing IRC Client object
+INFO:root:Client object created
+INFO:root:Entered the context of a View object
+DEBUG:root:Passed View object to IRC Client
+DEBUG:root:IRC Client is subscribed to the View (to receive user input)
+DEBUG:asyncio:Using selector: KqueueSelector
+DEBUG:root:Character int: 104
+DEBUG:root:Character int: 101
+DEBUG:root:Character int: 108
+DEBUG:root:Character int: 108
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 10
+DEBUG:root:Input line: hello
+INFO:root:IRCClient.update -> msg: hello
+DEBUG:root:Character int: 410
+INFO:root:Client object created
+INFO:root:Entered the context of a View object
+DEBUG:root:Passed View object to IRC Client
+DEBUG:root:IRC Client is subscribed to the View (to receive user input)
+DEBUG:asyncio:Using selector: KqueueSelector
+DEBUG:root:Character int: 104
+DEBUG:root:Character int: 105
+DEBUG:root:Character int: 10
+DEBUG:root:Input line: hi
+INFO:root:IRCClient.update -> msg: hi
+DEBUG:root:Character int: 410
+DEBUG:root:Character int: 104
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 119
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 105
+DEBUG:root:Character int: 116
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 103
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 105
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 103
+DEBUG:root:Character int: 10
+DEBUG:root:Input line: hows it going
+INFO:root:IRCClient.update -> msg: hows it going
+DEBUG:root:Character int: 104
+DEBUG:root:Character int: 101
+DEBUG:root:Character int: 108
+DEBUG:root:Character int: 10
+DEBUG:root:Input line: hel
+INFO:root:IRCClient.update -> msg: hel
+DEBUG:root:Character int: 104
+DEBUG:root:Character int: 101
+DEBUG:root:Character int: 121
+DEBUG:root:Character int: 10
+DEBUG:root:Input line: hey
+INFO:root:IRCClient.update -> msg: hey
+DEBUG:root:Character int: 119
+DEBUG:root:Character int: 104
+DEBUG:root:Character int: 121
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 97
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 116
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 121
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 117
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 101
+DEBUG:root:Character int: 101
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 121
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 109
+DEBUG:root:Character int: 101
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 97
+DEBUG:root:Character int: 127
+DEBUG:root:Character int: 127
+DEBUG:root:Character int: 127
+DEBUG:root:Character int: 127
+DEBUG:root:Character int: 127
+DEBUG:root:Character int: 127
+DEBUG:root:Character int: 127
+DEBUG:root:Character int: 127
+DEBUG:root:Character int: 127
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 109
+DEBUG:root:Character int: 121
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 109
+DEBUG:root:Character int: 101
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 97
+DEBUG:root:Character int: 103
+DEBUG:root:Character int: 101
+DEBUG:root:Character int: 10
+DEBUG:root:Input line: why cant you se my message
+INFO:root:IRCClient.update -> msg: why cant you se my message
+DEBUG:root:Signifies end of process
+DEBUG:root:Exiting context and closing View object
+DEBUG:root:Closing IRC Client object
+INFO:root:Client object created
+INFO:root:Entered the context of a View object
+DEBUG:root:Passed View object to IRC Client
+DEBUG:root:IRC Client is subscribed to the View (to receive user input)
+DEBUG:asyncio:Using selector: KqueueSelector
+DEBUG:root:Character int: 104
+DEBUG:root:Character int: 105
+DEBUG:root:Character int: 10
+DEBUG:root:Input line: hi
+INFO:root:IRCClient.update -> msg: hi
+DEBUG:root:Signifies end of process
+DEBUG:root:Exiting context and closing View object
+DEBUG:root:Closing IRC Client object
+INFO:root:Client object created
+INFO:root:Entered the context of a View object
+DEBUG:root:Passed View object to IRC Client
+DEBUG:root:IRC Client is subscribed to the View (to receive user input)
+DEBUG:asyncio:Using selector: KqueueSelector
+DEBUG:root:Character int: 104
+DEBUG:root:Character int: 101
+DEBUG:root:Character int: 108
+DEBUG:root:Character int: 108
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 10
+DEBUG:root:Input line: hello
+INFO:root:IRCClient.update -> msg: hello
+DEBUG:root:Character int: 104
+DEBUG:root:Character int: 105
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 104
+DEBUG:root:Character int: 105
+DEBUG:root:Character int: 10
+DEBUG:root:Input line: hi hi
+INFO:root:IRCClient.update -> msg: hi hi
+DEBUG:root:Character int: 195
+DEBUG:root:Character int: 167
+DEBUG:root:Signifies end of process
+DEBUG:root:Exiting context and closing View object
+DEBUG:root:Closing IRC Client object

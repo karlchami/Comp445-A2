@@ -16,14 +16,15 @@ import logging
 import patterns
 import view
 import socket
+import sys
+import threading
 import time
 
 logging.basicConfig(filename='view.log', level=logging.DEBUG)
 logger = logging.getLogger()
 
-c = socket.socket()
+c = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 c.connect(("localhost", 9999))
-
 
 class IRCClient(patterns.Subscriber):
     global nick_in
@@ -63,16 +64,22 @@ class IRCClient(patterns.Subscriber):
     def add_msg(self, msg):
         self.view.add_msg(self.username, msg)
 
+    def receive_msg(self):
+        while True:
+            msg_recv = c.recv(1024).decode()
+            if not msg_recv: sys.exit(0)
+            if "{'Command': 'PRIVMSG'," in msg_recv:
+                continue
+            self.add_msg(msg_recv)
+
     async def run(self):
         """
         Driver of your IRC Client
         """
+        receive_thread = threading.Thread(target=self.receive_msg).start()
+        msg_sent = "Hello World!"
+        c.send(bytes(f"PRIVMSG #global :" + msg_sent, "utf-8"))
 
-        while True:
-            message = c.recv(1024).decode()
-            self.add_msg(message)
-            c.send(bytes("PRIVMSG #global :"+message, "utf-8"))
-            self.add_msg(message)
 
     def close(self):
         # Terminate connection

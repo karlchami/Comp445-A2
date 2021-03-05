@@ -18,6 +18,7 @@ import view
 import socket
 import ast
 from _thread import *
+import select
 
 logging.basicConfig(filename='view.log', level=logging.DEBUG)
 logger = logging.getLogger()
@@ -70,7 +71,10 @@ class IRCClient(patterns.Subscriber):
         if "Joined" in nick_decoded_message["Response_Status"] or "Joined" in user_decoded_response_message["Response_Status"]:
             self.isConnected = True
             self.add_prompt_msg(f"User {self.nickname} successfully joined #global channel")
-            # start_new_thread(self.listen_chat())
+            try:
+                start_new_thread(self.listen_chat())
+            except Exception as e:
+                logger.info(str(e))
         elif "Fail" in nick_decoded_message["Response_Status"] or "Fail" in user_decoded_response_message["Response_Status"]:
             self.add_user_msg("Wrong prompt parameters or potential duplicate")
 
@@ -100,7 +104,7 @@ class IRCClient(patterns.Subscriber):
                 self.create_user_connection()
         elif msg.lower().startswith("/msg") and self.isConnected:
             self.add_msg(msg[5:])
-            # self.send_chat_message(msg)
+            self.send_chat_message(msg[5:])
 
         if msg.lower().startswith('/quit'):
             # Command that leads to the closure of the process
@@ -112,8 +116,26 @@ class IRCClient(patterns.Subscriber):
 
     def listen_chat(self):
         while True:
-            message = self.server_socket.recv(1024).decode()
-            self.add_user_msg(message)
+
+            # maintains a list of possible input streams
+            sockets_list = [self.server_socket]
+
+            """ There are two possible input situations. Either the  
+            user wants to give manual input to send to other people,  
+            or the server is sending a message to be printed on the  
+            screen. Select returns from sockets_list, the stream that  
+            is reader for input. So for example, if the server wants  
+            to send a message, then the if condition will hold true  
+            below.If the user wants to send a message, the else  
+            condition will evaluate as true"""
+            read_sockets, write_socket, error_socket = select.select(sockets_list, [], [])
+            logger.info("Started listening thread")
+            for socks in read_sockets:
+                if socks == self.server_socket:
+                    message = socks.recv(2048)
+                    self.add_user_msg(message)
+                else:
+                    pass
 
     def add_user_msg(self, msg):
         self.view.add_msg("Someuser", msg)

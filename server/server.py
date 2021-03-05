@@ -75,7 +75,7 @@ def nick_cmd(decoded_request, server, client_connection, user_connection_info):
             if not server.connection_exist(client_connection):
                 info = user_connection_info.get_connection_object()
                 if server.add_connected_user(info[0], info[1]):
-                    return response_builder(decoded_request, "Success", "User " + info[0] + " joined global channel")
+                    return response_builder(decoded_request, "Joined", "User " + info[0] + " joined global channel")
             else:
                 return response_builder(decoded_request, "Fail", "User session already connected")
         return response_builder(decoded_request, "Success", "Successfully registered username")
@@ -97,7 +97,7 @@ def user_cmd(decoded_request, server, client_connection, user_connection_info):
         if not server.connection_exist(client_connection):
             info = user_connection_info.get_connection_object()
             if server.add_connected_user(info[0], info[1]):
-                return response_builder(decoded_request, "Success", "User " + info[0] + " joined global channel")
+                return response_builder(decoded_request, "Joined", "User " + info[0] + " joined global channel")
     else:
         return response_builder(decoded_request, "Success", "Successfully registered user info")
     return response_builder(decoded_request, "Fail", "An error has occurred")

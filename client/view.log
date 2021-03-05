@@ -640,3 +640,2201 @@ DEBUG:root:Character int: 10
 DEBUG:root:Input line: 
 DEBUG:root:Signifies end of process
 DEBUG:root:Exiting context and closing View object
+INFO:root:Client object created
+INFO:root:Entered the context of a View object
+DEBUG:root:Passed View object to IRC Client
+DEBUG:root:IRC Client is subscribed to the View (to receive user input)
+DEBUG:asyncio:Using selector: EpollSelector
+DEBUG:root:Character int: 100
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 97
+DEBUG:root:Character int: 10
+DEBUG:root:Input line: dsa
+INFO:root:IRCClient.update -> msg: dsa
+DEBUG:root:Character int: 47
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 101
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 116
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 107
+DEBUG:root:Character int: 97
+DEBUG:root:Character int: 114
+DEBUG:root:Character int: 108
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 104
+DEBUG:root:Character int: 97
+DEBUG:root:Character int: 109
+DEBUG:root:Character int: 105
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 107
+DEBUG:root:Character int: 97
+DEBUG:root:Character int: 114
+DEBUG:root:Character int: 127
+DEBUG:root:Character int: 114
+DEBUG:root:Character int: 108
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 75
+DEBUG:root:Character int: 97
+DEBUG:root:Character int: 114
+DEBUG:root:Character int: 108
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 108
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 97
+DEBUG:root:Character int: 108
+DEBUG:root:Character int: 104
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 116
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 101
+DEBUG:root:Character int: 114
+DEBUG:root:Character int: 118
+DEBUG:root:Character int: 101
+DEBUG:root:Character int: 114
+DEBUG:root:Character int: 10
+DEBUG:root:Input line: /connect karlchami karl Karl localhost server
+INFO:root:IRCClient.update -> msg: /connect karlchami karl Karl localhost server
+INFO:root:Attempting connection to localhost on port 9999
+INFO:root:Connected to server socket
+INFO:root:{'Command': 'NICK', 'Parameter1': 'karlchami', 'Response_Status': 'Success', 'Response_Message': 'Successfully registered username'}
+INFO:root:{'Command': 'USER', 'Parameter1': 'karl', 'Parameter2': 'localhost', 'Parameter3': 'server', 'Parameter4': 'Karl', 'Response_Status': 'Success', 'Response_Message': 'User karlchami joined global channel'}
+INFO:root:Client object created
+INFO:root:Entered the context of a View object
+DEBUG:root:Passed View object to IRC Client
+DEBUG:root:IRC Client is subscribed to the View (to receive user input)
+DEBUG:asyncio:Using selector: EpollSelector
+DEBUG:root:Character int: 47
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 101
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 116
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 106
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 104
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 121
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 106
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 104
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 74
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 103
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 108
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 97
+DEBUG:root:Character int: 108
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 101
+DEBUG:root:Character int: 114
+DEBUG:root:Character int: 118
+DEBUG:root:Character int: 101
+DEBUG:root:Character int: 114
+DEBUG:root:Character int: 10
+DEBUG:root:Input line: /connect johnny john Jogn local server
+INFO:root:IRCClient.update -> msg: /connect johnny john Jogn local server
+INFO:root:Attempting connection to local on port 9999
+DEBUG:root:Exiting context and closing View object
+DEBUG:root:KeyboardInterrupt detected within the view
+DEBUG:root:Signifies end of process
+DEBUG:root:Exiting context and closing View object
+INFO:root:Client object created
+INFO:root:Entered the context of a View object
+DEBUG:root:Passed View object to IRC Client
+DEBUG:root:IRC Client is subscribed to the View (to receive user input)
+DEBUG:asyncio:Using selector: EpollSelector
+DEBUG:root:Character int: 47
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 101
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 116
+DEBUG:root:Character int: 10
+DEBUG:root:Input line: /connect
+INFO:root:IRCClient.update -> msg: /connect
+DEBUG:root:Character int: 47
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 101
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 116
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 107
+DEBUG:root:Character int: 97
+DEBUG:root:Character int: 108
+DEBUG:root:Character int: 114
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 104
+DEBUG:root:Character int: 127
+DEBUG:root:Character int: 127
+DEBUG:root:Character int: 127
+DEBUG:root:Character int: 127
+DEBUG:root:Character int: 114
+DEBUG:root:Character int: 108
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 104
+DEBUG:root:Character int: 97
+DEBUG:root:Character int: 109
+DEBUG:root:Character int: 105
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 107
+DEBUG:root:Character int: 97
+DEBUG:root:Character int: 114
+DEBUG:root:Character int: 108
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 75
+DEBUG:root:Character int: 97
+DEBUG:root:Character int: 114
+DEBUG:root:Character int: 108
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 108
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 97
+DEBUG:root:Character int: 108
+DEBUG:root:Character int: 104
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 116
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 101
+DEBUG:root:Character int: 114
+DEBUG:root:Character int: 118
+DEBUG:root:Character int: 101
+DEBUG:root:Character int: 114
+DEBUG:root:Character int: 10
+DEBUG:root:Input line: /connect karlchami karl Karl localhost server
+INFO:root:IRCClient.update -> msg: /connect karlchami karl Karl localhost server
+INFO:root:Attempting connection to localhost on port 9999
+INFO:root:Connected to server socket
+INFO:root:{'Command': 'NICK', 'Parameter1': 'karlchami', 'Response_Status': 'Success', 'Response_Message': 'Successfully registered username'}
+INFO:root:{'Command': 'USER', 'Parameter1': 'karl', 'Parameter2': 'localhost', 'Parameter3': 'server', 'Parameter4': 'Karl', 'Response_Status': 'Success', 'Response_Message': 'User karlchami joined global channel'}
+INFO:root:Client object created
+INFO:root:Entered the context of a View object
+DEBUG:root:Passed View object to IRC Client
+DEBUG:root:IRC Client is subscribed to the View (to receive user input)
+DEBUG:asyncio:Using selector: EpollSelector
+DEBUG:root:Character int: 47
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 101
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 116
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 106
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 104
+DEBUG:root:Character int: 127
+DEBUG:root:Character int: 127
+DEBUG:root:Character int: 104
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 106
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 104
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 121
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 74
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 103
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 127
+DEBUG:root:Character int: 127
+DEBUG:root:Character int: 127
+DEBUG:root:Character int: 104
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 108
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 97
+DEBUG:root:Character int: 108
+DEBUG:root:Character int: 104
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 116
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 108
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 120
+DEBUG:root:Character int: 127
+DEBUG:root:Character int: 127
+DEBUG:root:Character int: 127
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 97
+DEBUG:root:Character int: 108
+DEBUG:root:Character int: 10
+DEBUG:root:Input line: /connect john johnny John localhost lcal
+INFO:root:IRCClient.update -> msg: /connect john johnny John localhost lcal
+INFO:root:Attempting connection to localhost on port 9999
+INFO:root:Connected to server socket
+INFO:root:{'Command': 'NICK', 'Parameter1': 'john', 'Response_Status': 'Success', 'Response_Message': 'Successfully registered username'}
+INFO:root:{'Command': 'USER', 'Parameter1': 'johnny', 'Parameter2': 'localhost', 'Parameter3': 'lcal', 'Parameter4': 'John', 'Response_Status': 'Success', 'Response_Message': 'User john joined global channel'}
+DEBUG:root:Character int: 47
+DEBUG:root:Character int: 410
+DEBUG:root:Character int: 410
+DEBUG:root:Signifies end of process
+DEBUG:root:Exiting context and closing View object
+DEBUG:root:Signifies end of process
+DEBUG:root:Exiting context and closing View object
+INFO:root:Client object created
+INFO:root:Entered the context of a View object
+DEBUG:root:Passed View object to IRC Client
+DEBUG:root:IRC Client is subscribed to the View (to receive user input)
+DEBUG:asyncio:Using selector: EpollSelector
+INFO:root:Client object created
+INFO:root:Entered the context of a View object
+DEBUG:root:Passed View object to IRC Client
+DEBUG:root:IRC Client is subscribed to the View (to receive user input)
+DEBUG:asyncio:Using selector: EpollSelector
+DEBUG:root:Character int: 102
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 100
+DEBUG:root:Character int: 106
+DEBUG:root:Character int: 107
+DEBUG:root:Character int: 108
+DEBUG:root:Character int: 59
+DEBUG:root:Character int: 102
+DEBUG:root:Character int: 10
+DEBUG:root:Input line: fsdjkl;f
+INFO:root:IRCClient.update -> msg: fsdjkl;f
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 102
+DEBUG:root:Character int: 107
+DEBUG:root:Character int: 108
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 104
+DEBUG:root:Character int: 102
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 107
+DEBUG:root:Character int: 108
+DEBUG:root:Character int: 10
+DEBUG:root:Input line: sfklshfskl
+INFO:root:IRCClient.update -> msg: sfklshfskl
+DEBUG:root:Character int: 47
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 101
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 116
+DEBUG:root:Character int: 10
+DEBUG:root:Input line: /connect
+INFO:root:IRCClient.update -> msg: /connect
+DEBUG:root:Character int: 102
+DEBUG:root:Character int: 108
+DEBUG:root:Character int: 59
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 100
+DEBUG:root:Character int: 106
+DEBUG:root:Character int: 102
+DEBUG:root:Character int: 10
+DEBUG:root:Input line: fl;sdjf
+INFO:root:IRCClient.update -> msg: fl;sdjf
+DEBUG:root:Character int: 47
+DEBUG:root:Character int: 113
+DEBUG:root:Character int: 117
+DEBUG:root:Character int: 105
+DEBUG:root:Character int: 116
+DEBUG:root:Character int: 10
+DEBUG:root:Input line: /quit
+INFO:root:IRCClient.update -> msg: /quit
+DEBUG:root:KeyboardInterrupt detected within the view
+DEBUG:root:Signifies end of process
+DEBUG:root:Exiting context and closing View object
+INFO:root:Client object created
+INFO:root:Entered the context of a View object
+DEBUG:root:Passed View object to IRC Client
+DEBUG:root:IRC Client is subscribed to the View (to receive user input)
+DEBUG:asyncio:Using selector: EpollSelector
+DEBUG:root:Character int: 47
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 101
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 116
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 107
+DEBUG:root:Character int: 97
+DEBUG:root:Character int: 114
+DEBUG:root:Character int: 108
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 104
+DEBUG:root:Character int: 97
+DEBUG:root:Character int: 109
+DEBUG:root:Character int: 105
+DEBUG:root:Character int: 127
+DEBUG:root:Character int: 127
+DEBUG:root:Character int: 127
+DEBUG:root:Character int: 127
+DEBUG:root:Character int: 127
+DEBUG:root:Character int: 49
+DEBUG:root:Character int: 50
+DEBUG:root:Character int: 51
+DEBUG:root:Character int: 49
+DEBUG:root:Character int: 50
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 107
+DEBUG:root:Character int: 97
+DEBUG:root:Character int: 114
+DEBUG:root:Character int: 108
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 104
+DEBUG:root:Character int: 97
+DEBUG:root:Character int: 109
+DEBUG:root:Character int: 105
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 75
+DEBUG:root:Character int: 97
+DEBUG:root:Character int: 114
+DEBUG:root:Character int: 108
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 108
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 97
+DEBUG:root:Character int: 108
+DEBUG:root:Character int: 104
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 116
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 109
+DEBUG:root:Character int: 121
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 109
+DEBUG:root:Character int: 112
+DEBUG:root:Character int: 117
+DEBUG:root:Character int: 116
+DEBUG:root:Character int: 101
+DEBUG:root:Character int: 114
+DEBUG:root:Character int: 10
+DEBUG:root:Input line: /connect karl12312 karlchami Karl localhost mycomputer
+INFO:root:IRCClient.update -> msg: /connect karl12312 karlchami Karl localhost mycomputer
+INFO:root:Attempting connection to localhost on port 9999
+INFO:root:Connected to server socket
+INFO:root:{'Command': 'NICK', 'Parameter1': 'karl12312', 'Response_Status': 'Success', 'Response_Message': 'Successfully registered username'}
+INFO:root:{'Command': 'USER', 'Parameter1': 'karlchami', 'Parameter2': 'localhost', 'Parameter3': 'mycomputer', 'Parameter4': 'Karl', 'Response_Status': 'Success', 'Response_Message': 'User karl12312 joined global channel'}
+DEBUG:root:Character int: 102
+DEBUG:root:Character int: 107
+DEBUG:root:Character int: 108
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 10
+DEBUG:root:Input line: fkls
+INFO:root:IRCClient.update -> msg: fkls
+DEBUG:root:Exiting context and closing View object
+INFO:root:Client object created
+INFO:root:Entered the context of a View object
+DEBUG:root:Passed View object to IRC Client
+DEBUG:root:IRC Client is subscribed to the View (to receive user input)
+DEBUG:asyncio:Using selector: EpollSelector
+DEBUG:root:Signifies end of process
+DEBUG:root:Exiting context and closing View object
+DEBUG:root:Signifies end of process
+DEBUG:root:Exiting context and closing View object
+INFO:root:Client object created
+INFO:root:Entered the context of a View object
+DEBUG:root:Passed View object to IRC Client
+DEBUG:root:IRC Client is subscribed to the View (to receive user input)
+DEBUG:asyncio:Using selector: EpollSelector
+DEBUG:root:Character int: 47
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 101
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 116
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 107
+DEBUG:root:Character int: 97
+DEBUG:root:Character int: 114
+DEBUG:root:Character int: 108
+DEBUG:root:Character int: 49
+DEBUG:root:Character int: 50
+DEBUG:root:Character int: 51
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 107
+DEBUG:root:Character int: 97
+DEBUG:root:Character int: 114
+DEBUG:root:Character int: 108
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 104
+DEBUG:root:Character int: 97
+DEBUG:root:Character int: 109
+DEBUG:root:Character int: 105
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 75
+DEBUG:root:Character int: 97
+DEBUG:root:Character int: 114
+DEBUG:root:Character int: 108
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 108
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 97
+DEBUG:root:Character int: 108
+DEBUG:root:Character int: 104
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 116
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 101
+DEBUG:root:Character int: 114
+DEBUG:root:Character int: 118
+DEBUG:root:Character int: 127
+DEBUG:root:Character int: 127
+DEBUG:root:Character int: 127
+DEBUG:root:Character int: 127
+DEBUG:root:Character int: 127
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 109
+DEBUG:root:Character int: 121
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 101
+DEBUG:root:Character int: 114
+DEBUG:root:Character int: 118
+DEBUG:root:Character int: 101
+DEBUG:root:Character int: 114
+DEBUG:root:Character int: 10
+DEBUG:root:Input line: /connect karl123 karlchami Karl localhost myserver
+INFO:root:IRCClient.update -> msg: /connect karl123 karlchami Karl localhost myserver
+INFO:root:Attempting connection to localhost on port 9999
+INFO:root:Connected to server socket
+INFO:root:{'Command': 'NICK', 'Parameter1': 'karl123', 'Response_Status': 'Success', 'Response_Message': 'Successfully registered username'}
+INFO:root:{'Command': 'USER', 'Parameter1': 'karlchami', 'Parameter2': 'localhost', 'Parameter3': 'myserver', 'Parameter4': 'Karl', 'Response_Status': 'Success', 'Response_Message': 'User karl123 joined global channel'}
+DEBUG:root:Character int: 100
+DEBUG:root:Character int: 102
+DEBUG:root:Character int: 10
+DEBUG:root:Input line: df
+INFO:root:IRCClient.update -> msg: df
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 100
+DEBUG:root:Character int: 102
+DEBUG:root:Character int: 107
+DEBUG:root:Character int: 108
+DEBUG:root:Character int: 104
+DEBUG:root:Character int: 10
+DEBUG:root:Input line: sdfklh
+INFO:root:IRCClient.update -> msg: sdfklh
+DEBUG:root:Character int: 108
+DEBUG:root:Character int: 107
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 104
+DEBUG:root:Character int: 100
+DEBUG:root:Character int: 10
+DEBUG:root:Input line: lkshd
+INFO:root:IRCClient.update -> msg: lkshd
+DEBUG:root:Character int: 107
+DEBUG:root:Character int: 108
+DEBUG:root:Character int: 104
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 100
+DEBUG:root:Character int: 10
+DEBUG:root:Input line: klhsd
+INFO:root:IRCClient.update -> msg: klhsd
+INFO:root:Client object created
+INFO:root:Entered the context of a View object
+DEBUG:root:Passed View object to IRC Client
+DEBUG:root:IRC Client is subscribed to the View (to receive user input)
+DEBUG:asyncio:Using selector: EpollSelector
+DEBUG:root:Character int: 47
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 101
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 116
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 106
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 127
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 104
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 106
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 104
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 121
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 74
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 104
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 108
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 97
+DEBUG:root:Character int: 108
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 101
+DEBUG:root:Character int: 114
+DEBUG:root:Character int: 118
+DEBUG:root:Character int: 101
+DEBUG:root:Character int: 114
+DEBUG:root:Character int: 10
+DEBUG:root:Input line: /connect john johnny John local server
+INFO:root:IRCClient.update -> msg: /connect john johnny John local server
+INFO:root:Attempting connection to local on port 9999
+DEBUG:root:Exiting context and closing View object
+INFO:root:Client object created
+INFO:root:Entered the context of a View object
+DEBUG:root:Passed View object to IRC Client
+DEBUG:root:IRC Client is subscribed to the View (to receive user input)
+DEBUG:asyncio:Using selector: EpollSelector
+DEBUG:root:Character int: 47
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 101
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 116
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 102
+DEBUG:root:Character int: 100
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 102
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 100
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 102
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 100
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 102
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 102
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 10
+DEBUG:root:Input line: /connect fd sfsd sfsd sfs sfs
+INFO:root:IRCClient.update -> msg: /connect fd sfsd sfsd sfs sfs
+INFO:root:Attempting connection to sfs on port 9999
+DEBUG:root:Exiting context and closing View object
+INFO:root:Client object created
+INFO:root:Entered the context of a View object
+DEBUG:root:Passed View object to IRC Client
+DEBUG:root:IRC Client is subscribed to the View (to receive user input)
+DEBUG:asyncio:Using selector: EpollSelector
+DEBUG:root:Signifies end of process
+DEBUG:root:Exiting context and closing View object
+DEBUG:root:Character int: 47
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 101
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 116
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 102
+DEBUG:root:Character int: 100
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 102
+DEBUG:root:Character int: 100
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 102
+DEBUG:root:Character int: 100
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 102
+DEBUG:root:Character int: 100
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 102
+DEBUG:root:Character int: 10
+DEBUG:root:Input line: /connect fd fds sfd sfd sf
+INFO:root:IRCClient.update -> msg: /connect fd fds sfd sfd sf
+INFO:root:Attempting connection to sfd on port 9999
+DEBUG:root:Exiting context and closing View object
+INFO:root:Client object created
+INFO:root:Entered the context of a View object
+DEBUG:root:Passed View object to IRC Client
+DEBUG:root:IRC Client is subscribed to the View (to receive user input)
+DEBUG:asyncio:Using selector: EpollSelector
+DEBUG:root:Character int: 47
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 101
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 116
+DEBUG:root:Character int: 32
+DEBUG:root:Signifies end of process
+DEBUG:root:Exiting context and closing View object
+INFO:root:Client object created
+INFO:root:Entered the context of a View object
+DEBUG:root:Passed View object to IRC Client
+DEBUG:root:IRC Client is subscribed to the View (to receive user input)
+DEBUG:asyncio:Using selector: EpollSelector
+DEBUG:root:Character int: 47
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 101
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 116
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 102
+DEBUG:root:Character int: 100
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 102
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 100
+DEBUG:root:Character int: 102
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 100
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 100
+DEBUG:root:Character int: 102
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 100
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 100
+DEBUG:root:Character int: 102
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 100
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 100
+DEBUG:root:Character int: 102
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 10
+DEBUG:root:Input line: /connect fdsf sdfsd sdfsd sdfsd sdfs
+INFO:root:IRCClient.update -> msg: /connect fdsf sdfsd sdfsd sdfsd sdfs
+INFO:root:Attempting connection to sdfsd on port 9999
+DEBUG:root:Exiting context and closing View object
+INFO:root:Client object created
+INFO:root:Entered the context of a View object
+DEBUG:root:Passed View object to IRC Client
+DEBUG:root:IRC Client is subscribed to the View (to receive user input)
+DEBUG:asyncio:Using selector: EpollSelector
+DEBUG:root:Character int: 47
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 101
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 116
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 107
+DEBUG:root:Character int: 97
+DEBUG:root:Character int: 114
+DEBUG:root:Character int: 108
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 104
+DEBUG:root:Character int: 97
+DEBUG:root:Character int: 109
+DEBUG:root:Character int: 105
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 107
+DEBUG:root:Character int: 97
+DEBUG:root:Character int: 114
+DEBUG:root:Character int: 108
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 104
+DEBUG:root:Character int: 97
+DEBUG:root:Character int: 109
+DEBUG:root:Character int: 105
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 108
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 97
+DEBUG:root:Character int: 108
+DEBUG:root:Character int: 104
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 116
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 101
+DEBUG:root:Character int: 114
+DEBUG:root:Character int: 118
+DEBUG:root:Character int: 101
+DEBUG:root:Character int: 114
+DEBUG:root:Character int: 10
+DEBUG:root:Input line: /connect karlchami karl chami localhost server
+INFO:root:IRCClient.update -> msg: /connect karlchami karl chami localhost server
+INFO:root:Attempting connection to localhost on port 9999
+INFO:root:Connected to server socket
+INFO:root:{'Command': 'NICK', 'Parameter1': 'karlchami', 'Response_Status': 'Success', 'Response_Message': 'Successfully registered username'}
+INFO:root:{'Command': 'USER', 'Parameter1': 'karl', 'Parameter2': 'localhost', 'Parameter3': 'server', 'Parameter4': 'chami', 'Response_Status': 'Success', 'Response_Message': 'User karlchami joined global channel'}
+INFO:root:Client object created
+INFO:root:Entered the context of a View object
+DEBUG:root:Passed View object to IRC Client
+DEBUG:root:IRC Client is subscribed to the View (to receive user input)
+DEBUG:asyncio:Using selector: EpollSelector
+DEBUG:root:Character int: 47
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 101
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 116
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 106
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 104
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 106
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 104
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 121
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 74
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 104
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 108
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 97
+DEBUG:root:Character int: 108
+DEBUG:root:Character int: 104
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 116
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 101
+DEBUG:root:Character int: 114
+DEBUG:root:Character int: 118
+DEBUG:root:Character int: 101
+DEBUG:root:Character int: 114
+DEBUG:root:Character int: 10
+DEBUG:root:Input line: /connect john johnny John localhost server
+INFO:root:IRCClient.update -> msg: /connect john johnny John localhost server
+INFO:root:Attempting connection to localhost on port 9999
+INFO:root:Connected to server socket
+INFO:root:{'Command': 'NICK', 'Parameter1': 'john', 'Response_Status': 'Success', 'Response_Message': 'Successfully registered username'}
+INFO:root:{'Command': 'USER', 'Parameter1': 'johnny', 'Parameter2': 'localhost', 'Parameter3': 'server', 'Parameter4': 'John', 'Response_Status': 'Success', 'Response_Message': 'User john joined global channel'}
+DEBUG:root:Character int: 47
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 101
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 116
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 107
+DEBUG:root:Character int: 97
+DEBUG:root:Character int: 114
+DEBUG:root:Character int: 108
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 104
+DEBUG:root:Character int: 97
+DEBUG:root:Character int: 109
+DEBUG:root:Character int: 105
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 107
+DEBUG:root:Character int: 97
+DEBUG:root:Character int: 114
+DEBUG:root:Character int: 127
+DEBUG:root:Character int: 127
+DEBUG:root:Character int: 127
+DEBUG:root:Character int: 74
+DEBUG:root:Character int: 127
+DEBUG:root:Character int: 82
+DEBUG:root:Character int: 105
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 107
+DEBUG:root:Character int: 121
+DEBUG:root:Character int: 127
+DEBUG:root:Character int: 127
+DEBUG:root:Character int: 127
+DEBUG:root:Character int: 127
+DEBUG:root:Character int: 127
+DEBUG:root:Character int: 114
+DEBUG:root:Character int: 105
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 107
+DEBUG:root:Character int: 121
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 82
+DEBUG:root:Character int: 105
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 107
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 108
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 97
+DEBUG:root:Character int: 108
+DEBUG:root:Character int: 104
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 116
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 101
+DEBUG:root:Character int: 114
+DEBUG:root:Character int: 118
+DEBUG:root:Character int: 101
+DEBUG:root:Character int: 114
+DEBUG:root:Character int: 10
+DEBUG:root:Input line: /connect karlchami ricky Rick localhost server
+INFO:root:IRCClient.update -> msg: /connect karlchami ricky Rick localhost server
+INFO:root:{'Command': 'NICK', 'Parameter1': 'karlchami', 'Response_Status': 'Fail', 'Response_Message': 'An error has occurred'}
+INFO:root:{'Command': 'USER', 'Parameter1': 'ricky', 'Parameter2': 'localhost', 'Parameter3': 'server', 'Parameter4': 'Rick', 'Response_Status': 'Fail', 'Response_Message': 'An error has occurred'}
+DEBUG:root:Signifies end of process
+DEBUG:root:Exiting context and closing View object
+INFO:root:Client object created
+INFO:root:Entered the context of a View object
+DEBUG:root:Passed View object to IRC Client
+DEBUG:root:IRC Client is subscribed to the View (to receive user input)
+DEBUG:asyncio:Using selector: EpollSelector
+DEBUG:root:Character int: 47
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 105
+DEBUG:root:Character int: 127
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 101
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 116
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 107
+DEBUG:root:Character int: 97
+DEBUG:root:Character int: 108
+DEBUG:root:Character int: 114
+DEBUG:root:Character int: 127
+DEBUG:root:Character int: 127
+DEBUG:root:Character int: 114
+DEBUG:root:Character int: 108
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 107
+DEBUG:root:Character int: 97
+DEBUG:root:Character int: 114
+DEBUG:root:Character int: 108
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 107
+DEBUG:root:Character int: 97
+DEBUG:root:Character int: 114
+DEBUG:root:Character int: 108
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 108
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 97
+DEBUG:root:Character int: 108
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 104
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 116
+DEBUG:root:Character int: 10
+DEBUG:root:Input line: /connect karl karl karl local host
+INFO:root:IRCClient.update -> msg: /connect karl karl karl local host
+INFO:root:Attempting connection to local on port 9999
+DEBUG:root:Exiting context and closing View object
+INFO:root:Client object created
+INFO:root:Entered the context of a View object
+DEBUG:root:Passed View object to IRC Client
+DEBUG:root:IRC Client is subscribed to the View (to receive user input)
+DEBUG:asyncio:Using selector: EpollSelector
+DEBUG:root:Character int: 47
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 101
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 116
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 107
+DEBUG:root:Character int: 97
+DEBUG:root:Character int: 114
+DEBUG:root:Character int: 108
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 104
+DEBUG:root:Character int: 97
+DEBUG:root:Character int: 109
+DEBUG:root:Character int: 105
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 107
+DEBUG:root:Character int: 97
+DEBUG:root:Character int: 114
+DEBUG:root:Character int: 108
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 75
+DEBUG:root:Character int: 97
+DEBUG:root:Character int: 114
+DEBUG:root:Character int: 108
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 108
+DEBUG:root:Character int: 108
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 127
+DEBUG:root:Character int: 127
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 97
+DEBUG:root:Character int: 108
+DEBUG:root:Character int: 104
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 116
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 101
+DEBUG:root:Character int: 114
+DEBUG:root:Character int: 118
+DEBUG:root:Character int: 101
+DEBUG:root:Character int: 114
+DEBUG:root:Character int: 10
+DEBUG:root:Input line: /connect karlchami karl Karl localhost server
+INFO:root:IRCClient.update -> msg: /connect karlchami karl Karl localhost server
+INFO:root:Attempting connection to localhost on port 9999
+INFO:root:Connected to server socket
+INFO:root:{'Command': 'NICK', 'Parameter1': 'karlchami', 'Response_Status': 'Success', 'Response_Message': 'Successfully registered username'}
+INFO:root:{'Command': 'USER', 'Parameter1': 'karl', 'Parameter2': 'localhost', 'Parameter3': 'server', 'Parameter4': 'Karl', 'Response_Status': 'Success', 'Response_Message': 'User karlchami joined global channel'}
+DEBUG:root:Character int: 47
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 101
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 116
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 107
+DEBUG:root:Character int: 97
+DEBUG:root:Character int: 114
+DEBUG:root:Character int: 108
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 107
+DEBUG:root:Character int: 97
+DEBUG:root:Character int: 114
+DEBUG:root:Character int: 108
+DEBUG:root:Character int: 105
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 75
+DEBUG:root:Character int: 97
+DEBUG:root:Character int: 114
+DEBUG:root:Character int: 108
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 108
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 97
+DEBUG:root:Character int: 108
+DEBUG:root:Character int: 104
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 116
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 101
+DEBUG:root:Character int: 114
+DEBUG:root:Character int: 118
+DEBUG:root:Character int: 101
+DEBUG:root:Character int: 114
+DEBUG:root:Character int: 10
+DEBUG:root:Input line: /connect karl karlio Karl localhost server
+INFO:root:IRCClient.update -> msg: /connect karl karlio Karl localhost server
+INFO:root:{'Command': 'NICK', 'Parameter1': 'karl', 'Response_Status': 'Fail', 'Response_Message': 'User session already connected'}
+INFO:root:{'Command': 'USER', 'Parameter1': 'karlio', 'Parameter2': 'localhost', 'Parameter3': 'server', 'Parameter4': 'Karl', 'Response_Status': 'Fail', 'Response_Message': 'An error has occurred'}
+DEBUG:root:Character int: 102
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 100
+DEBUG:root:Character int: 102
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 10
+DEBUG:root:Input line: fsdfs
+INFO:root:IRCClient.update -> msg: fsdfs
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 102
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 10
+DEBUG:root:Input line: sfs
+INFO:root:IRCClient.update -> msg: sfs
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 100
+DEBUG:root:Character int: 102
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 10
+DEBUG:root:Input line: sdfs
+INFO:root:IRCClient.update -> msg: sdfs
+DEBUG:root:Character int: 10
+DEBUG:root:Input line: 
+DEBUG:root:Character int: 108
+DEBUG:root:Character int: 107
+DEBUG:root:Character int: 104
+DEBUG:root:Character int: 102
+DEBUG:root:Character int: 100
+DEBUG:root:Character int: 103
+DEBUG:root:Character int: 10
+DEBUG:root:Input line: lkhfdg
+INFO:root:IRCClient.update -> msg: lkhfdg
+DEBUG:root:Character int: 47
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 105
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 127
+DEBUG:root:Character int: 127
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 101
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 116
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 97
+DEBUG:root:Character int: 100
+DEBUG:root:Character int: 10
+DEBUG:root:Input line: /connect ad
+INFO:root:IRCClient.update -> msg: /connect ad
+DEBUG:root:Character int: 103
+DEBUG:root:Character int: 102
+DEBUG:root:Character int: 103
+DEBUG:root:Character int: 100
+DEBUG:root:Character int: 103
+DEBUG:root:Character int: 100
+DEBUG:root:Character int: 10
+DEBUG:root:Input line: gfgdgd
+INFO:root:IRCClient.update -> msg: gfgdgd
+DEBUG:root:Character int: 103
+DEBUG:root:Character int: 100
+DEBUG:root:Character int: 102
+DEBUG:root:Character int: 103
+DEBUG:root:Character int: 100
+DEBUG:root:Character int: 102
+DEBUG:root:Character int: 10
+DEBUG:root:Input line: gdfgdf
+INFO:root:IRCClient.update -> msg: gdfgdf
+DEBUG:root:Character int: 410
+DEBUG:root:Character int: 410
+DEBUG:root:Signifies end of process
+DEBUG:root:Exiting context and closing View object
+INFO:root:Client object created
+INFO:root:Entered the context of a View object
+DEBUG:root:Passed View object to IRC Client
+DEBUG:root:IRC Client is subscribed to the View (to receive user input)
+DEBUG:asyncio:Using selector: EpollSelector
+DEBUG:root:Signifies end of process
+DEBUG:root:Exiting context and closing View object
+DEBUG:root:Character int: 47
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 101
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 116
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 100
+DEBUG:root:Character int: 102
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 100
+DEBUG:root:Character int: 102
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 102
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 100
+DEBUG:root:Character int: 102
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 100
+DEBUG:root:Character int: 102
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 100
+DEBUG:root:Character int: 102
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 102
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 100
+DEBUG:root:Character int: 10
+DEBUG:root:Input line: /connect df sdfs fsdf sdfsdf sfsd
+INFO:root:IRCClient.update -> msg: /connect df sdfs fsdf sdfsdf sfsd
+INFO:root:Attempting connection to sdfsdf on port 9999
+DEBUG:root:Exiting context and closing View object
+INFO:root:Client object created
+INFO:root:Entered the context of a View object
+DEBUG:root:Passed View object to IRC Client
+DEBUG:root:IRC Client is subscribed to the View (to receive user input)
+DEBUG:asyncio:Using selector: EpollSelector
+DEBUG:root:Character int: 47
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 101
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 116
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 107
+DEBUG:root:Character int: 97
+DEBUG:root:Character int: 114
+DEBUG:root:Character int: 108
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 107
+DEBUG:root:Character int: 97
+DEBUG:root:Character int: 114
+DEBUG:root:Character int: 108
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 107
+DEBUG:root:Character int: 97
+DEBUG:root:Character int: 114
+DEBUG:root:Character int: 108
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 107
+DEBUG:root:Character int: 97
+DEBUG:root:Character int: 108
+DEBUG:root:Character int: 127
+DEBUG:root:Character int: 101
+DEBUG:root:Character int: 108
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 107
+DEBUG:root:Character int: 97
+DEBUG:root:Character int: 108
+DEBUG:root:Character int: 10
+DEBUG:root:Input line: /connect karl karl karl kael kal
+INFO:root:IRCClient.update -> msg: /connect karl karl karl kael kal
+INFO:root:Attempting connection to kael on port 9999
+DEBUG:root:Exiting context and closing View object
+INFO:root:Client object created
+INFO:root:Entered the context of a View object
+DEBUG:root:Passed View object to IRC Client
+DEBUG:root:IRC Client is subscribed to the View (to receive user input)
+DEBUG:asyncio:Using selector: EpollSelector
+DEBUG:root:Character int: 47
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 101
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 116
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 114
+DEBUG:root:Character int: 105
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 112
+DEBUG:root:Character int: 121
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 106
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 104
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 121
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 74
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 103
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 108
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 97
+DEBUG:root:Character int: 108
+DEBUG:root:Character int: 104
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 116
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 108
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 106
+DEBUG:root:Character int: 101
+DEBUG:root:Character int: 102
+DEBUG:root:Character int: 10
+DEBUG:root:Input line: /connect crispy johnny Jogn localhost lsjef
+INFO:root:IRCClient.update -> msg: /connect crispy johnny Jogn localhost lsjef
+INFO:root:Attempting connection to localhost on port 9999
+INFO:root:Connected to server socket
+INFO:root:{'Command': 'NICK', 'Parameter1': 'crispy', 'Response_Status': 'Success', 'Response_Message': 'Successfully registered username'}
+INFO:root:{'Command': 'USER', 'Parameter1': 'johnny', 'Parameter2': 'localhost', 'Parameter3': 'lsjef', 'Parameter4': 'Jogn', 'Response_Status': 'Success', 'Response_Message': 'User crispy joined global channel'}
+DEBUG:root:Character int: 47
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 101
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 116
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 107
+DEBUG:root:Character int: 97
+DEBUG:root:Character int: 114
+DEBUG:root:Character int: 108
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 104
+DEBUG:root:Character int: 97
+DEBUG:root:Character int: 109
+DEBUG:root:Character int: 105
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 106
+DEBUG:root:Character int: 100
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 106
+DEBUG:root:Character int: 103
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 106
+DEBUG:root:Character int: 103
+DEBUG:root:Character int: 105
+DEBUG:root:Character int: 116
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 108
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 97
+DEBUG:root:Character int: 108
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 127
+DEBUG:root:Character int: 104
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 116
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 106
+DEBUG:root:Character int: 100
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 97
+DEBUG:root:Character int: 10
+DEBUG:root:Input line: /connect karlchami jdsjg jgit localhost jdsa
+INFO:root:IRCClient.update -> msg: /connect karlchami jdsjg jgit localhost jdsa
+DEBUG:root:Signifies end of process
+DEBUG:root:Exiting context and closing View object
+INFO:root:Client object created
+INFO:root:Entered the context of a View object
+DEBUG:root:Passed View object to IRC Client
+DEBUG:root:IRC Client is subscribed to the View (to receive user input)
+DEBUG:asyncio:Using selector: EpollSelector
+DEBUG:root:Character int: 47
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 101
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 116
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 100
+DEBUG:root:Character int: 102
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 100
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 100
+DEBUG:root:Character int: 102
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 100
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 100
+DEBUG:root:Character int: 102
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 100
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 108
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 97
+DEBUG:root:Character int: 108
+DEBUG:root:Character int: 104
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 116
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 100
+DEBUG:root:Character int: 102
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 10
+DEBUG:root:Input line: /connect dfsd sdfsd sdfsd localhost dfss
+INFO:root:IRCClient.update -> msg: /connect dfsd sdfsd sdfsd localhost dfss
+INFO:root:Attempting connection to localhost on port 9999
+INFO:root:Connected to server socket
+INFO:root:{'Command': 'NICK', 'Parameter1': 'dfsd', 'Response_Status': 'Success', 'Response_Message': 'Successfully registered username'}
+INFO:root:{'Command': 'USER', 'Parameter1': 'sdfsd', 'Parameter2': 'localhost', 'Parameter3': 'dfss', 'Parameter4': 'sdfsd', 'Response_Status': 'Success', 'Response_Message': 'User dfsd joined global channel'}
+DEBUG:root:Character int: 47
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 101
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 116
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 97
+DEBUG:root:Character int: 100
+DEBUG:root:Character int: 102
+DEBUG:root:Character int: 100
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 100
+DEBUG:root:Character int: 102
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 100
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 100
+DEBUG:root:Character int: 102
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 100
+DEBUG:root:Character int: 27
+DEBUG:root:Character int: 91
+DEBUG:root:Character int: 68
+DEBUG:root:Character int: 127
+DEBUG:root:Character int: 127
+DEBUG:root:Character int: 127
+DEBUG:root:Character int: 127
+DEBUG:root:Character int: 127
+DEBUG:root:Character int: 127
+DEBUG:root:Character int: 127
+DEBUG:root:Character int: 127
+DEBUG:root:Character int: 127
+DEBUG:root:Character int: 127
+DEBUG:root:Character int: 127
+DEBUG:root:Character int: 127
+DEBUG:root:Character int: 127
+DEBUG:root:Character int: 127
+DEBUG:root:Character int: 127
+DEBUG:root:Character int: 127
+DEBUG:root:Character int: 127
+DEBUG:root:Character int: 127
+DEBUG:root:Character int: 127
+DEBUG:root:Character int: 127
+DEBUG:root:Character int: 127
+DEBUG:root:Character int: 127
+DEBUG:root:Character int: 127
+DEBUG:root:Character int: 127
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 116
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 102
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 100
+DEBUG:root:Character int: 102
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 100
+DEBUG:root:Character int: 102
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 100
+DEBUG:root:Character int: 102
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 108
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 97
+DEBUG:root:Character int: 104
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 116
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 100
+DEBUG:root:Character int: 102
+DEBUG:root:Character int: 100
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 100
+DEBUG:root:Character int: 10
+DEBUG:root:Input line: /connct fsdfs sdfs sdfs locahost  dfdsd
+INFO:root:IRCClient.update -> msg: /connct fsdfs sdfs sdfs locahost  dfdsd
+DEBUG:root:Character int: 102
+DEBUG:root:Character int: 100
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 102
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 10
+DEBUG:root:Input line: fdsfs
+INFO:root:IRCClient.update -> msg: fdsfs
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 102
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 102
+DEBUG:root:Character int: 10
+DEBUG:root:Input line: sfsf
+INFO:root:IRCClient.update -> msg: sfsf
+DEBUG:root:Character int: 47
+DEBUG:root:Character int: 109
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 103
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 104
+DEBUG:root:Character int: 101
+DEBUG:root:Character int: 121
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 103
+DEBUG:root:Character int: 117
+DEBUG:root:Character int: 121
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 10
+DEBUG:root:Input line: /msg hey guys
+INFO:root:IRCClient.update -> msg: /msg hey guys
+DEBUG:root:Signifies end of process
+DEBUG:root:Exiting context and closing View object
+INFO:root:Client object created
+INFO:root:Entered the context of a View object
+DEBUG:root:Passed View object to IRC Client
+DEBUG:root:IRC Client is subscribed to the View (to receive user input)
+DEBUG:asyncio:Using selector: EpollSelector
+DEBUG:root:Character int: 47
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 101
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 116
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 114
+DEBUG:root:Character int: 102
+DEBUG:root:Character int: 100
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 100
+DEBUG:root:Character int: 102
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 100
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 100
+DEBUG:root:Character int: 102
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 108
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 97
+DEBUG:root:Character int: 108
+DEBUG:root:Character int: 104
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 116
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 102
+DEBUG:root:Character int: 100
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 102
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 10
+DEBUG:root:Input line: /connect rfds sdfsd sdf localhost fdsfs
+INFO:root:IRCClient.update -> msg: /connect rfds sdfsd sdf localhost fdsfs
+INFO:root:Attempting connection to localhost on port 9999
+INFO:root:Connected to server socket
+INFO:root:{'Command': 'NICK', 'Parameter1': 'rfds', 'Response_Status': 'Success', 'Response_Message': 'Successfully registered username'}
+INFO:root:{'Command': 'USER', 'Parameter1': 'sdfsd', 'Parameter2': 'localhost', 'Parameter3': 'fdsfs', 'Parameter4': 'sdf', 'Response_Status': 'Success', 'Response_Message': 'User rfds joined global channel'}
+DEBUG:root:Character int: 47
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 103
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 104
+DEBUG:root:Character int: 101
+DEBUG:root:Character int: 121
+DEBUG:root:Character int: 121
+DEBUG:root:Character int: 27
+DEBUG:root:Character int: 91
+DEBUG:root:Character int: 68
+DEBUG:root:Character int: 10
+DEBUG:root:Input line: /sg heyy[D
+INFO:root:IRCClient.update -> msg: /sg heyy[D
+DEBUG:root:Character int: 47
+DEBUG:root:Character int: 109
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 103
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 104
+DEBUG:root:Character int: 101
+DEBUG:root:Character int: 121
+DEBUG:root:Character int: 121
+DEBUG:root:Character int: 10
+DEBUG:root:Input line: /msg heyy
+INFO:root:IRCClient.update -> msg: /msg heyy
+DEBUG:root:Signifies end of process
+DEBUG:root:Exiting context and closing View object
+INFO:root:Client object created
+INFO:root:Entered the context of a View object
+DEBUG:root:Passed View object to IRC Client
+DEBUG:root:IRC Client is subscribed to the View (to receive user input)
+DEBUG:asyncio:Using selector: EpollSelector
+DEBUG:root:Character int: 47
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 101
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 116
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 107
+DEBUG:root:Character int: 97
+DEBUG:root:Character int: 114
+DEBUG:root:Character int: 108
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 104
+DEBUG:root:Character int: 97
+DEBUG:root:Character int: 109
+DEBUG:root:Character int: 105
+DEBUG:root:Character int: 49
+DEBUG:root:Character int: 50
+DEBUG:root:Character int: 51
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 107
+DEBUG:root:Character int: 97
+DEBUG:root:Character int: 114
+DEBUG:root:Character int: 108
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 104
+DEBUG:root:Character int: 97
+DEBUG:root:Character int: 109
+DEBUG:root:Character int: 105
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 75
+DEBUG:root:Character int: 65
+DEBUG:root:Character int: 114
+DEBUG:root:Character int: 108
+DEBUG:root:Character int: 127
+DEBUG:root:Character int: 127
+DEBUG:root:Character int: 127
+DEBUG:root:Character int: 97
+DEBUG:root:Character int: 114
+DEBUG:root:Character int: 108
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 108
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 97
+DEBUG:root:Character int: 108
+DEBUG:root:Character int: 104
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 116
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 101
+DEBUG:root:Character int: 114
+DEBUG:root:Character int: 118
+DEBUG:root:Character int: 101
+DEBUG:root:Character int: 114
+DEBUG:root:Character int: 10
+DEBUG:root:Input line: /connect karlchami123 karlchami Karl localhost server
+INFO:root:IRCClient.update -> msg: /connect karlchami123 karlchami Karl localhost server
+INFO:root:Attempting connection to localhost on port 9999
+INFO:root:Connected to server socket
+INFO:root:{'Command': 'NICK', 'Parameter1': 'karlchami123', 'Response_Status': 'Success', 'Response_Message': 'Successfully registered username'}
+INFO:root:{'Command': 'USER', 'Parameter1': 'karlchami', 'Parameter2': 'localhost', 'Parameter3': 'server', 'Parameter4': 'Karl', 'Response_Status': 'Success', 'Response_Message': 'User karlchami123 joined global channel'}
+DEBUG:root:Character int: 47
+DEBUG:root:Character int: 109
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 103
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 104
+DEBUG:root:Character int: 101
+DEBUG:root:Character int: 121
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 103
+DEBUG:root:Character int: 105
+DEBUG:root:Character int: 121
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 10
+DEBUG:root:Input line: /msg hey giys
+INFO:root:IRCClient.update -> msg: /msg hey giys
+INFO:root:Client object created
+INFO:root:Entered the context of a View object
+DEBUG:root:Passed View object to IRC Client
+DEBUG:root:IRC Client is subscribed to the View (to receive user input)
+DEBUG:asyncio:Using selector: EpollSelector
+DEBUG:root:Character int: 47
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 101
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 116
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 107
+DEBUG:root:Character int: 97
+DEBUG:root:Character int: 114
+DEBUG:root:Character int: 108
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 104
+DEBUG:root:Character int: 97
+DEBUG:root:Character int: 109
+DEBUG:root:Character int: 105
+DEBUG:root:Character int: 49
+DEBUG:root:Character int: 50
+DEBUG:root:Character int: 51
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 107
+DEBUG:root:Character int: 97
+DEBUG:root:Character int: 114
+DEBUG:root:Character int: 108
+DEBUG:root:Character int: 116
+DEBUG:root:Character int: 105
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 75
+DEBUG:root:Character int: 127
+DEBUG:root:Character int: 74
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 103
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 127
+DEBUG:root:Character int: 127
+DEBUG:root:Character int: 127
+DEBUG:root:Character int: 104
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 121
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 108
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 97
+DEBUG:root:Character int: 108
+DEBUG:root:Character int: 104
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 116
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 101
+DEBUG:root:Character int: 114
+DEBUG:root:Character int: 118
+DEBUG:root:Character int: 101
+DEBUG:root:Character int: 114
+DEBUG:root:Character int: 10
+DEBUG:root:Input line: /connect karlchami123 karltio Johny localhost server
+INFO:root:IRCClient.update -> msg: /connect karlchami123 karltio Johny localhost server
+INFO:root:Attempting connection to localhost on port 9999
+INFO:root:Connected to server socket
+INFO:root:{'Command': 'NICK', 'Parameter1': 'karlchami123', 'Response_Status': 'Fail', 'Response_Message': 'An error has occurred'}
+INFO:root:{'Command': 'USER', 'Parameter1': 'karltio', 'Parameter2': 'localhost', 'Parameter3': 'server', 'Parameter4': 'Johny', 'Response_Status': 'Success', 'Response_Message': 'Successfully registered user info'}
+DEBUG:root:Character int: 47
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 101
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 116
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 107
+DEBUG:root:Character int: 97
+DEBUG:root:Character int: 114
+DEBUG:root:Character int: 108
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 108
+DEBUG:root:Character int: 127
+DEBUG:root:Character int: 107
+DEBUG:root:Character int: 97
+DEBUG:root:Character int: 114
+DEBUG:root:Character int: 108
+DEBUG:root:Character int: 105
+DEBUG:root:Character int: 116
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 107
+DEBUG:root:Character int: 97
+DEBUG:root:Character int: 114
+DEBUG:root:Character int: 108
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 108
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 97
+DEBUG:root:Character int: 108
+DEBUG:root:Character int: 104
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 116
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 101
+DEBUG:root:Character int: 114
+DEBUG:root:Character int: 118
+DEBUG:root:Character int: 101
+DEBUG:root:Character int: 114
+DEBUG:root:Character int: 10
+DEBUG:root:Input line: /connect karl karlito karl localhost server
+INFO:root:IRCClient.update -> msg: /connect karl karlito karl localhost server
+INFO:root:{'Command': 'NICK', 'Parameter1': 'karl', 'Response_Status': 'Success', 'Response_Message': 'User karl joined global channel'}
+INFO:root:{'Command': 'USER', 'Parameter1': 'karlito', 'Parameter2': 'localhost', 'Parameter3': 'server', 'Parameter4': 'karl', 'Response_Status': 'Fail', 'Response_Message': 'An error has occurred'}
+DEBUG:root:Signifies end of process
+DEBUG:root:Exiting context and closing View object
+DEBUG:root:Signifies end of process
+DEBUG:root:Exiting context and closing View object
+INFO:root:Client object created
+INFO:root:Entered the context of a View object
+DEBUG:root:Passed View object to IRC Client
+DEBUG:root:IRC Client is subscribed to the View (to receive user input)
+DEBUG:asyncio:Using selector: EpollSelector
+DEBUG:root:Character int: 47
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 101
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 116
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 107
+DEBUG:root:Character int: 97
+DEBUG:root:Character int: 114
+DEBUG:root:Character int: 108
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 107
+DEBUG:root:Character int: 97
+DEBUG:root:Character int: 114
+DEBUG:root:Character int: 108
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 107
+DEBUG:root:Character int: 97
+DEBUG:root:Character int: 114
+DEBUG:root:Character int: 108
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 108
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 97
+DEBUG:root:Character int: 108
+DEBUG:root:Character int: 104
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 116
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 101
+DEBUG:root:Character int: 114
+DEBUG:root:Character int: 118
+DEBUG:root:Character int: 101
+DEBUG:root:Character int: 114
+DEBUG:root:Character int: 10
+DEBUG:root:Input line: /connect karl karl karl localhost server
+INFO:root:IRCClient.update -> msg: /connect karl karl karl localhost server
+INFO:root:Attempting connection to localhost on port 9999
+INFO:root:Connected to server socket
+INFO:root:{'Command': 'NICK', 'Parameter1': 'karl', 'Response_Status': 'Success', 'Response_Message': 'Successfully registered username'}
+INFO:root:{'Command': 'USER', 'Parameter1': 'karl', 'Parameter2': 'localhost', 'Parameter3': 'server', 'Parameter4': 'karl', 'Response_Status': 'Joined', 'Response_Message': 'User karl joined global channel'}
+INFO:root:Client object created
+INFO:root:Entered the context of a View object
+DEBUG:root:Passed View object to IRC Client
+DEBUG:root:IRC Client is subscribed to the View (to receive user input)
+DEBUG:asyncio:Using selector: EpollSelector
+DEBUG:root:Character int: 47
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 101
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 116
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 107
+DEBUG:root:Character int: 97
+DEBUG:root:Character int: 114
+DEBUG:root:Character int: 108
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 106
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 104
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 106
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 103
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 108
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 97
+DEBUG:root:Character int: 108
+DEBUG:root:Character int: 104
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 116
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 101
+DEBUG:root:Character int: 114
+DEBUG:root:Character int: 118
+DEBUG:root:Character int: 101
+DEBUG:root:Character int: 114
+DEBUG:root:Character int: 10
+DEBUG:root:Input line: /connect karl john jogn localhost server
+INFO:root:IRCClient.update -> msg: /connect karl john jogn localhost server
+INFO:root:Attempting connection to localhost on port 9999
+INFO:root:Connected to server socket
+INFO:root:{'Command': 'NICK', 'Parameter1': 'karl', 'Response_Status': 'Fail', 'Response_Message': 'An error has occurred'}
+INFO:root:{'Command': 'USER', 'Parameter1': 'john', 'Parameter2': 'localhost', 'Parameter3': 'server', 'Parameter4': 'jogn', 'Response_Status': 'Success', 'Response_Message': 'Successfully registered user info'}
+DEBUG:root:Character int: 47
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 101
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 116
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 106
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 104
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 106
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 104
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 106
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 104
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 108
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 97
+DEBUG:root:Character int: 108
+DEBUG:root:Character int: 104
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 116
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 101
+DEBUG:root:Character int: 114
+DEBUG:root:Character int: 118
+DEBUG:root:Character int: 101
+DEBUG:root:Character int: 114
+DEBUG:root:Character int: 10
+DEBUG:root:Input line: /connect john john john localhost server
+INFO:root:IRCClient.update -> msg: /connect john john john localhost server
+INFO:root:{'Command': 'NICK', 'Parameter1': 'john', 'Response_Status': 'Joined', 'Response_Message': 'User john joined global channel'}
+INFO:root:{'Command': 'USER', 'Parameter1': 'john', 'Parameter2': 'localhost', 'Parameter3': 'server', 'Parameter4': 'john', 'Response_Status': 'Fail', 'Response_Message': 'An error has occurred'}
+DEBUG:root:Signifies end of process
+DEBUG:root:Exiting context and closing View object
+DEBUG:root:Signifies end of process
+DEBUG:root:Exiting context and closing View object
+INFO:root:Client object created
+INFO:root:Entered the context of a View object
+DEBUG:root:Passed View object to IRC Client
+DEBUG:root:IRC Client is subscribed to the View (to receive user input)
+DEBUG:asyncio:Using selector: EpollSelector
+DEBUG:root:Character int: 47
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 101
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 116
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 107
+DEBUG:root:Character int: 97
+DEBUG:root:Character int: 114
+DEBUG:root:Character int: 108
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 104
+DEBUG:root:Character int: 97
+DEBUG:root:Character int: 109
+DEBUG:root:Character int: 105
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 107
+DEBUG:root:Character int: 97
+DEBUG:root:Character int: 114
+DEBUG:root:Character int: 108
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 104
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 75
+DEBUG:root:Character int: 76
+DEBUG:root:Character int: 127
+DEBUG:root:Character int: 97
+DEBUG:root:Character int: 114
+DEBUG:root:Character int: 108
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 108
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 97
+DEBUG:root:Character int: 108
+DEBUG:root:Character int: 104
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 116
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 101
+DEBUG:root:Character int: 114
+DEBUG:root:Character int: 118
+DEBUG:root:Character int: 101
+DEBUG:root:Character int: 114
+DEBUG:root:Character int: 10
+DEBUG:root:Input line: /connect karlchami karlch Karl localhost server
+INFO:root:IRCClient.update -> msg: /connect karlchami karlch Karl localhost server
+INFO:root:Attempting connection to localhost on port 9999
+INFO:root:Connected to server socket
+INFO:root:{'Command': 'NICK', 'Parameter1': 'karlchami', 'Response_Status': 'Success', 'Response_Message': 'Successfully registered username'}
+INFO:root:{'Command': 'USER', 'Parameter1': 'karlch', 'Parameter2': 'localhost', 'Parameter3': 'server', 'Parameter4': 'Karl', 'Response_Status': 'Joined', 'Response_Message': 'User karlchami joined global channel'}
+INFO:root:Client object created
+INFO:root:Entered the context of a View object
+DEBUG:root:Passed View object to IRC Client
+DEBUG:root:IRC Client is subscribed to the View (to receive user input)
+DEBUG:asyncio:Using selector: EpollSelector
+DEBUG:root:Character int: 47
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 101
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 116
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 107
+DEBUG:root:Character int: 97
+DEBUG:root:Character int: 114
+DEBUG:root:Character int: 108
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 104
+DEBUG:root:Character int: 97
+DEBUG:root:Character int: 109
+DEBUG:root:Character int: 105
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 106
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 104
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 75
+DEBUG:root:Character int: 127
+DEBUG:root:Character int: 74
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 104
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 109
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 127
+DEBUG:root:Character int: 127
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 108
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 97
+DEBUG:root:Character int: 108
+DEBUG:root:Character int: 106
+DEBUG:root:Character int: 127
+DEBUG:root:Character int: 104
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 116
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 101
+DEBUG:root:Character int: 114
+DEBUG:root:Character int: 118
+DEBUG:root:Character int: 101
+DEBUG:root:Character int: 114
+DEBUG:root:Character int: 10
+DEBUG:root:Input line: /connect karlchami john John localhost server
+INFO:root:IRCClient.update -> msg: /connect karlchami john John localhost server
+INFO:root:Attempting connection to localhost on port 9999
+INFO:root:Connected to server socket
+INFO:root:{'Command': 'NICK', 'Parameter1': 'karlchami', 'Response_Status': 'Fail', 'Response_Message': 'An error has occurred'}
+INFO:root:{'Command': 'USER', 'Parameter1': 'john', 'Parameter2': 'localhost', 'Parameter3': 'server', 'Parameter4': 'John', 'Response_Status': 'Success', 'Response_Message': 'Successfully registered user info'}
+DEBUG:root:Character int: 47
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 101
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 116
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 106
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 104
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 121
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 74
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 104
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 121
+DEBUG:root:Character int: 97
+DEBUG:root:Character int: 97
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 74
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 104
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 108
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 97
+DEBUG:root:Character int: 108
+DEBUG:root:Character int: 104
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 116
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 101
+DEBUG:root:Character int: 114
+DEBUG:root:Character int: 118
+DEBUG:root:Character int: 101
+DEBUG:root:Character int: 114
+DEBUG:root:Character int: 10
+DEBUG:root:Input line: /connect johnny Johnyaa John localhost server
+INFO:root:IRCClient.update -> msg: /connect johnny Johnyaa John localhost server
+INFO:root:{'Command': 'NICK', 'Parameter1': 'johnny', 'Response_Status': 'Joined', 'Response_Message': 'User johnny joined global channel'}
+INFO:root:{'Command': 'USER', 'Parameter1': 'Johnyaa', 'Parameter2': 'localhost', 'Parameter3': 'server', 'Parameter4': 'John', 'Response_Status': 'Fail', 'Response_Message': 'An error has occurred'}
+DEBUG:root:Character int: 104
+DEBUG:root:Character int: 102
+DEBUG:root:Character int: 104
+DEBUG:root:Character int: 102
+DEBUG:root:Character int: 10
+DEBUG:root:Input line: hfhf
+INFO:root:IRCClient.update -> msg: hfhf
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 102
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 102
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 102
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 102
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 102
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 10
+DEBUG:root:Input line: sfsfsfsfsfs
+INFO:root:IRCClient.update -> msg: sfsfsfsfsfs
+DEBUG:root:Character int: 47
+DEBUG:root:Character int: 109
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 103
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 104
+DEBUG:root:Character int: 101
+DEBUG:root:Character int: 121
+DEBUG:root:Character int: 121
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 103
+DEBUG:root:Character int: 117
+DEBUG:root:Character int: 116
+DEBUG:root:Character int: 121
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 33
+DEBUG:root:Character int: 33
+DEBUG:root:Character int: 10
+DEBUG:root:Input line: /msg heyy gutysss!!
+INFO:root:IRCClient.update -> msg: /msg heyy gutysss!!
+DEBUG:root:Character int: 47
+DEBUG:root:Character int: 109
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 103
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 83
+DEBUG:root:Character int: 97
+DEBUG:root:Character int: 108
+DEBUG:root:Character int: 117
+DEBUG:root:Character int: 116
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 116
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 117
+DEBUG:root:Character int: 116
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 108
+DEBUG:root:Character int: 101
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 109
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 100
+DEBUG:root:Character int: 101
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 58
+DEBUG:root:Character int: 41
+DEBUG:root:Character int: 10
+DEBUG:root:Input line: /msg Salut tout le monde :)
+INFO:root:IRCClient.update -> msg: /msg Salut tout le monde :)
+DEBUG:root:Signifies end of process
+DEBUG:root:Exiting context and closing View object
+DEBUG:root:Signifies end of process
+DEBUG:root:Exiting context and closing View object

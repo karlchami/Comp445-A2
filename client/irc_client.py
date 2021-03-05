@@ -17,6 +17,7 @@ import patterns
 import view
 import socket
 import ast
+from _thread import *
 
 logging.basicConfig(filename='view.log', level=logging.DEBUG)
 logger = logging.getLogger()
@@ -64,11 +65,14 @@ class IRCClient(patterns.Subscriber):
         user_reply = self.server_socket.recv(1024).decode()
         logger.info(user_reply)
         user_decoded_response_message = ast.literal_eval(user_reply)
-        self.add_prompt_msg(nick_decoded_message["Response_Message"])
-        self.add_prompt_msg(user_decoded_response_message["Response_Message"])
-        if "Success" in nick_decoded_message["Response_Status"] and "Success" in user_decoded_response_message["Response_Status"]:
+        # self.add_prompt_msg(nick_decoded_message["Response_Message"])
+        # self.add_prompt_msg(user_decoded_response_message["Response_Message"])
+        if "Joined" in nick_decoded_message["Response_Status"] or "Joined" in user_decoded_response_message["Response_Status"]:
             self.isConnected = True
-
+            self.add_prompt_msg(f"User {self.nickname} successfully joined #global channel")
+            # start_new_thread(self.listen_chat())
+        elif "Fail" in nick_decoded_message["Response_Status"] or "Fail" in user_decoded_response_message["Response_Status"]:
+            self.add_user_msg("Wrong prompt parameters or potential duplicate")
 
     def set_view(self, view):
         self.view = view
@@ -84,7 +88,7 @@ class IRCClient(patterns.Subscriber):
         self.process_input(msg)
 
     def process_input(self, msg):
-        if msg.lower().startswith("/connect"):
+        if msg.lower().startswith("/connect") and not self.isConnected:
             split_connect_command = msg.split(" ")
             if len(split_connect_command) == 6:
                 self.add_prompt_msg(msg)
@@ -94,17 +98,31 @@ class IRCClient(patterns.Subscriber):
                 self.hostname = split_connect_command[4]
                 self.servername = split_connect_command[5]
                 self.create_user_connection()
-        elif self.isConnected:
-            self.add_msg(msg)
+        elif msg.lower().startswith("/msg") and self.isConnected:
+            self.add_msg(msg[5:])
+            # self.send_chat_message(msg)
+
         if msg.lower().startswith('/quit'):
             # Command that leads to the closure of the process
             raise KeyboardInterrupt
+
+    def send_chat_message(self, msg):
+        privmsg_command = f"PRIVMSG #global {msg}"
+        self.self.server_socket.send(bytes(privmsg_command, "utf-8"))
+
+    def listen_chat(self):
+        while True:
+            message = self.server_socket.recv(1024).decode()
+            self.add_user_msg(message)
+
+    def add_user_msg(self, msg):
+        self.view.add_msg("Someuser", msg)
 
     def add_prompt_msg(self, msg):
         self.view.add_msg("Prompt", msg)
 
     def add_msg(self, msg):
-        self.view.add_msg(self.username, msg)
+        self.view.add_msg(self.nickname, msg)
 
     async def run(self):
         """

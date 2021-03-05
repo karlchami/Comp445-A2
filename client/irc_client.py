@@ -67,7 +67,6 @@ class IRCClient(patterns.Subscriber):
     def receive_msg(self):
         while True:
             msg_recv = c.recv(1024).decode()
-            if not msg_recv: sys.exit(0)
             if "{'Command': 'PRIVMSG'," in msg_recv:
                 continue
             self.add_msg(msg_recv)
@@ -99,6 +98,8 @@ def main(args):
         if nick_response == "Invalid Request":
             print(nick_response)
             print("Please enter valid Nick credentials")
+        elif(len(nick_in) > 9):
+            print("NICK cannot contain more than 9 characters.")
         else:
             loop = False
             print(f"NICK: %s, successfully registered." % (nick_in))

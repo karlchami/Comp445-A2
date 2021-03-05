@@ -3,6 +3,640 @@ INFO:root:Entered the context of a View object
 DEBUG:root:Passed View object to IRC Client
 DEBUG:root:IRC Client is subscribed to the View (to receive user input)
 DEBUG:asyncio:Using selector: EpollSelector
+DEBUG:root:Character int: 47
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 101
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 116
+DEBUG:root:Character int: 10
+DEBUG:root:Input line: /connect
+INFO:root:IRCClient.update -> msg: /connect
+INFO:root:Attempting connection to localhost on port 9999
+INFO:root:Connected to server socket
+INFO:root:{'Command': 'NICK', 'Parameter1': 'karlchami', 'Response_Status': 'Success', 'Response_Message': 'Successfully registered username'}
+INFO:root:{'Command': 'USER', 'Parameter1': 'karlchami', 'Parameter2': 'localhost', 'Parameter3': 'localserver', 'Parameter4': 'Karl Chami', 'Response_Status': 'Success', 'Response_Message': 'User karlchami joined global channel'}
 DEBUG:root:Signifies end of process
 DEBUG:root:Exiting context and closing View object
-DEBUG:root:Closing IRC Client object
+INFO:root:Client object created
+INFO:root:Entered the context of a View object
+DEBUG:root:Passed View object to IRC Client
+DEBUG:root:IRC Client is subscribed to the View (to receive user input)
+DEBUG:asyncio:Using selector: EpollSelector
+DEBUG:root:Character int: 47
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 101
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 116
+DEBUG:root:Character int: 10
+DEBUG:root:Input line: /connect
+INFO:root:IRCClient.update -> msg: /connect
+INFO:root:Attempting connection to localhost on port 9999
+INFO:root:Connected to server socket
+INFO:root:{'Command': 'NICK', 'Parameter1': 'karlchami', 'Response_Status': 'Success', 'Response_Message': 'Successfully registered username'}
+DEBUG:root:Exiting context and closing View object
+INFO:root:Client object created
+INFO:root:Entered the context of a View object
+DEBUG:root:Passed View object to IRC Client
+DEBUG:root:IRC Client is subscribed to the View (to receive user input)
+DEBUG:asyncio:Using selector: EpollSelector
+DEBUG:root:Character int: 47
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 101
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 116
+DEBUG:root:Character int: 10
+DEBUG:root:Input line: /connect
+INFO:root:IRCClient.update -> msg: /connect
+INFO:root:Attempting connection to localhost on port 9999
+INFO:root:Connected to server socket
+INFO:root:{'Command': 'NICK', 'Parameter1': 'karlchami', 'Response_Status': 'Success', 'Response_Message': 'Successfully registered username'}
+INFO:root:{'Command': 'USER', 'Parameter1': 'karlchami', 'Parameter2': 'localhost', 'Parameter3': 'localserver', 'Parameter4': 'Karl Chami', 'Response_Status': 'Success', 'Response_Message': 'User karlchami joined global channel'}
+DEBUG:root:Signifies end of process
+DEBUG:root:Exiting context and closing View object
+INFO:root:Client object created
+INFO:root:Entered the context of a View object
+DEBUG:root:Passed View object to IRC Client
+DEBUG:root:IRC Client is subscribed to the View (to receive user input)
+DEBUG:asyncio:Using selector: EpollSelector
+DEBUG:root:Character int: 47
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 101
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 116
+DEBUG:root:Character int: 10
+DEBUG:root:Input line: /connect
+INFO:root:IRCClient.update -> msg: /connect
+INFO:root:Attempting connection to localhost on port 9999
+INFO:root:Connected to server socket
+INFO:root:{'Command': 'NICK', 'Parameter1': 'karlchami', 'Response_Status': 'Success', 'Response_Message': 'Successfully registered username'}
+DEBUG:root:Exiting context and closing View object
+INFO:root:Client object created
+INFO:root:Entered the context of a View object
+DEBUG:root:Passed View object to IRC Client
+DEBUG:root:IRC Client is subscribed to the View (to receive user input)
+DEBUG:asyncio:Using selector: EpollSelector
+DEBUG:root:Character int: 47
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 101
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 116
+DEBUG:root:Character int: 10
+DEBUG:root:Input line: /connect
+INFO:root:IRCClient.update -> msg: /connect
+INFO:root:Attempting connection to localhost on port 9999
+INFO:root:Connected to server socket
+INFO:root:{'Command': 'NICK', 'Parameter1': 'karlchami', 'Response_Status': 'Success', 'Response_Message': 'Successfully registered username'}
+DEBUG:root:Exiting context and closing View object
+INFO:root:Client object created
+INFO:root:Entered the context of a View object
+DEBUG:root:Passed View object to IRC Client
+DEBUG:root:IRC Client is subscribed to the View (to receive user input)
+DEBUG:asyncio:Using selector: EpollSelector
+DEBUG:root:Character int: 47
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 101
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 116
+DEBUG:root:Character int: 10
+DEBUG:root:Input line: /connect
+INFO:root:IRCClient.update -> msg: /connect
+INFO:root:Attempting connection to localhost on port 9999
+INFO:root:Connected to server socket
+INFO:root:{'Command': 'NICK', 'Parameter1': 'karlchami', 'Response_Status': 'Success', 'Response_Message': 'Successfully registered username'}
+INFO:root:{'Command': 'NICK', 'Parameter1': 'karlchami', 'Response_Status': 'Success', 'Response_Message': 'Successfully registered username'}
+INFO:root:{'Command': 'USER', 'Parameter1': 'karlchami', 'Parameter2': 'localhost', 'Parameter3': 'localserver', 'Parameter4': 'Karl Chami', 'Response_Status': 'Success', 'Response_Message': 'User karlchami joined global channel'}
+DEBUG:root:Signifies end of process
+DEBUG:root:Exiting context and closing View object
+INFO:root:Client object created
+INFO:root:Entered the context of a View object
+DEBUG:root:Passed View object to IRC Client
+DEBUG:root:IRC Client is subscribed to the View (to receive user input)
+DEBUG:asyncio:Using selector: EpollSelector
+DEBUG:root:Character int: 47
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 101
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 116
+DEBUG:root:Character int: 10
+DEBUG:root:Input line: /connect
+INFO:root:IRCClient.update -> msg: /connect
+INFO:root:Attempting connection to localhost on port 9999
+INFO:root:Connected to server socket
+INFO:root:{'Command': 'NICK', 'Parameter1': 'karlchami', 'Response_Status': 'Success', 'Response_Message': 'Successfully registered username'}
+DEBUG:root:Exiting context and closing View object
+INFO:root:Client object created
+INFO:root:Entered the context of a View object
+DEBUG:root:Passed View object to IRC Client
+DEBUG:root:IRC Client is subscribed to the View (to receive user input)
+DEBUG:asyncio:Using selector: EpollSelector
+DEBUG:root:Character int: 47
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 101
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 116
+DEBUG:root:Character int: 10
+DEBUG:root:Input line: /connect
+INFO:root:IRCClient.update -> msg: /connect
+INFO:root:Attempting connection to localhost on port 9999
+INFO:root:Connected to server socket
+INFO:root:{'Command': 'NICK', 'Parameter1': 'karlchami', 'Response_Status': 'Success', 'Response_Message': 'Successfully registered username'}
+DEBUG:root:Exiting context and closing View object
+INFO:root:Client object created
+INFO:root:Entered the context of a View object
+DEBUG:root:Passed View object to IRC Client
+DEBUG:root:IRC Client is subscribed to the View (to receive user input)
+DEBUG:asyncio:Using selector: EpollSelector
+DEBUG:root:Character int: 47
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 101
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 116
+DEBUG:root:Character int: 10
+DEBUG:root:Input line: /connect
+INFO:root:IRCClient.update -> msg: /connect
+INFO:root:Attempting connection to localhost on port 9999
+INFO:root:Connected to server socket
+INFO:root:{'Command': 'NICK', 'Parameter1': 'karlchami', 'Response_Status': 'Success', 'Response_Message': 'Successfully registered username'}
+INFO:root:{'Command': 'USER', 'Parameter1': 'karlchami', 'Parameter2': 'localhost', 'Parameter3': 'localserver', 'Parameter4': 'Karl Chami', 'Response_Status': 'Success', 'Response_Message': 'User karlchami joined global channel'}
+DEBUG:root:Signifies end of process
+DEBUG:root:Exiting context and closing View object
+INFO:root:Client object created
+INFO:root:Entered the context of a View object
+DEBUG:root:Passed View object to IRC Client
+DEBUG:root:IRC Client is subscribed to the View (to receive user input)
+DEBUG:asyncio:Using selector: EpollSelector
+DEBUG:root:Character int: 47
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 101
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 116
+DEBUG:root:Character int: 10
+DEBUG:root:Input line: /connect
+INFO:root:IRCClient.update -> msg: /connect
+INFO:root:Attempting connection to localhost on port 9999
+INFO:root:Connected to server socket
+INFO:root:{'Command': 'NICK', 'Parameter1': 'karlchami', 'Response_Status': 'Success', 'Response_Message': 'Successfully registered username'}
+DEBUG:root:Exiting context and closing View object
+INFO:root:Client object created
+INFO:root:Entered the context of a View object
+DEBUG:root:Passed View object to IRC Client
+DEBUG:root:IRC Client is subscribed to the View (to receive user input)
+DEBUG:asyncio:Using selector: EpollSelector
+DEBUG:root:Character int: 47
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 127
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 101
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 116
+DEBUG:root:Character int: 10
+DEBUG:root:Input line: /connect
+INFO:root:IRCClient.update -> msg: /connect
+INFO:root:Attempting connection to localhost on port 9999
+INFO:root:Connected to server socket
+INFO:root:{'Command': 'NICK', 'Parameter1': 'karlchami', 'Response_Status': 'Success', 'Response_Message': 'Successfully registered username'}
+INFO:root:<class 'Exception'>
+INFO:root:{'Command': 'USER', 'Parameter1': 'karlchami', 'Parameter2': 'localhost', 'Parameter3': 'localserver', 'Parameter4': 'Karl Chami', 'Response_Status': 'Success', 'Response_Message': 'User karlchami joined global channel'}
+DEBUG:root:Signifies end of process
+DEBUG:root:Exiting context and closing View object
+INFO:root:Client object created
+INFO:root:Entered the context of a View object
+DEBUG:root:Passed View object to IRC Client
+DEBUG:root:IRC Client is subscribed to the View (to receive user input)
+DEBUG:asyncio:Using selector: EpollSelector
+DEBUG:root:Character int: 47
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 101
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 116
+DEBUG:root:Character int: 10
+DEBUG:root:Input line: /connect
+INFO:root:IRCClient.update -> msg: /connect
+INFO:root:Attempting connection to localhost on port 9999
+INFO:root:Connected to server socket
+INFO:root:{'Command': 'NICK', 'Parameter1': 'karlchami', 'Response_Status': 'Success', 'Response_Message': 'Successfully registered username'}
+INFO:root:'str' object has no attribute 'literal_eval'
+INFO:root:{'Command': 'USER', 'Parameter1': 'karlchami', 'Parameter2': 'localhost', 'Parameter3': 'localserver', 'Parameter4': 'Karl Chami', 'Response_Status': 'Success', 'Response_Message': 'User karlchami joined global channel'}
+DEBUG:root:Signifies end of process
+DEBUG:root:Exiting context and closing View object
+INFO:root:Client object created
+INFO:root:Entered the context of a View object
+DEBUG:root:Passed View object to IRC Client
+DEBUG:root:IRC Client is subscribed to the View (to receive user input)
+DEBUG:asyncio:Using selector: EpollSelector
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 101
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 127
+DEBUG:root:Character int: 127
+DEBUG:root:Character int: 127
+DEBUG:root:Character int: 127
+DEBUG:root:Character int: 127
+DEBUG:root:Character int: 127
+DEBUG:root:Character int: 127
+DEBUG:root:Character int: 47
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 101
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 116
+DEBUG:root:Character int: 10
+DEBUG:root:Input line: /connect
+INFO:root:IRCClient.update -> msg: /connect
+INFO:root:Attempting connection to localhost on port 9999
+INFO:root:Connected to server socket
+INFO:root:{'Command': 'NICK', 'Parameter1': 'karlchami', 'Response_Status': 'Success', 'Response_Message': 'Successfully registered username'}
+INFO:root:Expecting property name enclosed in double quotes: line 1 column 2 (char 1)
+INFO:root:{'Command': 'USER', 'Parameter1': 'karlchami', 'Parameter2': 'localhost', 'Parameter3': 'localserver', 'Parameter4': 'Karl Chami', 'Response_Status': 'Success', 'Response_Message': 'User karlchami joined global channel'}
+DEBUG:root:Signifies end of process
+DEBUG:root:Exiting context and closing View object
+INFO:root:Client object created
+INFO:root:Entered the context of a View object
+DEBUG:root:Passed View object to IRC Client
+DEBUG:root:IRC Client is subscribed to the View (to receive user input)
+DEBUG:asyncio:Using selector: EpollSelector
+DEBUG:root:Character int: 47
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 127
+DEBUG:root:Character int: 127
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 101
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 116
+DEBUG:root:Character int: 10
+DEBUG:root:Input line: /connect
+INFO:root:IRCClient.update -> msg: /connect
+INFO:root:Attempting connection to localhost on port 9999
+INFO:root:Connected to server socket
+INFO:root:{'Command': 'NICK', 'Parameter1': 'karlchami', 'Response_Status': 'Success', 'Response_Message': 'Successfully registered username'}
+INFO:root:{'Command': 'USER', 'Parameter1': 'karlchami', 'Parameter2': 'localhost', 'Parameter3': 'localserver', 'Parameter4': 'Karl Chami', 'Response_Status': 'Success', 'Response_Message': 'User karlchami joined global channel'}
+DEBUG:root:Signifies end of process
+DEBUG:root:Exiting context and closing View object
+INFO:root:Client object created
+INFO:root:Entered the context of a View object
+DEBUG:root:Passed View object to IRC Client
+DEBUG:root:IRC Client is subscribed to the View (to receive user input)
+DEBUG:asyncio:Using selector: EpollSelector
+DEBUG:root:Character int: 47
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 101
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 116
+DEBUG:root:Character int: 10
+DEBUG:root:Input line: /connect
+INFO:root:IRCClient.update -> msg: /connect
+INFO:root:Attempting connection to localhost on port 9999
+INFO:root:Connected to server socket
+INFO:root:{'Command': 'NICK', 'Parameter1': 'karlchami', 'Response_Status': 'Success', 'Response_Message': 'Successfully registered username'}
+INFO:root:{'Command': 'USER', 'Parameter1': 'karlchami', 'Parameter2': 'localhost', 'Parameter3': 'localserver', 'Parameter4': 'Karl Chami', 'Response_Status': 'Success', 'Response_Message': 'User karlchami joined global channel'}
+DEBUG:root:Signifies end of process
+DEBUG:root:Exiting context and closing View object
+INFO:root:Client object created
+INFO:root:Entered the context of a View object
+DEBUG:root:Passed View object to IRC Client
+DEBUG:root:IRC Client is subscribed to the View (to receive user input)
+DEBUG:asyncio:Using selector: EpollSelector
+DEBUG:root:Character int: 47
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 101
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 116
+DEBUG:root:Character int: 10
+DEBUG:root:Input line: /connect
+INFO:root:IRCClient.update -> msg: /connect
+INFO:root:Attempting connection to localhost on port 9999
+INFO:root:Connected to server socket
+INFO:root:{'Command': 'NICK', 'Parameter1': 'karlchami', 'Response_Status': 'Success', 'Response_Message': 'Successfully registered username'}
+INFO:root:{'Command': 'USER', 'Parameter1': 'karlchami', 'Parameter2': 'localhost', 'Parameter3': 'localserver', 'Parameter4': 'Karl Chami', 'Response_Status': 'Success', 'Response_Message': 'User karlchami joined global channel'}
+DEBUG:root:Signifies end of process
+DEBUG:root:Exiting context and closing View object
+INFO:root:Client object created
+INFO:root:Entered the context of a View object
+DEBUG:root:Passed View object to IRC Client
+DEBUG:root:IRC Client is subscribed to the View (to receive user input)
+DEBUG:asyncio:Using selector: EpollSelector
+DEBUG:root:Character int: 47
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 101
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 116
+DEBUG:root:Character int: 10
+DEBUG:root:Input line: /connect
+INFO:root:IRCClient.update -> msg: /connect
+INFO:root:Attempting connection to localhost on port 9999
+INFO:root:Connected to server socket
+INFO:root:{'Command': 'NICK', 'Parameter1': 'karlchami', 'Response_Status': 'Success', 'Response_Message': 'Successfully registered username'}
+INFO:root:{'Command': 'USER', 'Parameter1': 'karlchami', 'Parameter2': 'localhost', 'Parameter3': 'localserver', 'Parameter4': 'Karl Chami', 'Response_Status': 'Success', 'Response_Message': 'User karlchami joined global channel'}
+DEBUG:root:Signifies end of process
+DEBUG:root:Exiting context and closing View object
+INFO:root:Client object created
+INFO:root:Entered the context of a View object
+DEBUG:root:Passed View object to IRC Client
+DEBUG:root:IRC Client is subscribed to the View (to receive user input)
+DEBUG:asyncio:Using selector: EpollSelector
+DEBUG:root:Character int: 47
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 101
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 116
+DEBUG:root:Character int: 10
+DEBUG:root:Input line: /connect
+INFO:root:IRCClient.update -> msg: /connect
+INFO:root:Attempting connection to localhost on port 9999
+INFO:root:Connected to server socket
+INFO:root:{'Command': 'NICK', 'Parameter1': 'karlchami', 'Response_Status': 'Success', 'Response_Message': 'Successfully registered username'}
+INFO:root:{'Command': 'USER', 'Parameter1': 'karlchami', 'Parameter2': 'localhost', 'Parameter3': 'localserver', 'Parameter4': 'Karl Chami', 'Response_Status': 'Success', 'Response_Message': 'User karlchami joined global channel'}
+DEBUG:root:Signifies end of process
+DEBUG:root:Exiting context and closing View object
+INFO:root:Client object created
+INFO:root:Entered the context of a View object
+DEBUG:root:Passed View object to IRC Client
+DEBUG:root:IRC Client is subscribed to the View (to receive user input)
+DEBUG:asyncio:Using selector: EpollSelector
+DEBUG:root:Character int: 118
+DEBUG:root:Character int: 100
+DEBUG:root:Character int: 102
+DEBUG:root:Character int: 10
+DEBUG:root:Input line: vdf
+INFO:root:IRCClient.update -> msg: vdf
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 100
+DEBUG:root:Character int: 102
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 10
+DEBUG:root:Input line: sdfs
+INFO:root:IRCClient.update -> msg: sdfs
+DEBUG:root:Character int: 47
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 101
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 116
+DEBUG:root:Character int: 10
+DEBUG:root:Input line: /connect
+INFO:root:IRCClient.update -> msg: /connect
+INFO:root:Attempting connection to localhost on port 9999
+INFO:root:Connected to server socket
+INFO:root:{'Command': 'NICK', 'Parameter1': 'karlchami', 'Response_Status': 'Success', 'Response_Message': 'Successfully registered username'}
+INFO:root:{'Command': 'USER', 'Parameter1': 'karlchami', 'Parameter2': 'localhost', 'Parameter3': 'localserver', 'Parameter4': 'Karl Chami', 'Response_Status': 'Success', 'Response_Message': 'User karlchami joined global channel'}
+DEBUG:root:Character int: 104
+DEBUG:root:Character int: 105
+DEBUG:root:Character int: 10
+DEBUG:root:Input line: hi
+INFO:root:IRCClient.update -> msg: hi
+DEBUG:root:Signifies end of process
+DEBUG:root:Exiting context and closing View object
+INFO:root:Client object created
+INFO:root:Entered the context of a View object
+DEBUG:root:Passed View object to IRC Client
+DEBUG:root:IRC Client is subscribed to the View (to receive user input)
+DEBUG:asyncio:Using selector: EpollSelector
+DEBUG:root:Character int: 47
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 101
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 116
+DEBUG:root:Character int: 10
+DEBUG:root:Input line: /connect
+INFO:root:IRCClient.update -> msg: /connect
+INFO:root:Attempting connection to localhost on port 9999
+INFO:root:Connected to server socket
+INFO:root:{'Command': 'NICK', 'Parameter1': 'karlchami', 'Response_Status': 'Success', 'Response_Message': 'Successfully registered username'}
+INFO:root:{'Command': 'USER', 'Parameter1': 'karlchami', 'Parameter2': 'localhost', 'Parameter3': 'localserver', 'Parameter4': 'Karl Chami', 'Response_Status': 'Success', 'Response_Message': 'User karlchami joined global channel'}
+DEBUG:root:Character int: 102
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 100
+DEBUG:root:Character int: 10
+DEBUG:root:Input line: fsd
+INFO:root:IRCClient.update -> msg: fsd
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 100
+DEBUG:root:Character int: 102
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 10
+DEBUG:root:Input line: sdfs
+INFO:root:IRCClient.update -> msg: sdfs
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 102
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 100
+DEBUG:root:Character int: 10
+DEBUG:root:Input line: sfsd
+INFO:root:IRCClient.update -> msg: sfsd
+DEBUG:root:Character int: 102
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 100
+DEBUG:root:Character int: 102
+DEBUG:root:Character int: 10
+DEBUG:root:Input line: fsdf
+INFO:root:IRCClient.update -> msg: fsdf
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 102
+DEBUG:root:Character int: 10
+DEBUG:root:Input line: sf
+INFO:root:IRCClient.update -> msg: sf
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 100
+DEBUG:root:Character int: 102
+DEBUG:root:Character int: 10
+DEBUG:root:Input line: sdf
+INFO:root:IRCClient.update -> msg: sdf
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 10
+DEBUG:root:Input line: s
+INFO:root:IRCClient.update -> msg: s
+DEBUG:root:Signifies end of process
+DEBUG:root:Exiting context and closing View object
+INFO:root:Client object created
+INFO:root:Entered the context of a View object
+DEBUG:root:Passed View object to IRC Client
+DEBUG:root:IRC Client is subscribed to the View (to receive user input)
+DEBUG:asyncio:Using selector: EpollSelector
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 100
+DEBUG:root:Character int: 97
+DEBUG:root:Character int: 10
+DEBUG:root:Input line: sda
+INFO:root:IRCClient.update -> msg: sda
+DEBUG:root:Signifies end of process
+DEBUG:root:Exiting context and closing View object
+INFO:root:Client object created
+INFO:root:Entered the context of a View object
+DEBUG:root:Passed View object to IRC Client
+DEBUG:root:IRC Client is subscribed to the View (to receive user input)
+DEBUG:asyncio:Using selector: EpollSelector
+DEBUG:root:Character int: 47
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 101
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 116
+DEBUG:root:Character int: 10
+DEBUG:root:Input line: /connect
+INFO:root:IRCClient.update -> msg: /connect
+INFO:root:Attempting connection to localhost on port 9999
+INFO:root:Connected to server socket
+INFO:root:{'Command': 'NICK', 'Parameter1': 'karlchami', 'Response_Status': 'Success', 'Response_Message': 'Successfully registered username'}
+INFO:root:{'Command': 'USER', 'Parameter1': 'karlchami', 'Parameter2': 'localhost', 'Parameter3': 'localserver', 'Parameter4': 'Karl Chami', 'Response_Status': 'Success', 'Response_Message': 'User karlchami joined global channel'}
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 100
+DEBUG:root:Character int: 102
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 10
+DEBUG:root:Input line: sdfs
+INFO:root:IRCClient.update -> msg: sdfs
+DEBUG:root:Signifies end of process
+DEBUG:root:Exiting context and closing View object
+INFO:root:Client object created
+INFO:root:Entered the context of a View object
+DEBUG:root:Passed View object to IRC Client
+DEBUG:root:IRC Client is subscribed to the View (to receive user input)
+DEBUG:asyncio:Using selector: EpollSelector
+DEBUG:root:Character int: 47
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 101
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 116
+DEBUG:root:Character int: 10
+DEBUG:root:Input line: /connect
+INFO:root:IRCClient.update -> msg: /connect
+DEBUG:root:Character int: 47
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 110
+DEBUG:root:Character int: 101
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 116
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 107
+DEBUG:root:Character int: 97
+DEBUG:root:Character int: 114
+DEBUG:root:Character int: 108
+DEBUG:root:Character int: 105
+DEBUG:root:Character int: 116
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 107
+DEBUG:root:Character int: 97
+DEBUG:root:Character int: 114
+DEBUG:root:Character int: 108
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 104
+DEBUG:root:Character int: 97
+DEBUG:root:Character int: 109
+DEBUG:root:Character int: 105
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 75
+DEBUG:root:Character int: 97
+DEBUG:root:Character int: 114
+DEBUG:root:Character int: 108
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 44
+DEBUG:root:Character int: 127
+DEBUG:root:Character int: 108
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 99
+DEBUG:root:Character int: 97
+DEBUG:root:Character int: 108
+DEBUG:root:Character int: 104
+DEBUG:root:Character int: 111
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 116
+DEBUG:root:Character int: 32
+DEBUG:root:Character int: 115
+DEBUG:root:Character int: 101
+DEBUG:root:Character int: 114
+DEBUG:root:Character int: 118
+DEBUG:root:Character int: 101
+DEBUG:root:Character int: 114
+DEBUG:root:Character int: 10
+DEBUG:root:Input line: /connect karlito karlchami Karl localhost server
+INFO:root:IRCClient.update -> msg: /connect karlito karlchami Karl localhost server
+INFO:root:Attempting connection to localhost on port 9999
+INFO:root:Connected to server socket
+INFO:root:{'Command': 'NICK', 'Parameter1': 'karlito', 'Response_Status': 'Success', 'Response_Message': 'Successfully registered username'}
+INFO:root:{'Command': 'USER', 'Parameter1': 'karlchami', 'Parameter2': 'localhost', 'Parameter3': 'server', 'Parameter4': 'Karl', 'Response_Status': 'Success', 'Response_Message': 'User karlito joined global channel'}
+DEBUG:root:Character int: 116
+DEBUG:root:Character int: 114
+DEBUG:root:Character int: 116
+DEBUG:root:Character int: 10
+DEBUG:root:Input line: trt
+INFO:root:IRCClient.update -> msg: trt
+DEBUG:root:Character int: 101
+DEBUG:root:Character int: 114
+DEBUG:root:Character int: 116
+DEBUG:root:Character int: 10
+DEBUG:root:Input line: ert
+INFO:root:IRCClient.update -> msg: ert
+DEBUG:root:Character int: 10
+DEBUG:root:Input line: 
+DEBUG:root:Signifies end of process
+DEBUG:root:Exiting context and closing View object

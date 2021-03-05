@@ -15,6 +15,8 @@ import logging
 
 import patterns
 import view
+import socket
+import ast
 
 logging.basicConfig(filename='view.log', level=logging.DEBUG)
 logger = logging.getLogger()
@@ -24,8 +26,49 @@ class IRCClient(patterns.Subscriber):
 
     def __init__(self):
         super().__init__()
+        self.server_port = 9999
+        self.nickname = str()
         self.username = str()
+        self.fullname = str()
+        self.hostname = str()
+        self.servername = str()
+        self.isConnected = False
         self._run = True
+
+    # def __init__(self, nickname, username, fullname, hostname, servername):
+    #     self.nickname = nickname
+    #     self.username = username
+    #     self.fullname = fullname
+    #     self.hostname = hostname
+    #     self.servername = servername
+
+    def server_connection(self):
+        self.server_socket = socket.socket()
+        logger.info(f"Attempting connection to {self.hostname} on port {self.server_port}")
+        self.server_socket.connect((self.hostname, self.server_port))
+        logger.info("Connected to server socket")
+
+    def create_user_connection(self):
+        if hasattr(self, "nickname"):
+            nick_command = "NICK " + self.nickname
+        if hasattr(self, "username") and hasattr(self, "hostname") and hasattr(self, "servername") and hasattr(self, "fullname"):
+            user_command = f"USER {self.username} {self.hostname} {self.servername} :{self.fullname}"
+        if not hasattr(self, "server_socket"):
+            self.server_connection()
+
+        self.server_socket.send(bytes(nick_command, "utf-8"))
+        nick_reply = self.server_socket.recv(1024).decode()
+        logger.info(nick_reply)
+        nick_decoded_message = ast.literal_eval(nick_reply)
+        self.server_socket.send(bytes(user_command, "utf-8"))
+        user_reply = self.server_socket.recv(1024).decode()
+        logger.info(user_reply)
+        user_decoded_response_message = ast.literal_eval(user_reply)
+        self.add_prompt_msg(nick_decoded_message["Response_Message"])
+        self.add_prompt_msg(user_decoded_response_message["Response_Message"])
+        if "Success" in nick_decoded_message["Response_Status"] and "Success" in user_decoded_response_message["Response_Status"]:
+            self.isConnected = True
+
 
     def set_view(self, view):
         self.view = view
@@ -41,11 +84,24 @@ class IRCClient(patterns.Subscriber):
         self.process_input(msg)
 
     def process_input(self, msg):
-        # Will need to modify this
-        self.add_msg(msg)
+        if msg.lower().startswith("/connect"):
+            split_connect_command = msg.split(" ")
+            if len(split_connect_command) == 6:
+                self.add_prompt_msg(msg)
+                self.nickname = split_connect_command[1]
+                self.username = split_connect_command[2]
+                self.fullname = split_connect_command[3]
+                self.hostname = split_connect_command[4]
+                self.servername = split_connect_command[5]
+                self.create_user_connection()
+        elif self.isConnected:
+            self.add_msg(msg)
         if msg.lower().startswith('/quit'):
             # Command that leads to the closure of the process
             raise KeyboardInterrupt
+
+    def add_prompt_msg(self, msg):
+        self.view.add_msg("Prompt", msg)
 
     def add_msg(self, msg):
         self.view.add_msg(self.username, msg)
@@ -54,10 +110,6 @@ class IRCClient(patterns.Subscriber):
         """
         Driver of your IRC Client
         """
-        # Remove this section in your code, simply for illustration purposes
-        for x in range(10):
-            self.add_msg(f"call after View.loop: {x}")
-            await asyncio.sleep(2)
 
     def close(self):
         # Terminate connection
@@ -87,7 +139,7 @@ def main(args):
             asyncio.run(inner_run())
         except KeyboardInterrupt as e:
             logger.debug(f"Signifies end of process")
-    client.close()
+    # client.close()
 
 
 if __name__ == "__main__":

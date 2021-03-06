@@ -11,7 +11,7 @@ logger = logging.getLogger()
 
 # TODO: Change welcome_message to return only dict. Kept for debugging purposes.
 def handle_user_commands(server, conn):
-    logger.info("New thread")
+    logger.info(f"New thread started for {conn}")
     user_connection_info = UserConnection()
     switch = {"NICK": nick_cmd, "USER": user_cmd, "PING": ping_cmd, "WHO": who_cmd, "PRIVMSG": privmsg_cmd, "QUIT": quit_cmd}
     while True:
@@ -75,15 +75,20 @@ def nick_cmd(decoded_request, server, client_connection, user_connection_info):
             if not server.connection_exist(client_connection):
                 info = user_connection_info.get_connection_object()
                 if server.add_connected_user(info[0], info[1]):
+                    logger.info(f"User {info[0]} joined global channel")
                     return response_builder(decoded_request, "Joined", "User " + info[0] + " joined global channel")
             else:
+                logger.info(f"Refused new connection for already existing user {user_connection_info.get_connection_object()[0]}")
                 return response_builder(decoded_request, "Fail", "User session already connected")
+        logger.info(f"Nickname {user_connection_info.get_connection_object()[0]} successfully registered")
         return response_builder(decoded_request, "Success", "Successfully registered username")
     # If command has 2 username parameters ensure old nick exists (and belongs to current client connection) and new nick doesn't exist
     if parameter_count == 3 and server.user_exist(decoded_request["Parameter1"]) and not server.user_exist(decoded_request["Parameter2"]):
         if server.modify_connected_user(decoded_request["Parameter1"], decoded_request["Parameter2"], client_connection):
             user_connection_info.add_nickname(decoded_request["Parameter2"])
+            logger.info(f"Nickname changed from {decoded_request['Parameter1']} to {decoded_request['Parameter2']}")
             return response_builder(decoded_request, "Success", "User successfully modified to " + decoded_request["Parameter2"])
+    logger.info("An error has occurred while trying to register new Nickname")
     return response_builder(decoded_request, "Fail", "An error has occurred")
 
 
@@ -97,9 +102,13 @@ def user_cmd(decoded_request, server, client_connection, user_connection_info):
         if not server.connection_exist(client_connection):
             info = user_connection_info.get_connection_object()
             if server.add_connected_user(info[0], info[1]):
+                logger.info(f"Username {decoded_request['Parameter1']} successfully registered")
+                logger.info(f"User {info[0]} joined global channel")
                 return response_builder(decoded_request, "Joined", "User " + info[0] + " joined global channel")
     else:
+        logger.info(f"Username {decoded_request['Parameter1']} successfully registered")
         return response_builder(decoded_request, "Success", "Successfully registered user info")
+    logger.info("An error has occurred while trying to register new User")
     return response_builder(decoded_request, "Fail", "An error has occurred")
 
 
@@ -140,6 +149,7 @@ def privmsg_cmd(decoded_request, server, client_connection, user_connection_info
     message_to_send = user_connection_info.get_connection_object()[0] + ";" + decoded_request["Parameter2"]
     if server.connection_exist(client_connection):
         broadcast_message(server, user_connection_info.get_connection_object()[0], message_to_send)
+        logger.info(f"User {user_connection_info.get_connection_object()[0]} sent a message to the global channel")
         return response_builder(decoded_request, "Success", "Message sent")
     return response_builder(decoded_request, "Failed", "No existing connection")
 
@@ -152,6 +162,7 @@ def quit_cmd(decoded_request, server, client_connection, user_connection_info):
     if server.connection_exist(client_connection):
         broadcast_message(server, user_connection_info.get_connection_object()[0], quit_message)
     if server.remove_connected_user(user_connection_info.get_connection_object()[0], client_connection):
+        logger.info(f"User {user_connection_info.get_connection_object()[0]} left the global channel")
         user_connection_info.clear_connection()
         return response_builder(decoded_request, "Success", "Leaving server")
     return response_builder(decoded_request, "Error", "No existing connection")

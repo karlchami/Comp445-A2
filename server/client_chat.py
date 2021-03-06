@@ -16,8 +16,16 @@ class IRCClient:
         self.isConnected = False
         self.client_socket = None
 
-    def get_socket(self):
+    def connect_to_server(self):
+        self.client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        self.client_socket.connect((self.server_host, self.server_port))
         return self.client_socket
+
+    def disconnect_from_server(self):
+        self.client_socket.send(bytes("QUIT", "utf-8"))
+        if "Success" in ast.literal_eval(self.client_socket.recv(1024).decode())["Response_Status"]:
+            self.isConnected = False
+            self.add_prompt("Leaving server \n")
 
     def process_input(self, msg):
         if msg.lower().startswith("/connect") and not self.isConnected:
@@ -32,6 +40,27 @@ class IRCClient:
             self.send_channel_message(msg)
         if msg.lower().startswith("/quit") and self.isConnected:
             self.disconnect_from_server()
+
+    def create_user_connection(self):
+        nick_command = user_command = str()
+        if hasattr(self, "nickname"):
+            nick_command = "NICK " + self.nickname
+        if hasattr(self, "username") and hasattr(self, "server_host") and hasattr(self, "servername") and hasattr(self, "fullname"):
+            user_command = f"USER {self.username} {self.server_host} {self.servername} :{self.fullname}"
+        if not self.client_socket:
+            self.connect_to_server()
+        if nick_command and user_command:
+            self.client_socket.send(bytes(nick_command, "utf-8"))
+            nick_reply = self.client_socket.recv(1024).decode()
+            nick_decoded_message = ast.literal_eval(nick_reply)
+            self.client_socket.send(bytes(user_command, "utf-8"))
+            user_reply = self.client_socket.recv(1024).decode()
+            user_decoded_response_message = ast.literal_eval(user_reply)
+            if "Joined" in nick_decoded_message["Response_Status"] or "Joined" in user_decoded_response_message["Response_Status"]:
+                self.isConnected = True
+                self.add_prompt(f"User {self.nickname} successfully joined #global channel \n")
+            elif "Fail" in nick_decoded_message["Response_Status"] or "Fail" in user_decoded_response_message["Response_Status"]:
+                self.add_prompt("Wrong prompt parameters or potential duplicate \n")
 
     def send_channel_message(self, msg):
         privmsg_command = "PRIVMSG #global :" + msg[5:]
@@ -59,40 +88,11 @@ class IRCClient:
         sys.stdout.write(f"[Prompt] {msg}")
         sys.stdout.flush()
 
-    def connect_to_server(self):
-        self.client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        self.client_socket.connect((self.server_host, self.server_port))
+    def get_socket(self):
         return self.client_socket
-
-    def disconnect_from_server(self):
-        self.client_socket.send(bytes("QUIT", "utf-8"))
-        if "Success" in ast.literal_eval(self.client_socket.recv(1024).decode())["Response_Status"]:
-            self.isConnected = False
-            self.add_prompt("Leaving server \n")
 
     def is_client_connected(self):
         return self.isConnected
-
-    def create_user_connection(self):
-        nick_command = user_command = str()
-        if hasattr(self, "nickname"):
-            nick_command = "NICK " + self.nickname
-        if hasattr(self, "username") and hasattr(self, "server_host") and hasattr(self, "servername") and hasattr(self, "fullname"):
-            user_command = f"USER {self.username} {self.server_host} {self.servername} :{self.fullname}"
-        if not self.client_socket:
-            self.connect_to_server()
-        if nick_command and user_command:
-            self.client_socket.send(bytes(nick_command, "utf-8"))
-            nick_reply = self.client_socket.recv(1024).decode()
-            nick_decoded_message = ast.literal_eval(nick_reply)
-            self.client_socket.send(bytes(user_command, "utf-8"))
-            user_reply = self.client_socket.recv(1024).decode()
-            user_decoded_response_message = ast.literal_eval(user_reply)
-            if "Joined" in nick_decoded_message["Response_Status"] or "Joined" in user_decoded_response_message["Response_Status"]:
-                self.isConnected = True
-                self.add_prompt(f"User {self.nickname} successfully joined #global channel \n")
-            elif "Fail" in nick_decoded_message["Response_Status"] or "Fail" in user_decoded_response_message["Response_Status"]:
-                self.add_prompt("Wrong prompt parameters or potential duplicate \n")
 
 
 if __name__ == '__main__':

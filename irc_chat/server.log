@@ -1,0 +1,27 @@
+INFO:root:Server object created
+INFO:root:Server connection established
+INFO:root:New thread started for <socket.socket fd=5, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 9998), raddr=('127.0.0.1', 50254)>
+INFO:root:Nickname karlchami successfully registered
+INFO:root:Username karlito successfully registered
+INFO:root:User karlchami joined global channel
+INFO:root:New thread started for <socket.socket fd=6, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 9998), raddr=('127.0.0.1', 50280)>
+INFO:root:Nickname george123 successfully registered
+INFO:root:Username georgy successfully registered
+INFO:root:User george123 joined global channel
+INFO:root:User karlchami sent a message to the global channel
+INFO:root:User george123 sent a message to the global channel
+INFO:root:New thread started for <socket.socket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 9998), raddr=('127.0.0.1', 50282)>
+INFO:root:Nickname johnny successfully registered
+INFO:root:Username john successfully registered
+INFO:root:User johnny joined global channel
+INFO:root:User johnny sent a message to the global channel
+INFO:root:User karlchami sent a message to the global channel
+INFO:root:User karlchami sent a message to the global channel
+INFO:root:User karlchami left the global channel
+INFO:root:Closing karlchami's connection
+INFO:root:User george123 sent a message to the global channel
+INFO:root:User johnny sent a message to the global channel
+INFO:root:User johnny left the global channel
+INFO:root:Closing johnny's connection
+INFO:root:User george123 left the global channel
+INFO:root:Closing george123's connection

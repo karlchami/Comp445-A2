@@ -30,11 +30,20 @@ class IRCClient:
                 self.create_user_connection()
         if msg.lower().startswith("/msg") and self.isConnected:
             self.send_channel_message(msg)
+        if msg.lower().startswith("/quit") and self.isConnected:
+            self.disconnect_from_server()
 
     def send_channel_message(self, msg):
         privmsg_command = "PRIVMSG #global :" + msg[5:]
         self.client_socket.send(bytes(privmsg_command, "utf-8"))
         self.client_socket.recv(1024).decode()
+
+    def receive_message(self, msg):
+        response = msg.decode().split(";")
+        if len(response) == 2:
+            self.add_received_msg(response[0], response[1])
+        else:
+            self.add_prompt(response)
 
     def add_msg(self, msg):
         sys.stdout.write(f"[{self.nickname}] {msg}")
@@ -54,6 +63,12 @@ class IRCClient:
         self.client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.client_socket.connect((self.server_host, self.server_port))
         return self.client_socket
+
+    def disconnect_from_server(self):
+        self.client_socket.send(bytes("QUIT", "utf-8"))
+        if "Success" in ast.literal_eval(self.client_socket.recv(1024).decode())["Response_Status"]:
+            self.isConnected = False
+            self.add_prompt("Leaving server \n")
 
     def is_client_connected(self):
         return self.isConnected
@@ -79,14 +94,10 @@ class IRCClient:
             elif "Fail" in nick_decoded_message["Response_Status"] or "Fail" in user_decoded_response_message["Response_Status"]:
                 self.add_prompt("Wrong prompt parameters or potential duplicate \n")
 
-    def receive_message(self, msg):
-        response = msg.decode().split(";")
-        self.add_received_msg(response[0], response[1])
-
 
 if __name__ == '__main__':
 
-    client = IRCClient("localhost", 9999)
+    client = IRCClient("localhost", 9998)
 
     while not client.is_client_connected():
         message = sys.stdin.readline()

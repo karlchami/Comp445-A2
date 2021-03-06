@@ -15,15 +15,24 @@ def handle_user_commands(server, conn):
     user_connection_info = UserConnection()
     switch = {"NICK": nick_cmd, "USER": user_cmd, "PING": ping_cmd, "WHO": who_cmd, "PRIVMSG": privmsg_cmd, "QUIT": quit_cmd}
     while True:
-        raw_request = conn.recv(1024).decode()
-        decoded_request = decode_request(raw_request)
-        if (decoded_request["Command"] in switch) and (validate_command(decoded_request["Command"], raw_request)):
-            response = switch[decoded_request["Command"]](decoded_request, server, conn, user_connection_info)
-            # connected_users = ",".join(server.get_connected_users())
-            # welcome_message = str(response) + "\n" + "Connected users: " + connected_users
-            conn.sendall(bytes(str(response), "utf-8"))
-        else:
-            conn.sendall(bytes("Invalid Request", "utf-8"))
+        try:
+            raw_request = conn.recv(1024).decode()
+            if raw_request:
+                decoded_request = decode_request(raw_request)
+                if (decoded_request["Command"] in switch) and (validate_command(decoded_request["Command"], raw_request)):
+                    response = switch[decoded_request["Command"]](decoded_request, server, conn, user_connection_info)
+                    # connected_users = ",".join(server.get_connected_users())
+                    # welcome_message = str(response) + "\n" + "Connected users: " + connected_users
+                    conn.sendall(bytes(str(response), "utf-8"))
+                else:
+                    conn.sendall(bytes("Invalid Request", "utf-8"))
+            else:
+                if user_connection_info.is_connection_complete():
+                    logger.info(f"{user_connection_info.get_connection_object()[0]} abruptly left closing connection")
+                    server.remove_connected_user(user_connection_info.get_connection_object()[0], conn)
+                    user_connection_info.clear_connection()
+        except:
+            continue
 
 
 # Validate command formats according to IRC 1459
@@ -163,6 +172,7 @@ def quit_cmd(decoded_request, server, client_connection, user_connection_info):
         broadcast_message(server, user_connection_info.get_connection_object()[0], quit_message)
     if server.remove_connected_user(user_connection_info.get_connection_object()[0], client_connection):
         logger.info(f"User {user_connection_info.get_connection_object()[0]} left the global channel")
+        logger.info(f"Closing {user_connection_info.get_connection_object()[0]}'s connection")
         user_connection_info.clear_connection()
         return response_builder(decoded_request, "Success", "Leaving server")
     return response_builder(decoded_request, "Error", "No existing connection")

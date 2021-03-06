@@ -72,7 +72,7 @@ class IRCClient:
         if len(response) == 2:
             self.add_received_msg(response[0], response[1])
         else:
-            self.add_prompt(response)
+            self.add_prompt(f"{response[0]} left the server \n")
 
     def add_msg(self, msg):
         sys.stdout.write(f"[{self.nickname}] {msg}")

@@ -15,3 +15,78 @@ INFO:root:Username elijh successfully registered
 INFO:root:User elie123 joined global channel
 INFO:root:User elie123 sent a message to the global channel
 INFO:root:User elie123 left the global channel
+INFO:root:Server object created
+INFO:root:Server connection established
+INFO:root:New thread started for <socket.socket fd=5, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 9998), raddr=('127.0.0.1', 50020)>
+INFO:root:Nickname karl successfully registered
+INFO:root:Username karl successfully registered
+INFO:root:User karl joined global channel
+INFO:root:New thread started for <socket.socket fd=6, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 9998), raddr=('127.0.0.1', 50022)>
+INFO:root:An error has occurred while trying to register new Nickname
+INFO:root:Username karl successfully registered
+INFO:root:User karlito joined global channel
+INFO:root:An error has occurred while trying to register new User
+INFO:root:User karlito left the global channel
+INFO:root:Server object created
+INFO:root:Server connection established
+INFO:root:New thread started for <socket.socket fd=5, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 9998), raddr=('127.0.0.1', 50026)>
+INFO:root:Nickname karl successfully registered
+INFO:root:Username karl successfully registered
+INFO:root:User karl joined global channel
+INFO:root:karl abruptly left closing connection
+INFO:root:Server object created
+INFO:root:Server connection established
+INFO:root:New thread started for <socket.socket fd=5, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 9998), raddr=('127.0.0.1', 50032)>
+INFO:root:Nickname karl123 successfully registered
+INFO:root:Username karlchami successfully registered
+INFO:root:User karl123 joined global channel
+INFO:root:New thread started for <socket.socket fd=6, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 9998), raddr=('127.0.0.1', 50034)>
+INFO:root:Nickname john321 successfully registered
+INFO:root:Username johnsmith successfully registered
+INFO:root:User john321 joined global channel
+INFO:root:User karl123 sent a message to the global channel
+INFO:root:User john321 sent a message to the global channel
+INFO:root:User karl123 sent a message to the global channel
+INFO:root:User karl123 sent a message to the global channel
+INFO:root:User john321 sent a message to the global channel
+INFO:root:User john321 left the global channel
+INFO:root:Closing john321's connection
+INFO:root:karl123 abruptly left closing connection
+INFO:root:Server object created
+INFO:root:Server connection established
+INFO:root:New thread started for <socket.socket fd=5, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 9998), raddr=('127.0.0.1', 50046)>
+INFO:root:Nickname karlchami successfully registered
+INFO:root:Username karl successfully registered
+INFO:root:User karlchami joined global channel
+INFO:root:New thread started for <socket.socket fd=6, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 9998), raddr=('127.0.0.1', 50048)>
+INFO:root:Nickname john123 successfully registered
+INFO:root:Username johnny successfully registered
+INFO:root:User john123 joined global channel
+INFO:root:User john123 sent a message to the global channel
+INFO:root:User john123 sent a message to the global channel
+INFO:root:User john123 sent a message to the global channel
+INFO:root:User karlchami sent a message to the global channel
+INFO:root:User karlchami left the global channel
+INFO:root:Closing karlchami's connection
+INFO:root:Server object created
+INFO:root:Server connection established
+INFO:root:New thread started for <socket.socket fd=5, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 9998), raddr=('127.0.0.1', 50050)>
+INFO:root:Nickname karlch successfully registered
+INFO:root:Username karl successfully registered
+INFO:root:User karlch joined global channel
+INFO:root:New thread started for <socket.socket fd=6, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 9998), raddr=('127.0.0.1', 50052)>
+INFO:root:Nickname jee successfully registered
+INFO:root:Username jee successfully registered
+INFO:root:User jee joined global channel
+INFO:root:User jee sent a message to the global channel
+INFO:root:User karlch sent a message to the global channel
+INFO:root:User karlch left the global channel
+INFO:root:Closing karlch's connection
+INFO:root:User jee sent a message to the global channel
+INFO:root:Nickname karlch successfully registered
+INFO:root:Username karl successfully registered
+INFO:root:User karlch joined global channel
+INFO:root:User karlch sent a message to the global channel
+INFO:root:User jee left the global channel
+INFO:root:Closing jee's connection
+INFO:root:karlch abruptly left closing connection

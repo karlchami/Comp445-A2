@@ -25,3 +25,11 @@ INFO:root:User johnny left the global channel
 INFO:root:Closing johnny's connection
 INFO:root:User george123 left the global channel
 INFO:root:Closing george123's connection
+INFO:root:Server object created
+INFO:root:Server connection established
+INFO:root:New thread started for <socket.socket fd=5, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 9998), raddr=('127.0.0.1', 50354)>
+INFO:root:Nickname ddas successfully registered
+INFO:root:Username asd successfully registered
+INFO:root:User ddas joined global channel
+INFO:root:User ddas left the global channel
+INFO:root:Closing ddas's connection

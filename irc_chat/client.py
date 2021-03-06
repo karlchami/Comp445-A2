@@ -2,6 +2,7 @@ import socket
 import select
 import sys
 import ast
+import argparse
 
 
 class IRCClient:
@@ -98,7 +99,14 @@ class IRCClient:
 
 if __name__ == '__main__':
 
-    client = IRCClient("localhost", 9998)
+    # Parsing script arguments from CLI
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-p', '--port', help='Target port to use', required=True)
+    args = vars(parser.parse_args())
+
+    port = int(args['port'])
+
+    client = IRCClient("localhost", port)
 
     while not client.is_client_connected():
         message = sys.stdin.readline()

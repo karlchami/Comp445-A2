@@ -27,6 +27,7 @@ class IRCClient:
         if "Success" in ast.literal_eval(self.client_socket.recv(1024).decode())["Response_Status"]:
             self.isConnected = False
             self.add_prompt("Leaving server \n")
+            self.client_socket.close()
             exit()
 
     def process_input(self, msg):

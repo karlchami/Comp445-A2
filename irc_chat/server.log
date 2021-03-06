@@ -33,3 +33,60 @@ INFO:root:Username asd successfully registered
 INFO:root:User ddas joined global channel
 INFO:root:User ddas left the global channel
 INFO:root:Closing ddas's connection
+INFO:root:Server object created
+INFO:root:Server connection established
+INFO:root:New thread started for <socket.socket fd=5, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 9998), raddr=('127.0.0.1', 50600)>
+INFO:root:Nickname karl successfully registered
+INFO:root:Username karl successfully registered
+INFO:root:User karl joined global channel
+INFO:root:User karl left the global channel
+INFO:root:Closing karl's connection
+INFO:root:New thread started for <socket.socket fd=6, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 9998), raddr=('127.0.0.1', 50602)>
+INFO:root:Nickname Karl successfully registered
+INFO:root:Username karl successfully registered
+INFO:root:User Karl joined global channel
+INFO:root:User Karl left the global channel
+INFO:root:Closing Karl's connection
+INFO:root:Server object created
+INFO:root:Server connection established
+INFO:root:New thread started for <socket.socket fd=5, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 9998), raddr=('127.0.0.1', 50958)>
+INFO:root:Nickname karl successfully registered
+INFO:root:Username karl successfully registered
+INFO:root:User karl joined global channel
+INFO:root:User karl left the global channel
+INFO:root:Closing karl's connection
+INFO:root:Server object created
+INFO:root:Server connection established
+INFO:root:New thread started for <socket.socket fd=5, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 9998), raddr=('127.0.0.1', 50960)>
+INFO:root:Nickname karl successfully registered
+INFO:root:Username karl successfully registered
+INFO:root:User karl joined global channel
+INFO:root:User karl left the global channel
+INFO:root:Closing karl's connection
+INFO:root:Stopping thread for <socket.socket fd=5, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 9998), raddr=('127.0.0.1', 50960)>
+INFO:root:Server object created
+INFO:root:Server connection established
+INFO:root:New thread started for <socket.socket fd=5, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 9998), raddr=('127.0.0.1', 50976)>
+INFO:root:Nickname karl successfully registered
+INFO:root:Username karl successfully registered
+INFO:root:User karl joined global channel
+INFO:root:New thread started for <socket.socket fd=6, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 9998), raddr=('127.0.0.1', 50978)>
+INFO:root:Nickname jay successfully registered
+INFO:root:Username jay successfully registered
+INFO:root:User jay joined global channel
+INFO:root:User jay sent a message to the global channel
+INFO:root:User jay left the global channel
+INFO:root:Closing jay's connection
+INFO:root:Stopping thread for <socket.socket fd=6, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 9998), raddr=('127.0.0.1', 50978)>
+INFO:root:User karl sent a message to the global channel
+INFO:root:User karl left the global channel
+INFO:root:Closing karl's connection
+INFO:root:Stopping thread for <socket.socket fd=5, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 9998), raddr=('127.0.0.1', 50976)>
+INFO:root:Server object created
+INFO:root:Server connection established
+INFO:root:New thread started for <socket.socket fd=5, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 9998), raddr=('127.0.0.1', 51088)>
+INFO:root:Nickname karl successfully registered
+INFO:root:Username karl successfully registered
+INFO:root:User karl joined global channel
+INFO:root:karl abruptly left closing connection
+INFO:root:Stopping thread for <socket.socket fd=5, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 9998), raddr=('127.0.0.1', 51088)>

@@ -24,6 +24,9 @@ def handle_user_commands(server, conn):
                     # connected_users = ",".join(server.get_connected_users())
                     # welcome_message = str(response) + "\n" + "Connected users: " + connected_users
                     conn.sendall(bytes(str(response), "utf-8"))
+                    if decoded_request["Command"] == "QUIT" and response["Response_Status"] == "Success":
+                        logger.info(f"Stopping thread for {conn}")
+                        exit_thread()
                 else:
                     conn.sendall(bytes("Invalid Request", "utf-8"))
             else:
@@ -31,6 +34,8 @@ def handle_user_commands(server, conn):
                     logger.info(f"{user_connection_info.get_connection_object()[0]} abruptly left closing connection")
                     server.remove_connected_user(user_connection_info.get_connection_object()[0], conn)
                     user_connection_info.clear_connection()
+                    logger.info(f"Stopping thread for {conn}")
+                    exit_thread()
         except:
             continue
 

@@ -19,6 +19,7 @@ import socket
 import ast
 from _thread import *
 import select
+import sys
 
 logging.basicConfig(filename='view.log', level=logging.DEBUG)
 logger = logging.getLogger()
@@ -71,10 +72,7 @@ class IRCClient(patterns.Subscriber):
         if "Joined" in nick_decoded_message["Response_Status"] or "Joined" in user_decoded_response_message["Response_Status"]:
             self.isConnected = True
             self.add_prompt_msg(f"User {self.nickname} successfully joined #global channel")
-            try:
-                start_new_thread(self.listen_chat())
-            except Exception as e:
-                logger.info(str(e))
+            self.listen_chat()
         elif "Fail" in nick_decoded_message["Response_Status"] or "Fail" in user_decoded_response_message["Response_Status"]:
             self.add_user_msg("Wrong prompt parameters or potential duplicate")
 
@@ -118,7 +116,7 @@ class IRCClient(patterns.Subscriber):
         while True:
 
             # maintains a list of possible input streams
-            sockets_list = [self.server_socket]
+            sockets_list = [sys.stdin, self.server_socket]
 
             """ There are two possible input situations. Either the  
             user wants to give manual input to send to other people,  
@@ -132,10 +130,14 @@ class IRCClient(patterns.Subscriber):
             logger.info("Started listening thread")
             for socks in read_sockets:
                 if socks == self.server_socket:
-                    message = socks.recv(2048)
+                    message = socks.recv(2048).decode()
                     self.add_user_msg(message)
                 else:
-                    pass
+                    message = sys.stdin.readline()
+                    self.send_chat_message(message)
+                    sys.stdout.write("<You>")
+                    sys.stdout.write(message)
+                    sys.stdout.flush()
 
     def add_user_msg(self, msg):
         self.view.add_msg("Someuser", msg)
@@ -158,7 +160,6 @@ class IRCClient(patterns.Subscriber):
 
 
 def main(args):
-    # Pass your arguments where necessary
     client = IRCClient()
     logger.info(f"Client object created")
     with view.View() as v:

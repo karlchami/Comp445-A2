@@ -137,7 +137,7 @@ def broadcast_message(server, username, message):
 
 # Send message to if connection exists
 def privmsg_cmd(decoded_request, server, client_connection, user_connection_info):
-    message_to_send = decoded_request["Parameter2"]
+    message_to_send = user_connection_info.get_connection_object()[0] + ";" + decoded_request["Parameter2"]
     if server.connection_exist(client_connection):
         broadcast_message(server, user_connection_info.get_connection_object()[0], message_to_send)
         return response_builder(decoded_request, "Success", "Message sent")

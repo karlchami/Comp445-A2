@@ -26,7 +26,7 @@ class IRCClient:
         self.client_socket.send(bytes("QUIT", "utf-8"))
         if "Success" in ast.literal_eval(self.client_socket.recv(1024).decode())["Response_Status"]:
             self.isConnected = False
-            self.add_prompt("Leaving server \n")
+            self.add_prompt("Leaving server. \n")
             self.client_socket.close()
             exit()
 
@@ -42,10 +42,29 @@ class IRCClient:
                     self.add_prompt("NICK cannot exceed 9 characters. \n")
                     return None
                 self.create_user_connection()
+        if msg.lower().startswith("/modify") and self.isConnected:
+            split_modify_command = msg.split(" ")
+            if len(split_modify_command) == 3:
+                if len(split_modify_command[1]) <=9 and len(split_modify_command[2]) <= 9:
+                    self.modify_nickname(split_modify_command[1], split_modify_command[2])
+                else:
+                    self.add_prompt("NICK cannot exceed 9 characters. \n")
+                    return None
         if msg.lower().startswith("/msg") and self.isConnected:
             self.send_channel_message(msg)
         if msg.lower().startswith("/quit") and self.isConnected:
             self.disconnect_from_server()
+
+    def modify_nickname(self, old, new):
+        modify_command = f"NICK {old} {new}"
+        self.client_socket.send(bytes(modify_command, "utf-8"))
+        modify_reply = self.client_socket.recv(1024).decode()
+        modify_decoded_message = ast.literal_eval(modify_reply)
+        if "Success" in modify_decoded_message["Response_Status"]:
+            self.add_prompt(f"Nickname {old} changed to {new}")
+            self.nickname = new
+        elif "ERR_NICKCOLLISION" in modify_decoded_message["Response_Status"]:
+            self.add_prompt("Wrong prompt parameters or potential duplicate. \n")
 
     def create_user_connection(self):
         nick_command = user_command = str()
@@ -64,9 +83,9 @@ class IRCClient:
             user_decoded_response_message = ast.literal_eval(user_reply)
             if "Joined" in nick_decoded_message["Response_Status"] or "Joined" in user_decoded_response_message["Response_Status"]:
                 self.isConnected = True
-                self.add_prompt(f"User {self.nickname} successfully joined #global channel \n")
+                self.add_prompt(f"User {self.nickname} successfully joined #global channel. \n")
             elif "ERR_NICKCOLLISION" in nick_decoded_message["Response_Status"] or "ERR_ALREADYREGISTRED" in user_decoded_response_message["Response_Status"]:
-                self.add_prompt("Wrong prompt parameters or potential duplicate \n")
+                self.add_prompt("Wrong prompt parameters or potential duplicate. \n")
 
     def send_channel_message(self, msg):
         privmsg_command = "PRIVMSG #global :" + msg[5:]
@@ -99,6 +118,7 @@ class IRCClient:
 
     def is_client_connected(self):
         return self.isConnected
+
 
 if __name__ == '__main__':
 

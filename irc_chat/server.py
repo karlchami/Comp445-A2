@@ -31,7 +31,8 @@ def handle_user_commands(server, conn):
                     conn.sendall(bytes("Invalid Request", "utf-8"))
             else:
                 if user_connection_info.is_connection_complete():
-                    logger.info(f"{user_connection_info.get_connection_object()[0]} abruptly left closing connection")
+                    logger.info(f"{user_connection_info.get_connection_object()[0]} abruptly left, closing connection")
+                    broadcast_message(server, user_connection_info.get_connection_object()[0], f"{user_connection_info.get_connection_object()[0]}")
                     server.remove_connected_user(user_connection_info.get_connection_object()[0], conn)
                     user_connection_info.clear_connection()
                     logger.info(f"Stopping thread for {conn}")

@@ -38,6 +38,9 @@ class IRCClient:
                 self.nickname = split_connect_command[1]
                 self.username = split_connect_command[2]
                 self.fullname = split_connect_command[3]
+                if len(self.nickname) > 9:
+                    self.add_prompt("NICK cannot exceed 9 characters. \n")
+                    return None
                 self.create_user_connection()
         if msg.lower().startswith("/msg") and self.isConnected:
             self.send_channel_message(msg)
@@ -97,7 +100,6 @@ class IRCClient:
     def is_client_connected(self):
         return self.isConnected
 
-
 if __name__ == '__main__':
 
     # Parsing script arguments from CLI
@@ -108,6 +110,9 @@ if __name__ == '__main__':
     port = int(args['port'])
 
     client = IRCClient("localhost", port)
+
+    banner = open("banner.txt", "r").read()
+    print(banner)
 
     while not client.is_client_connected():
         message = sys.stdin.readline()
